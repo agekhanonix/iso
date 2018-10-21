@@ -6,8 +6,9 @@ Author  : :squirrel: Thierry CHARPENTIER
 Version : V1R0  
 Date    : 21 octobre 2018  
 ...
-1. Cahier des charges  
-=====================
+1. Cahier des charges     
+=====================  
+
 La SARL TH.CHARPENTIER souhaite faire realiser un site instutionnel afin de renforcer sa presence sur le web.  
 Celui-ci, le site web, sera  constitue de deux composants :  
    a. le FRONTEND  
@@ -31,6 +32,7 @@ Celui-ci, le site web, sera  constitue de deux composants :
    - tous les etats devront etre propose a l'envoi par courriel au format .PDF, les courriels devront correspondre a la charte graphique de la SARL TH.CHARPENTIER.  
 2. Structure du site  
 ====================
+
    -[x]>/  
    -[x]>/config  
    -[x]>/controller  
