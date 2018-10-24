@@ -22,22 +22,22 @@ Celui-ci, le site web, sera  constitué de deux composants :
       - un graphe de type radar situant le niveau de sécurité de son système informatique par rapport à la moyenne constatée.  
    b. le BACKEND  
    _____________
-   Le BACKEND permettra a la SARL TH.CHARPENTIER d'editer des etats quant a la frequentation du site.  
-   Plus particulierement de savoir quel sont les services qui on retenu l'attention des visiteurs, cet visualisation devra pour pour voir se faire de maniere filtree, sur la temporalite (semaine, mois, trimestre, annee), sur la localisation, une carte avec des marqueurs de tailles et de couleurs differentes selon la frequentaion est souhaitee.  
+   Le BACKEND permettra a la SARL TH.CHARPENTIER d'éditer des états quant à la fréquentation du site.  
+   Plus particulièrement de savoir quels sont les services qui on retenu l'attention des visiteurs, cettte visualisation devra pouvoir se faire de maniere filtrée, sur la temporalit (semaine, mois, trimestre, année), sur la localisation, une carte avec des marqueurs de tailles et de couleurs différentes selon la fréquentaion est souhaitée.  
    Idem pour ce qui est des audits ON-LINE.  
    c. Contraintes :  
-   - le site devra etre accessible a tout type de media  
-   - une politique de confidentialite devra etre editee  
-   - tous les etats devront etre propose a l'envoi par courriel au format .PDF, les courriels devront correspondre a la charte graphique de la SARL TH.CHARPENTIER.  
+   - le site devra être accessible a tout type de média  
+   - une politique de confidentialité devra etre éditée  
+   - tous les états devront être proposés à l'envoi par courriel au format .PDF, les courriels devront respecter la charte graphique de la SARL TH.CHARPENTIER.  
 2. Structure du site  
 ____________________
 
    -[x]>/  
-        -[x]>/config  
-   -[x]>/controller  
-   -[x]>/divers  
-   -[x]>/libs  
-        -[x]>/OCFram  
+      -[x]>/config  
+      -[x]>/controller  
+      -[x]>/divers  
+      -[x]>/libs  
+         -[x]>/OCFram  
    -[x]>/model  
    -[x]>/public  
         -[x]>/bootstrap  
