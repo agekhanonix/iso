@@ -33,13 +33,8 @@ Celui-ci, le site web, sera  constitué de deux composants :
 B. Structure du site  
 * * *
 
-----------------------------------------------------------------------------------
-Aligné à gauche        Aligné à droite    Texte centré
-------------------  ------------------  -----------------
-  abcdef                1234              xyz
-
 |>/      
--|>/config    
+  |>/config    
    - [x]>/controller      
    - [x]>/divers  
    - [x]>/libs      
