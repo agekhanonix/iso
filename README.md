@@ -38,9 +38,9 @@ B. Structure du site
    [x]>/controller  
    [x]>/divers  
    [x]>/libs      
-   >>[x]>/OCFram     
-   [x]>/model  
-   >>[x]>/public  
+   >>[x]>/OCFram       
+   [x]>/model     
+   [x]>/public  
    >>>[x]>/bootstrap  
    >>>[x]>/css  
    >>>[x]>/images  
