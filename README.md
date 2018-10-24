@@ -33,8 +33,8 @@ Celui-ci, le site web, sera  constitué de deux composants :
 B. Structure du site  
 * * *
 
-   - [x]>/      
-   - [x]>/config    
+|>/      
+   |>/config    
    - [x]>/controller      
    - [x]>/divers  
    - [x]>/libs      
