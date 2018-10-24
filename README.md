@@ -33,18 +33,18 @@ Celui-ci, le site web, sera  constitué de deux composants :
 B. Structure du site  
 * * *
 
-   >[x]>/      
-   >>[x]>/config  
-   [x]>/controller  
-   [x]>/divers  
-   [x]>/libs      
-   >>>[x]>/OCFram       
-   [x]>/model     
-   [x]>/public  
-   >>>[x]>/bootstrap  
-   >>>[x]>/css  
-   >>>[x]>/images  
-   >>>[x]>/js
-   >>>>[x]>/objects
-   >>[x]>/template  
-   >>[x]>/view  
+   [x]>/      
+      [x]>/config  
+      [x]>/controller  
+      [x]>/divers  
+      [x]>/libs      
+         [x]>/OCFram       
+      [x]>/model     
+      [x]>/public  
+         [x]>/bootstrap  
+         [x]>/css  
+         [x]>/images  
+         [x]>/js
+            [x]>/objects
+      [x]>/template  
+      [x]>/view  
