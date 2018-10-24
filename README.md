@@ -33,6 +33,9 @@ Celui-ci, le site web, sera  constitué de deux composants :
 B. Structure du site  
 * * *
 
+----------------------------------------------------------------------------------
+           -            -
+
 |>/      
 -|>/config    
    - [x]>/controller      
