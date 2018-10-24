@@ -21,7 +21,7 @@ Celui-ci, le site web, sera  constitué de deux composants :
       - une recommandation d'actions prioritaires à mener  
       - un graphe de type radar situant le niveau de sécurité de son système informatique par rapport à la moyenne constatée.  
    b. le BACKEND  
-   _____________
+   - - -
    Le BACKEND permettra a la SARL TH.CHARPENTIER d'éditer des états quant à la fréquentation du site.  
    Plus particulièrement de savoir quels sont les services qui on retenu l'attention des visiteurs, cettte visualisation devra pouvoir se faire de maniere filtrée, sur la temporalit (semaine, mois, trimestre, année), sur la localisation, une carte avec des marqueurs de tailles et de couleurs différentes selon la fréquentaion est souhaitée.  
    Idem pour ce qui est des audits ON-LINE.  
@@ -29,11 +29,11 @@ Celui-ci, le site web, sera  constitué de deux composants :
    - le site devra être accessible a tout type de média  
    - une politique de confidentialité devra etre éditée  
    - tous les états devront être proposés à l'envoi par courriel au format .PDF, les courriels devront respecter la charte graphique de la SARL TH.CHARPENTIER.
-____________________
+* * *
 B. Structure du site  
-____________________
+* * *
 
-   >[x]>/  
+   >[x]>/      
    >>[x]>/config  
    >>[x]>/controller  
    >>[x]>/divers  
