@@ -34,7 +34,7 @@ B. Structure du site
 * * *
 
 |>/      
-  |>/config    
+   |>/config    
    - [x]>/controller      
    - [x]>/divers  
    - [x]>/libs      
