@@ -1,13 +1,11 @@
 # iso
 ## PV : Parcours DEVELOPPEUR WEB JUNIOR (OPENCLASSROOM)
 ### Creer un site web pour une entreprise specialisee dans la securite operationnelle des systemes informatiques
-...
 Author  : :squirrel: Thierry CHARPENTIER  
 Version : V1R0  
 Date    : 21 octobre 2018  
 ...
-1. Cahier des charges     
-=====================  
+1. Cahier des charges ##########################################  
 
 La SARL TH.CHARPENTIER souhaite faire realiser un site instutionnel afin de renforcer sa presence sur le web.  
 Celui-ci, le site web, sera  constitue de deux composants :  
