@@ -35,7 +35,7 @@ B. Structure du site
 
    >[x]>/      
    >>[x]>/config  
-   >>[x]>/controller  
+   [x]>/controller  
    >>[x]>/divers  
    >>[x]>/libs  
    >>>[x]>/OCFram  
