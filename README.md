@@ -38,7 +38,7 @@ ____________________
    >>[x]>/divers  
    >>[x]>/libs  
    >>>[x]>/OCFram  
-   >>[x]>/model  
+   >[x]>/model  
    >>[x]>/public  
    >>>[x]>/bootstrap  
    >>>[x]>/css  
