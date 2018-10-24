@@ -6,12 +6,12 @@ Version : V1R0
 Date    : 21 octobre 2018  
 * * *
 A. Cahier des charges 
-_____________________
+* * *
 
 La SARL TH.CHARPENTIER souhaite faire réaliser un site institutionnel afin de renforcer sa présence sur le web.  
 Celui-ci, le site web, sera  constitué de deux composants :  
    a. le FRONTEND  
-   ______________
+   - - -
    Sur le FRONTEND le visiteur pourra voir le catalogue des services proposes par la SARL TH.CHARPENTIER, puis acceder, le cas echeant une fiche détaillée explicitant la prestation.  
    Sur le FRONTEND toujours, le visiteur devra pouvoir demander a etre rappelé pour l'une ou plusieurs de ces prestations.  
    Sur le FRONTEND enfin, le visiteur, sous condition de s'être enregistrer, réalisera un audit de la sécurité opérationnelle de son système informatique.  
