@@ -5,7 +5,8 @@ Author  : :squirrel: Thierry CHARPENTIER
 Version : V1R0  
 Date    : 21 octobre 2018  
 ...
-1. Cahier des charges 
+_____________________
+A. Cahier des charges 
 _____________________
 
 La SARL TH.CHARPENTIER souhaite faire réaliser un site institutionnel afin de renforcer sa présence sur le web.  
@@ -28,8 +29,9 @@ Celui-ci, le site web, sera  constitué de deux composants :
    c. Contraintes :  
    - le site devra être accessible a tout type de média  
    - une politique de confidentialité devra etre éditée  
-   - tous les états devront être proposés à l'envoi par courriel au format .PDF, les courriels devront respecter la charte graphique de la SARL TH.CHARPENTIER.  
-2. Structure du site  
+   - tous les états devront être proposés à l'envoi par courriel au format .PDF, les courriels devront respecter la charte graphique de la SARL TH.CHARPENTIER.
+____________________
+B. Structure du site  
 ____________________
 
    >[x]>/  
