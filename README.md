@@ -4,8 +4,7 @@
 Author  : :squirrel: Thierry CHARPENTIER  
 Version : V1R0  
 Date    : 21 octobre 2018  
-...
-_____________________
+* * *
 A. Cahier des charges 
 _____________________
 
