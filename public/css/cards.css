@@ -1,0 +1,71 @@
+.card {
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+    padding-bottom: 1px;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(0,0,0, 0.4);
+    cursor: pointer;
+    transition: 0.5s;
+}
+.card-image {
+    z-index: 2;
+    transition: .5s;
+}
+.card-image img:hover {
+    opacity: 0.4;
+    transition: .5s;
+}
+.card:hover .card-image {
+    transform: rotateY(360deg);
+    transition: all .9s;
+}
+.social-icons {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-20%, -20%);
+    z-index: 3;  
+}
+.social-icons li {
+    list-style: none;
+}
+.social-icons li a {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background: #ffffff;
+    font-size: 13px;
+    color: #333333;
+    font-weight: bold;
+    margin: 0 6px;
+    transition: .4s;
+    transform: translate(10px, 50px);
+    opacity: 0;
+    border-radius: 50%;
+}
+.card:hover .social-icons li a {
+    transform: translateY(0px);
+    opacity: 1;
+}
+.social-icons li a:hover {
+    background: #000000;
+    transition: .2s;
+}
+.social-icons li a .fab,
+.social-icons li a .far {
+    color: #ffffff;
+    transition: .8s;
+}
+.social-icons li a .fab:hover,
+.social-icons li a .far:hover {
+    transform: rotateY(360deg);
+    color: #ffffff;
+}

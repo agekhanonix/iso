@@ -1,0 +1,232 @@
+/* =================================================== **
+**             CASCADING STYLES SHEET                  **
+** =================================================== */
+/* Author    : Thierry CHARPENTIER                      *
+*  Date      : 24.10.2018                               *
+*  Version   : V1R0                                     *
+* ==================================================== */
+html, body {
+    display: block;
+    background: #14f9b4;
+    width: 100%;
+    height: 100%;
+    color: #130074;
+    font-size:      14px;
+    font-family: 'Oswald', 'Verdana', sans-serif;
+}
+/* ---                                             --- **
+**                    NAVIGATION MENU                  **
+** ---                                             --- */
+.navbar-brand {
+    padding: 0.1px 15px;
+}
+.navbar-brand h1 {
+    text-align:     center;
+    color:          #cacbcc;
+    font-family:    'Mr Dafoe', cursive;
+    font-size:      1.1rem;
+    text-shadow: -1px 0 0 rgba(158, 20, 13, 0.8), 
+        1px 0 0 rgba(158, 20, 13, 0.8),
+        0 -1px 0 rgba(158, 20, 13, 0.8),
+        0 1px 0 rgba(158, 20, 13, 0.8);
+}
+[data-loading]{
+    position: fixed;
+    display: block;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 100;
+}
+[data-loading] > * {
+    display: block;
+    position: absolute;
+    width: 50vw;
+    height: 100vh;
+    overflow: hidden;
+}
+[data-loading] > *:first-child {
+    top: 0;
+    left: 0;
+    background: #3d424d;
+}
+[data-loading] > *:last-child {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+    background: #e9103a;
+}
+[data-loading] > * > * {
+    display: block;
+    position: absolute;
+    width: 10vh;
+    height: 10vh;
+    top: 45vh;
+    right: 0;
+    background: #e9103a;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 100%;
+}
+[data-loading] > *:last-child > * {
+    background: #3d424d; 
+}
+[data-loading="complete"] {
+    animation: close 0s forwards;
+    animation-delay: 1s;
+}
+[data-loading="complete"] > * {
+    animation: open 0.5s forwards;
+    animation-delay: 0.5s;
+}
+@keyframes open {
+    from{ height: 100vh;}
+    to{height: 0;}
+}
+@keyframes close {
+    to{z-index: -100;}
+}
+[data-expand] {
+    display: inline-block;
+    border: .02cm solid #e82152;
+    border-radius: 2em;
+    padding: 1em;
+    overflow: hidden;
+    text-align: center;
+}
+[data-expand=""] {
+    animation: cl-expand 1s forwards;
+}
+[data-expand=""] > *:not(*:first-child) {
+    display: none;
+}
+[data-expand="open"] {
+    animation: op-expand 1s forwards;
+}
+[data-expand="open"] > *:first-child {
+    display: none;
+}
+[data-expand="open"] > *:not(*:first-child) {
+    display: block;
+}
+@keyframes op-expand {
+    0% {background: #e82152; height: 1em; width: 0; padding: 0;}
+    50% {height: 0; width:0;}
+    100% {background: rgba(0,0,0,0); height: 10em; width: 25vw; padding: 1em;}
+}
+@keyframes cl-expand {
+    0% {background: #e82152; height: 10em; width: 25vw; padding: 0;}
+    50% {height: 0;}
+    100% {background: rgba(0,0,0,0); height: unset; width: unset; padding: 1em;}
+}
+/* ---                                             --- **
+**                       FOOTER                        **
+** ---                                             --- */
+footer {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #fffbf4;
+}
+.page-footer {
+    background-color: #251b3e;
+    border: 1px solid #97007a;
+    border-radius: 0px 0px 20px 20px;
+    padding-bottom: 5px;
+}
+.footer-copyright {
+    color: #97007a;
+    border-radius: 3px 3px 3px 3px;
+}
+.footer-copyright a {
+    color: #97007a;    
+}
+.copyright {
+    color: #44ff44;
+    font-weight: bold;
+}
+/* ---                                             --- **
+**                       POLITIES                      **
+** ---                                             --- */
+.polities {
+    font-size: 0.6rem;
+    background: #c1C1C1;
+}
+.polities h3 {
+    font-size: 1rem;
+}
+.polities h4 {
+    font-size: 0.8rem;
+}
+.polities h5 {
+    font-size: 0.7rem;
+}
+/* ---                                             --- **
+**                       VARIOUS                       **
+** ---                                             --- */
+.container-fluid {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.content {
+    margin-left: 1px;
+    margin-right: 1px;
+}
+.page-header {
+    padding-bottom: 1px;
+    margin: 0 5px 0 5px;
+}
+.breadcrumb {
+    padding: 50px 5px 0px 20px;
+    margin-bottom: 3px;
+    background-color: #14f9b4;
+}
+.glyph {
+    font-size: 0.9rem;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.btn-default {
+    margin-top: 5px;
+    margin-left: 30px;
+    background: #bfd255;
+    background: -moz-linear-gradient(top, #bfd255 0%, #8eb92a 64%, #72aa00 80%, #72aa00 80%, #9ecb2d 100%);
+    background: -webkit-linear-gradient(top, #bfd255 0%,#8eb92a 64%,#72aa00 80%,#72aa00 80%,#9ecb2d 100%);
+    background: linear-gradient(to bottom, #bfd255 0%,#8eb92a 64%,#72aa00 80%,#72aa00 80%,#9ecb2d 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 );
+    color: #ffffff;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+.btn-icon { color: #44ff44; margin-right: 5px; margin-left: 5px;}
+.btn-pink {
+    background-color: #ed184f!important;
+    background-image: linear-gradient(90deg, #fd5581, #fd8b55);
+}
+.img-thumbnail {
+    padding:        5px;
+    margin:         0 auto 0.5em;
+    border:         1px solid #C1C1C1;
+    background:     #ffffff;
+    /* CSS3 effects */
+    background:     -webkit-linear-gradient(#ffffff, #ffffff 20%, #d8d8d8 80%, #C1C1C1);
+    background:     -moz-linear-gradient(#ffffff, #ffffff 20%, #d8d8d8 80%, #C1C1C1);
+    background:     -ms-linear-gradient(#ffffff, #ffffff 20%, #d8d8d8 80%, #C1C1C1);
+    background:     -o-linear-gradient(#ffffff, #ffffff 20%, #d8d8d8 80%, #C1C1C1);
+    background:     linear-gradient(#ffffff, #ffffff 20%, #d8d8d8 80%, #C1C1C1);
+    -webkit-border-radius:  2px 2px 2px 2px;
+    -moz-border-radius:  2px 2px 2px 2px;
+    -ms-border-radius:  2px 2px 2px 2px;
+    -o-border-radius:  2px 2px 2px 2px;
+    border-radius:  2px 2px 2px 2px;
+    -webkit-box-shadow:     0 0 3px rgba(0,0,0, 0.2);
+    -moz-box-shadow:     0 0 3px rgba(0,0,0, 0.2);
+    -ms-box-shadow:     0 0 3px rgba(0,0,0, 0.2);
+    -o-box-shadow:     0 0 3px rgba(0,0,0, 0.2);
+    box-shadow:     0 0 3px rgba(0,0,0, 0.2);
+}
