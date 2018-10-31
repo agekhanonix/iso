@@ -7,7 +7,7 @@
 * ==================================================== */
 html, body {
     display: block;
-    background: #14f9b4;
+    background: #c8dacf;
     width: 100%;
     height: 100%;
     color: #130074;
@@ -121,6 +121,15 @@ html, body {
     50% {height: 0;}
     100% {background: rgba(0,0,0,0); height: unset; width: unset; padding: 1em;}
 }
+.container-fluid {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.content {
+    margin-left: 10px;
+    margin-right: 10px;
+    background: #c8dacf;
+}
 /* ---                                             --- **
 **                       FOOTER                        **
 ** ---                                             --- */
@@ -184,7 +193,7 @@ footer {
 .breadcrumb {
     padding: 50px 5px 0px 20px;
     margin-bottom: 3px;
-    background-color: #14f9b4;
+    background-color: #c8dacf;
 }
 .glyph {
     font-size: 0.9rem;
@@ -194,7 +203,7 @@ footer {
 .btn-default {
     margin-top: 5px;
     margin-left: 30px;
-    background: #bfd255;
+    background: #76c2c4;
     background: -moz-linear-gradient(top, #bfd255 0%, #8eb92a 64%, #72aa00 80%, #72aa00 80%, #9ecb2d 100%);
     background: -webkit-linear-gradient(top, #bfd255 0%,#8eb92a 64%,#72aa00 80%,#72aa00 80%,#9ecb2d 100%);
     background: linear-gradient(to bottom, #bfd255 0%,#8eb92a 64%,#72aa00 80%,#72aa00 80%,#9ecb2d 100%);
@@ -229,4 +238,94 @@ footer {
     -ms-box-shadow:     0 0 3px rgba(0,0,0, 0.2);
     -o-box-shadow:     0 0 3px rgba(0,0,0, 0.2);
     box-shadow:     0 0 3px rgba(0,0,0, 0.2);
+}
+.pager li a {
+    background-color: #ffcdf5;
+    color: #337ab7;
+    font-weight: bold;
+    background-color: #ededec!important;
+    background-image: linear-gradient(90deg, #ededec, #c47c92);
+    text-shadow: 0 1px 0 #eee,
+             0 2px 0 #e5e5e5,
+             -1px 3px 0 #C8C8C8;
+}
+.pager li a:hover {
+    background-color: #0f2537!important;
+    background-image: linear-gradient(90deg, #0f2537, #3782c4);
+    color: #ffffff;
+    transition: 0.5s;
+    transform: rotate(180deg);
+    text-shadow: 0 1px 0 #373737;
+}
+.question {
+    color: #ffffff;
+    border: 1px solid #90007a;
+    background-color: #90007a;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+fieldset.fieldset-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em .4em .4em !important;
+    margin: 0 0 .5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+}
+
+legend.fieldset-border {
+    font-size: 0.8em !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    padding-bottom: 0.5em;
+}
+.form-quest {
+    margin-left: 35px;
+    margin-bottom: 5px;
+    font-size: 0.8em;
+    color: #90007a;
+}
+.btn-quest {
+    margin-top: 2px;
+    margin-left: 10px;
+    background: #76c2c4;
+    background: -moz-linear-gradient(top, #76c2c4 0%, #7db6ce 64%, #7894b7 80%, #7d8bce 80%, #7d76c4 100%);
+    background: -webkit-linear-gradient(top, #76c2c4 0%,#7db6ce 64%,#7894b7 80%,#7d8bce 80%,#7d76c4 100%);
+    background: linear-gradient(to bottom, #76c2c4 0%,#7db6ce 64%,#7894b7 80%,#7d8bce 80%,#7d76c4 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#76c2c4', endColorstr='#7d76c4',GradientType=0 );
+    color: #ffffff;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+.glyph-quest { color: #44ff44; margin-right: 5px; background-color: #ffffff; border: 1px solid #ffffff; border-radius: 50%;}
+.chapter-title,
+.subchapter {
+    margin-top: 10px;
+    margin-left: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 2px 0 rgba(0,0,0,0.4),
+        -1px -2px 0 rgba(255,255,255,1);  
+    padding: 5px;
+}
+.chapter-title {
+    color: #90007a;
+    font-size: 0.9em;
+    border-left: 1px dotted #90007a;
+    border-bottom: 1px solid #90007a;
+    border-right: 2px solid #90007a;
+}
+.subchapter {
+    color: #371cb7;
+    font-size: 0.85em;
+}
+.preamble {
+    margin-top: 10px;
+    margin-left: 10px;
+    font-style: italic;
+    font-size: 0.8em;
+    font-weight: bold;
 }
