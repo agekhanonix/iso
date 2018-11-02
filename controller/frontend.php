@@ -48,5 +48,7 @@
         require('view/frontend/polities.php');
     }
     function home() {
+        $serviceManager = new ServicesManager();
+        $services = json_decode($serviceManager->getServices());
         require('view/frontend/home.php');
     }

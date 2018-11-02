@@ -90,11 +90,24 @@ html, body {
 }
 [data-expand] {
     display: inline-block;
-    border: .02cm solid #e82152;
-    border-radius: 2em;
-    padding: 1em;
     overflow: hidden;
+    text-align: left;
+}
+[data-expand] .card {
+    font-family: 'Oswald', 'Verdana', sans-serif;
+}
+[data-expand] .card-title {
     text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Oswald', 'Verdana', sans-serif;
+}
+[data-expand] .card-text {
+    font-family: 'Oswald', 'Verdana', sans-serif;
+} 
+[data-expand] .card-text::first-letter {
+    padding-left: 5px;
+    font-size: 1.2em;
 }
 [data-expand=""] {
     animation: cl-expand 1s forwards;
@@ -112,12 +125,12 @@ html, body {
     display: block;
 }
 @keyframes op-expand {
-    0% {background: #e82152; height: 1em; width: 0; padding: 0;}
+    0% {background: #442f99; height: 1em; width: 0; padding: 0;}
     50% {height: 0; width:0;}
-    100% {background: rgba(0,0,0,0); height: 10em; width: 25vw; padding: 1em;}
+    100% {background: rgba(0,0,0,0); height: 15em; width: 25vw; padding: 1em; overflow-y: auto; overflow-x: hidden;}
 }
 @keyframes cl-expand {
-    0% {background: #e82152; height: 10em; width: 25vw; padding: 0;}
+    0% {background: #442f99; height: 15em; width: 25vw; padding: 0;}
     50% {height: 0;}
     100% {background: rgba(0,0,0,0); height: unset; width: unset; padding: 1em;}
 }
@@ -328,4 +341,8 @@ legend.fieldset-border {
     font-style: italic;
     font-size: 0.8em;
     font-weight: bold;
+}
+.star:hover {
+    transition: 0.2s;
+    transform: rotate(360deg);
 }

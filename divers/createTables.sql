@@ -457,3 +457,37 @@ ALTER TABLE `iso_visits`
 --
 ALTER TABLE `iso_visits`
   MODIFY `visit_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;COMMIT;
+
+--
+-- Structure de la table `iso_services`
+--
+DROP TABLE IF EXISTS `iso_services`;
+CREATE TABLE `iso_services` (
+  `service_Id` int(11) NOT NULL,
+  `service_Img` varchar(25) NULL,
+  `service_Title` varchar(75) NOT NULL,
+  `service_Description` TEXT NOT NULL,
+  `service_Publish` INT(11) default 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Index pour la table `iso_services`
+--
+ALTER TABLE `iso_services`
+  ADD PRIMARY KEY (`service_Id`);
+--
+-- AUTO_INCREMENT pour la table `iso_services`
+--
+ALTER TABLE `iso_services`
+  MODIFY `service_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;COMMIT;
+-- 
+-- Chargement de la table ìso_services`
+--
+INSERT INTO `iso_services` (`service_Id`, `service_Img`, `service_Title`, `service_Description`, `service_Publish`) VALUES
+(1, 'INFOGERANCE.png', "l'offre infogérance", "Nous gérons pour vous l'intégralité de votre parc informatique<br>De la maintenace du matériel jusqu'à l'assistance aux utilisateurs, nous prenons en charge, pour vous, la gestion de votre parc informatique", 1),
+(2, 'FORMATION.png', "formation de vos employés", "Nous sensibilisons vos employés à la sécurité informatique via des ateliers réguliers, ainsi que des lettres d'informations sur les bonnes pratiques à observer", 1),
+(3, 'INTRUSION.png', "tests d'intrusions annuels et mensuels", "audit complet de votre réseau. <br>Nous mettons les mesures de sécurité de votre entreprise à l’épreuve afin de mettre ses vulnérabilités en évidence.",1),
+(4, 'CORRECTIFS.png', "aide à la mise en oeuvre des correctifs", "plus un logiciel vieillit, plus ses vulnérabilités sont exposées. Avec le temps, la découverte, l’exposition et l’exploitation de vulnérabilités sont des phénomènes inéluctables et cumulatifs.<br>C’est la raison d’être des correctifs de sécurité. Notre objectif est donc de vous aider afin de réduire le nombre de failles potentielles, et donc la surface d’attaque, reste en effet l’un des meilleurs moyens pour se protéger contre les intrusions et les cybermenaces.",1),
+(5, 'IR.png', "réponse a incident en cas d'attaque informatique", "En dépit de toutes les précautions, il est toujours possible qu’un employé exécute une pièce jointe malveillante sans le savoir et répande ainsi un virus inconnu dans toute votre entreprise.<br>Les premières heures sont vitales afin d’endiguer le problème. Grâce au Plan de Continuité d’Activité que nous aurons établi, la pérennité de votre entreprise n’est pas menacée mais il reste nécessaire d’éradiquer la menace avant de pouvoir restaurer les données touchées par le logiciel malveillant ou le pirate.<br/>Lors d’une intervention suite à incident, nous isolons rapidement les machines touchées avant d’analyser la charge infectieuse afin de déterminer les actions à entreprendre. Ensuite, une fois l’attaque stoppée, nous remettons les machines en service et enfin, nous réfléchissons à un plan d’action afin d’empêcher la réussite d’une attaque similaire à l’avenir.",1),
+(6, 'PCA.png', "mise en place d'un plan de continuité d'activité en cas d'attaque", "Le point primordial concernant la sécurité informatique de votre entreprise est de garantir sa survie en cas de sinistre. La plupart des entreprises ont prévu un plan d’action en cas d’incendie par exemple, mais sont-elles préparées en cas d’attaque informatique ?",1),
+(7, 'VIRUS.png', "PROTECTION CONTRE LES RANSOMWARE, VIRUS ET MALWARE", "La SARL TH.CHARPENTIER, à sélectionné et packagé toute une panoplie de logiciels de défense afin de permettre un déploiement et une configuration homogène sur votre parc informatique.<br>Notre solution, toujours à jour, vous protège donc contre toutes ces menaces.<br>Nous adaptons toutes nos solutions à votre métier et à vos besoins.",1);
