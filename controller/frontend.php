@@ -26,19 +26,9 @@
         $chapterManager = new ChaptersManager();
         $chapters = json_decode($chapterManager->listChapters());
     }
-    function updAudit($audit, $client, $question, $value) {
+    function updAudit($audit, $question, $client, $value) {
         $auditManager = new AuditsManager();
-        $affectedLines = $auditManager->updAudit($audit, $client, $question, $value);
-        if($affectedLines === false) {
-            throw new Exception(json_encode(array('error' => "qry002",
-                'msg' => "L'audit n'a pas été mis à jour !",
-                'type' => "request", 
-                'name' => "updAudit", 
-                'script' => "controller/frontend.php", 
-                'explanation' => "erreur SQL || inexistance de l'audit")));
-        } else {
-            header("Location: " . $_SERVER["HTTP_REFERER"]);
-        }
+        $affectedLines = $auditManager->updAudit($audit, $question, $client, $value);
     }
     function getError($error) {
         $err = json_decode($error);

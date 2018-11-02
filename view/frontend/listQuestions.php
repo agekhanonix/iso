@@ -33,18 +33,31 @@
         }?>
         <fieldset class="fieldset-border">
             <legend class="fieldset-border"><span class="question"><?= $question->question_Id ?></span> <?= $question->question_Libelle ?></legend>
-            <form class="form-quest row" action="index.php?action=updAudit&a=test&q=<?= $question->question_Id ?>&c=2" method="post">
-                <div class="row">    
-                    <label class="radio-inline col-lg-1 col-md-1 col-sm-1 col-xs-1" alt="Mis en oeuvre" title="Mis en oeuvre."><input type="radio" name="opt<?= $question->question_Id ?>" value="<?= ($question->question_Value * 1) ?>">M.E.O.</label>
-                    <label class="radio-inline col-lg-2 col-md-1 col-sm-1 col-xs-1" alt="Partiellement mis en oeuvre" title="Partiellement mis en oeuvre."><input type="radio" name="opt<?= $question->question_Id ?>"value="<?= ($question->question_Value * 0.5) ?>">% M.E.O.</label>
-                    <label class="radio-inline col-lg-2 col-md-2 col-sm-2 col-xs-2" alt="Planifié." title="Planifié."><input type="radio" name="opt<?= $question->question_Id ?>"value="<?= ($question->question_Value * 0.25) ?>">Planifié</label>
-                    <label class="radio-inline col-lg-2 col-md-2 col-sm-2 col-xs-2" alt="Non planifié." title="Non planifié."><input type="radio" name="opt<?= $question->question_Id ?>"value="<?= ($question->question_Value * 0.125) ?>">Non plan.</label>
-                    <label class="radio-inline col-lg-1 col-md-1 col-sm-1 col-xs-1" alt="Non concerné." title="Non concerné."><input type="radio" name="opt<?= $question->question_Id ?>"value="<?= ($question->question_Value * 1) ?>">N/C</label>
-                    <button type="submit" class="btn btn-quest btn-sm col-lg-2 col-md-2 col-sm-3 col-xs-3" onclick="history.go(-1)"> 
-                        <span class="glyphicon glyphicon-ok glyph-quest" aria-hidden="true"></span>Enregistrer
-                    </button>
+            <div class="row">
+                <div class="form-check form-check-inline col-lg-2 col-md-4 col-sm-6 col-xs-12">   
+                    <label class="form-check-label" alt="Mis en oeuvre" title="Mis en oeuvre.">Mis en oeuvre</label>
+                    <input class="form-check-input" type="radio" name="opt<?= $question->question_Id ?>" value="<?= ($question->question_Value * 1) ?>">
                 </div>
-            </form>
+                <div class="form-check form-check-inline col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <label class="form-check-label" alt="Partiellement mis en oeuvre" title="Partiellement mis en oeuvre.">% Mis en oeuvre</label>
+                    <input class="form-check-input" type="radio" name="opt<?= $question->question_Id ?>"value="<?= ($question->question_Value * 0.5) ?>">
+                </div>
+                <div class="form-check form-check-inline col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <label class="form-check-label" alt="Planifié." title="Planifié.">Planifié</label>
+                    <input class="form-check-input" type="radio" name="opt<?= $question->question_Id ?>"value="<?= ($question->question_Value * 0.25) ?>">
+                </div>
+                <div class="form-check form-check-inline col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <label class="form-check-label" alt="Non planifié." title="Non planifié.">Non planifié</label>
+                    <input class="form-check-input" type="radio" name="opt<?= $question->question_Id ?>"value="<?= ($question->question_Value * 0.125) ?>">
+                </div>
+                <div class="form-check form-check-inline col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <label class="form-check-label" alt="Non concerné." title="Non concerné.">Non concerné</label>
+                    <input class="form-check-input" type="radio" name="opt<?= $question->question_Id ?>"value="<?= ($question->question_Value * 1) ?>">
+                </div>
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <input type="button" class="btn btn-quest btn-sm" onclick="updAudit('test', <?= $question->question_Id ?>, 2)" value="Enregistrer"/>
+                </div>
+            </div>
         </fieldset>
 
     <?php }

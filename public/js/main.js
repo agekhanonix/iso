@@ -19,10 +19,13 @@ window.addEventListener("load", function(){
             }
         });
     }
-    /*this.setTimeout(function() {
-        var elCards = document.querySelectorAll('.card'); 
-        for(var i=0; i<elCards.length; i++) {
-            elCards[i].style.visibility = "visible";
-        }
-    }, 3000);*/
 });
+function updAudit(audit, question, client) {
+    var value = $('input[name=opt'+question+']:checked').val();
+    $.post("index.php?action=updAudit", {
+        audit: audit,
+        question: question,
+        client: client,
+        value: value
+    });
+}

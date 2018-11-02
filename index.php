@@ -24,19 +24,7 @@
             **                    VARIOUS                   **
             ** === ------------------------------------ === */
             } elseif($_GET['action'] == 'updAudit') {
-                if(isset($_GET['a']) && isset($_GET['q']) && filter_var($_GET['q'], FILTER_VALIDATE_INT, 
-                    array('options' => array('min_range' => 1, 'max_range' => 98))) && isset($_POST['opt'.$_GET['q']]) && isset($_GET['c'])) {
-                    updAudit($_GET['a'], $_GET['c'], $_GET['q'], $_POST['opt'.$_GET['q']]);
-                } else {
-                    throw new Exception(json_encode(array('error' => "act001",
-                        'msg' => "Toutes les infos nécéssaires n'ont pas été renseignées",
-                        'type' => "action", 
-                        'name' => "updAudit", 
-                        'script' => "index.php", 
-                        'explanation' => "erreur dans le paramétrage du script",
-                        'usage' => 'updAudit([a],[q])'))
-                    );
-                }
+                updAudit($_POST['audit'], $_POST['question'], $_POST['client'], $_POST['value']);
             }
         } else {
             home();
