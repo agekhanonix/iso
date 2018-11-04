@@ -283,115 +283,26 @@ DROP TABLE IF EXISTS `iso_audits`;
 CREATE TABLE `iso_audits` (
     `audit_Id` VARCHAR(10) NOT NULL,
     `client_Id` int(11) NOT NULL,
-    `audit_date` DATETIME,
-    `Q1` DECIMAL(4,2),
-    `Q2` DECIMAL(4,2),
-    `Q3` DECIMAL(4,2),
-    `Q4` DECIMAL(4,2),
-    `Q5` DECIMAL(4,2),
-    `Q6` DECIMAL(4,2),
-    `Q7` DECIMAL(4,2),
-    `Q8` DECIMAL(4,2),
-    `Q9` DECIMAL(4,2),
-    `Q10` DECIMAL(4,2),
-    `Q11` DECIMAL(4,2),
-    `Q12` DECIMAL(4,2),
-    `Q13` DECIMAL(4,2),
-    `Q14` DECIMAL(4,2),
-    `Q15` DECIMAL(4,2),
-    `Q16` DECIMAL(4,2),
-    `Q17` DECIMAL(4,2),
-    `Q18` DECIMAL(4,2),
-    `Q19` DECIMAL(4,2),
-    `Q20` DECIMAL(4,2),
-    `Q21` DECIMAL(4,2),
-    `Q22` DECIMAL(4,2),
-    `Q23` DECIMAL(4,2),
-    `Q24` DECIMAL(4,2),
-    `Q25` DECIMAL(4,2),
-    `Q26` DECIMAL(4,2),
-    `Q27` DECIMAL(4,2),
-    `Q28` DECIMAL(4,2),
-    `Q29` DECIMAL(4,2),
-    `Q30` DECIMAL(4,2),
-    `Q31` DECIMAL(4,2),
-    `Q32` DECIMAL(4,2),
-    `Q33` DECIMAL(4,2),
-    `Q34` DECIMAL(4,2),
-    `Q35` DECIMAL(4,2),
-    `Q36` DECIMAL(4,2),
-    `Q37` DECIMAL(4,2),
-    `Q38` DECIMAL(4,2),
-    `Q39` DECIMAL(4,2),
-    `Q40` DECIMAL(4,2),
-    `Q41` DECIMAL(4,2),
-    `Q42` DECIMAL(4,2),
-    `Q43` DECIMAL(4,2),
-    `Q44` DECIMAL(4,2),
-    `Q45` DECIMAL(4,2),
-    `Q46` DECIMAL(4,2),
-    `Q47` DECIMAL(4,2),
-    `Q48` DECIMAL(4,2),
-    `Q49` DECIMAL(4,2),
-    `Q50` DECIMAL(4,2),
-    `Q51` DECIMAL(4,2),
-    `Q52` DECIMAL(4,2),
-    `Q53` DECIMAL(4,2),
-    `Q54` DECIMAL(4,2),
-    `Q55` DECIMAL(4,2),
-    `Q56` DECIMAL(4,2),
-    `Q57` DECIMAL(4,2),
-    `Q58` DECIMAL(4,2),
-    `Q59` DECIMAL(4,2),
-    `Q60` DECIMAL(4,2),
-    `Q61` DECIMAL(4,2),
-    `Q62` DECIMAL(4,2),
-    `Q63` DECIMAL(4,2),
-    `Q64` DECIMAL(4,2),
-    `Q65` DECIMAL(4,2),
-    `Q66` DECIMAL(4,2),
-    `Q67` DECIMAL(4,2),
-    `Q68` DECIMAL(4,2),
-    `Q69` DECIMAL(4,2),
-    `Q70` DECIMAL(4,2),
-    `Q71` DECIMAL(4,2),
-    `Q72` DECIMAL(4,2),
-    `Q73` DECIMAL(4,2),
-    `Q74` DECIMAL(4,2),
-    `Q75` DECIMAL(4,2),
-    `Q76` DECIMAL(4,2),
-    `Q77` DECIMAL(4,2),
-    `Q78` DECIMAL(4,2),
-    `Q79` DECIMAL(4,2),
-    `Q80` DECIMAL(4,2),
-    `Q81` DECIMAL(4,2),
-    `Q82` DECIMAL(4,2),
-    `Q83` DECIMAL(4,2),
-    `Q84` DECIMAL(4,2),
-    `Q85` DECIMAL(4,2),
-    `Q86` DECIMAL(4,2),
-    `Q87` DECIMAL(4,2),
-    `Q88` DECIMAL(4,2),
-    `Q89` DECIMAL(4,2),
-    `Q90` DECIMAL(4,2),
-    `Q91` DECIMAL(4,2),
-    `Q92` DECIMAL(4,2),
-    `Q93` DECIMAL(4,2),
-    `Q94` DECIMAL(4,2),
-    `Q95` DECIMAL(4,2),
-    `Q96` DECIMAL(4,2),
-    `Q97` DECIMAL(4,2),
-    `Q98` DECIMAL(4,2)
+    `audit_date` VARCHAR(14) NOT NULL,
+    `question_Id` int(11) NOT NULL,
+    `question_Value` DECIMAL(4,2)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Index pour la table `iso_audits`
 --
 ALTER TABLE `iso_audits`
-  ADD PRIMARY KEY (`audit_Id`),
-  ADD KEY(`client_Id`);
--- 
+  ADD PRIMARY KEY (`audit_Id`, `client_Id`, `question_Id`);
+--
 -- Chargement de la table `iso_audits`
-INSERT INTO `iso_audits` (`audit_Id`, `client_Id`,`audit_date`) VALUES ('test', 2, NOW());
+--
+INSERT INTO `iso_audits` (`audit_Id`, `client_Id`, `audit_date`, `question_Id`, `question_Value`) VALUES
+('49aec5f6dc', 2, '20181103061500', 1, 6),
+('49aec5f6dc', 2, '20181103061500', 2, 3),
+('49aec5f6dc', 2, '20181103061500', 3, 1.5),
+('49aec5f6dc', 2, '20181103061500', 4, 0.75),
+('49aec5f6dc', 2, '20181103061500', 5, 6),
+('49aec5f6dc', 2, '20181103061500', 6, 0.75);
+
 --
 -- Structure de la table `iso_clients`
 --
@@ -491,3 +402,29 @@ INSERT INTO `iso_services` (`service_Id`, `service_Img`, `service_Title`, `servi
 (5, 'IR.png', "réponse a incident en cas d'attaque informatique", "En dépit de toutes les précautions, il est toujours possible qu’un employé exécute une pièce jointe malveillante sans le savoir et répande ainsi un virus inconnu dans toute votre entreprise.<br>Les premières heures sont vitales afin d’endiguer le problème. Grâce au Plan de Continuité d’Activité que nous aurons établi, la pérennité de votre entreprise n’est pas menacée mais il reste nécessaire d’éradiquer la menace avant de pouvoir restaurer les données touchées par le logiciel malveillant ou le pirate.<br/>Lors d’une intervention suite à incident, nous isolons rapidement les machines touchées avant d’analyser la charge infectieuse afin de déterminer les actions à entreprendre. Ensuite, une fois l’attaque stoppée, nous remettons les machines en service et enfin, nous réfléchissons à un plan d’action afin d’empêcher la réussite d’une attaque similaire à l’avenir.",1),
 (6, 'PCA.png', "mise en place d'un plan de continuité d'activité en cas d'attaque", "Le point primordial concernant la sécurité informatique de votre entreprise est de garantir sa survie en cas de sinistre. La plupart des entreprises ont prévu un plan d’action en cas d’incendie par exemple, mais sont-elles préparées en cas d’attaque informatique ?",1),
 (7, 'VIRUS.png', "PROTECTION CONTRE LES RANSOMWARE, VIRUS ET MALWARE", "La SARL TH.CHARPENTIER, à sélectionné et packagé toute une panoplie de logiciels de défense afin de permettre un déploiement et une configuration homogène sur votre parc informatique.<br>Notre solution, toujours à jour, vous protège donc contre toutes ces menaces.<br>Nous adaptons toutes nos solutions à votre métier et à vos besoins.",1);
+-- 
+-- Structure de la table `iso_chapters_questions`
+-- 
+DROP TABLE IF EXISTS `iso_chapters_questions`;
+CREATE TABLE `iso_chapters_questions` (
+  `chapter_Id` int(11) NOT NULL,
+  `question_Id` int(11) NOT NULL
+);
+--
+-- Index(s) pour la table `iso_chapters_questions`
+--
+ALTER TABLE `iso_chapters_questions` ADD PRIMARY KEY (`chapter_Id`, `question_Id`);
+--
+-- Chargement de la table `iso_chapters_questions`
+--
+INSERT INTO `iso_chapters_questions` (`chapter_Id`, `question_Id`) VALUES
+(1, 1),(1, 2),(1, 3),(1, 4),(1, 5),(1, 6),
+(2, 7),(2, 8),(2, 9),(2, 10),(2, 11),(2, 12),(2, 13),(2,14),(2, 15),(2,16),(2,17),
+(3, 18),(3, 19),(3, 20),
+(4, 21),(4, 22),(4, 23),(4, 24),(4, 25),(4,26),(4,27),(4, 28),(4, 29),
+(5, 30),(5, 31),(5, 32),(5, 33),(5, 34),(5, 35),(5, 36),(5, 37),(5, 38),(5, 39),(5, 40),
+(6, 41),(6, 42),(6, 43),(6, 44),(6, 45),(6, 46),(6, 47),(6, 48),(6, 49),(6, 50),(6, 51),(6, 52),(6, 53),(6, 54),(6, 55),(6, 56),(6, 57),(6, 58),(6, 59),(6, 60),(6, 61),
+(7, 62),(7, 63),(7, 64),(7, 65),(7, 66),(7, 67),(7, 68),(7, 69),(7, 70),(7, 71),(7, 72),(7, 73),(7, 74),(7, 75),(7, 76),(7, 77),(7, 78),(7, 79),
+(8, 80),(8, 81),(8, 82),(8, 83),(8, 84),(8, 85),(8, 86),(8, 87),(8, 88),
+(9, 89),(9, 90),(9, 91),(9, 92),
+(10, 93),(10, 94),(10, 95),(10, 96),(10, 97),(10, 98);

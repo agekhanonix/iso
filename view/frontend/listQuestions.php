@@ -55,7 +55,7 @@
                     <input class="form-check-input" type="radio" name="opt<?= $question->question_Id ?>"value="<?= ($question->question_Value * 1) ?>">
                 </div>
                 <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-                    <input type="button" class="btn btn-quest btn-sm" onclick="updAudit('test', <?= $question->question_Id ?>, 2)" value="Enregistrer"/>
+                    <input type="button" class="btn btn-quest btn-sm" onclick="updAudit('49aec5f6dc',2,'20181103061500', <?= $question->question_Id ?>)" value="Enregistrer"/>
                 </div>
             </div>
         </fieldset>
@@ -72,6 +72,7 @@
     </section> 
 </div>
 <script src="public/js/gestShowChapters.js"></script>
-<script src="public/js/auditGraphe.js"></script>
+<script src="public/js/showNotesGraphe.js"></script>
+<script type="text/javascript">window.onload = showNotesGraphe('49aec5f6dc', 2);</script>
 <?php $content = ob_get_clean(); ?>
 <?php require('template/template.php'); ?>

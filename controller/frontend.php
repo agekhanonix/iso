@@ -26,9 +26,9 @@
         $chapterManager = new ChaptersManager();
         $chapters = json_decode($chapterManager->listChapters());
     }
-    function updAudit($audit, $question, $client, $value) {
+    function updAudit($auditId, $clientId, $auditDate, $questionId, $questionValue) {
         $auditManager = new AuditsManager();
-        $affectedLines = $auditManager->updAudit($audit, $question, $client, $value);
+        $affectedLines = $auditManager->updAudit($auditId, $clientId, $auditDate, $questionId, $questionValue);
     }
     function getError($error) {
         $err = json_decode($error);
@@ -41,4 +41,8 @@
         $serviceManager = new ServicesManager();
         $services = json_decode($serviceManager->getServices());
         require('view/frontend/home.php');
+    }
+    function getNotes($auditId, $clientId) {
+        $auditManager = new AuditsManager();
+        $affectedLines = $auditManager->getNotes($auditId, $clientId);
     }

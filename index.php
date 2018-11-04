@@ -24,7 +24,9 @@
             **                    VARIOUS                   **
             ** === ------------------------------------ === */
             } elseif($_GET['action'] == 'updAudit') {
-                updAudit($_POST['audit'], $_POST['question'], $_POST['client'], $_POST['value']);
+                updAudit($_POST['auditId'], $_POST['clientId'], $_POST['auditDate'], $_POST['questionId'], $_POST['questionValue']);
+            } elseif($_GET['action'] == 'getNotes') {
+                getNotes($_GET['auditId'], $_GET['clientId']);
             }
         } else {
             home();

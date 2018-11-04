@@ -20,12 +20,17 @@ window.addEventListener("load", function(){
         });
     }
 });
-function updAudit(audit, question, client) {
-    var value = $('input[name=opt'+question+']:checked').val();
+function updAudit(auditId, clientId, auditDate, questionId) {
+    var questionValue = $('input[name=opt'+questionId+']:checked').val();
     $.post("index.php?action=updAudit", {
-        audit: audit,
-        question: question,
-        client: client,
-        value: value
-    });
+        auditId: auditId,
+        clientId: clientId,
+        auditDate: auditDate,
+        questionId: questionId,
+        questionValue: questionValue
+    })
+        .done(function() { 
+            showNotesGraphe(auditId, clientId);
+        })
+        .fail(function() { alert( "La réponse à la question Q"+questionId+" n'a pas été enregistrée !");});
 }
