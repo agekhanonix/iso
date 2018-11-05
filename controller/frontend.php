@@ -26,9 +26,9 @@
         $chapterManager = new ChaptersManager();
         $chapters = json_decode($chapterManager->listChapters());
     }
-    function updAudit($auditId, $clientId, $auditDate, $questionId, $questionValue) {
+    function updAudit($auditId, $prospectId, $auditDate, $questionId, $questionValue) {
         $auditManager = new AuditsManager();
-        $affectedLines = $auditManager->updAudit($auditId, $clientId, $auditDate, $questionId, $questionValue);
+        $affectedLines = $auditManager->updAudit($auditId, $prospectId, $auditDate, $questionId, $questionValue);
     }
     function getError($error) {
         $err = json_decode($error);
@@ -42,7 +42,41 @@
         $services = json_decode($serviceManager->getServices());
         require('view/frontend/home.php');
     }
-    function getNotes($auditId, $clientId) {
+    function getNotes4Graphe($auditId, $prospectId) {
         $auditManager = new AuditsManager();
-        $affectedLines = $auditManager->getNotes($auditId, $clientId);
+        $affectedLines = $auditManager->getNotes4Graphe($auditId, $prospectId);
+    }
+    function getCompte($pseudo, $pwd) {
+        $prospectManager = new ProspectsManager();
+        $prospect = json_decode($prospectManager->getCompte($pseudo, $pwd));
+        if(count($prospect) >= 0) {
+            $_SESSION['Id'] = $prospect[0]->prospect_Id;
+            $_SESSION['Pseudo'] = $prospect[0]->prospect_Pseudo;
+            $_SESSION['LastName'] = $prospect[0]->prospect_LastName;
+            $_SESSION['FirstName'] = $prospect[0]->prospect_FirstName;
+            $_SESSION['StreetNum'] = $prospect[0]->prospect_StreetNum;
+            $_SESSION['Addr1'] = $prospect[0]->prospect_Addr1;
+            $_SESSION['Addr2'] = $prospect[0]->prospect_Addr2;
+            $_SESSION['Addr3'] = $prospect[0]->prospect_Addr3;
+            $_SESSION['PostalCode'] = $prospect[0]->prospect_PostalCode;
+            $_SESSION['Phone'] = $prospect[0]->prospect_Phone;
+            $_SESSION['Mobile'] = $prospect[0]->prospect_Mobile;
+            $_SESSION['Email'] = $prospect[0]->prospect_Email;
+            $_SESSION['Msn'] = $prospect[0]->prospect_Msn;
+            $_SESSION['Url'] = $prospect[0]->prospect_Url;
+            $_SESSION['Localisation'] = $prospect[0]->prospect_Localisation;
+            $_SESSION['level'] = $prospect[0]->prospect_Level;
+            header('Location: index.php?action=home');
+        } else {
+            throw new Exception(json_encode(array('error' => "qry002",
+                'msg' => "Le compte n'a pas été trouvé",
+                'type' => "request", 
+                'name' => "getCompte", 
+                'script' => "controller/frontend.php", 
+                'explanation' => "erreur SQL || inexistance du compte")));
+        }
+    }
+    function deconnexion() {
+        session_destroy();
+        header('Location: index.php?action=home');
     }

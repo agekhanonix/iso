@@ -20,17 +20,17 @@ window.addEventListener("load", function(){
         });
     }
 });
-function updAudit(auditId, clientId, auditDate, questionId) {
+function updAudit(auditId, prospectId, auditDate, questionId) {
     var questionValue = $('input[name=opt'+questionId+']:checked').val();
     $.post("index.php?action=updAudit", {
         auditId: auditId,
-        clientId: clientId,
+        prospectId: prospectId,
         auditDate: auditDate,
         questionId: questionId,
         questionValue: questionValue
     })
         .done(function() { 
-            showNotesGraphe(auditId, clientId);
+            showNotes4Graphe(auditId, prospectId);
         })
         .fail(function() { alert( "La réponse à la question Q"+questionId+" n'a pas été enregistrée !");});
 }

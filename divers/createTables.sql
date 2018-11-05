@@ -282,7 +282,7 @@ INSERT INTO `iso_questions` (`question_Id`, `question_ChapterId`, `question_pred
 DROP TABLE IF EXISTS `iso_audits`;
 CREATE TABLE `iso_audits` (
     `audit_Id` VARCHAR(10) NOT NULL,
-    `client_Id` int(11) NOT NULL,
+    `prospect_Id` int(11) NOT NULL,
     `audit_date` VARCHAR(14) NOT NULL,
     `question_Id` int(11) NOT NULL,
     `question_Value` DECIMAL(4,2)
@@ -291,11 +291,11 @@ CREATE TABLE `iso_audits` (
 -- Index pour la table `iso_audits`
 --
 ALTER TABLE `iso_audits`
-  ADD PRIMARY KEY (`audit_Id`, `client_Id`, `question_Id`);
+  ADD PRIMARY KEY (`audit_Id`, `prospect_Id`, `question_Id`);
 --
 -- Chargement de la table `iso_audits`
 --
-INSERT INTO `iso_audits` (`audit_Id`, `client_Id`, `audit_date`, `question_Id`, `question_Value`) VALUES
+INSERT INTO `iso_audits` (`audit_Id`, `prospect_Id`, `audit_date`, `question_Id`, `question_Value`) VALUES
 ('49aec5f6dc', 2, '20181103061500', 1, 6),
 ('49aec5f6dc', 2, '20181103061500', 2, 3),
 ('49aec5f6dc', 2, '20181103061500', 3, 1.5),
@@ -304,45 +304,45 @@ INSERT INTO `iso_audits` (`audit_Id`, `client_Id`, `audit_date`, `question_Id`, 
 ('49aec5f6dc', 2, '20181103061500', 6, 0.75);
 
 --
--- Structure de la table `iso_clients`
+-- Structure de la table `iso_prospects`
 --
-DROP TABLE IF EXISTS `iso_clients`;
-CREATE TABLE `iso_clients` (
-  `client_Id` int(11) NOT NULL,
-  `client_Pseudo` varchar(30) NOT NULL,
-  `client_LastName` varchar(50) NOT NULL,
-  `client_FirstName` varchar(50) NOT NULL,
-  `client_StreetNum` varchar(5),
-  `client_Addr1` varchar(75),
-  `client_Addr2` varchar(75),
-  `client_Addr3` varchar(75),
-  `client_PostalCode` varchar(5),
-  `client_Phone` varchar(15),
-  `client_Mobile` varchar(15),
-  `client_Pwd` varchar(250) NOT NULL,
-  `client_Email` varchar(250) NULL,
-  `client_Msn` varchar(250) NULL,
-  `client_Url` varchar(100) NULL,
-  `client_Localisation` varchar(100) NULL,
-  `client_Registred` int(11) DEFAULT '0',
-  `client_Level` tinyint(4) DEFAULT '2',
-  `client_CreationDate` datetime DEFAULT NULL
+DROP TABLE IF EXISTS `iso_prospects`;
+CREATE TABLE `iso_prospects` (
+  `prospect_Id` int(11) NOT NULL,
+  `prospect_Pseudo` varchar(30) NOT NULL,
+  `prospect_LastName` varchar(50) NOT NULL,
+  `prospect_FirstName` varchar(50) NOT NULL,
+  `prospect_StreetNum` varchar(5),
+  `prospect_Addr1` varchar(75),
+  `prospect_Addr2` varchar(75),
+  `prospect_Addr3` varchar(75),
+  `prospect_PostalCode` varchar(5),
+  `prospect_Phone` varchar(15),
+  `prospect_Mobile` varchar(15),
+  `prospect_Pwd` varchar(250) NOT NULL,
+  `prospect_Email` varchar(250) NULL,
+  `prospect_Msn` varchar(250) NULL,
+  `prospect_Url` varchar(100) NULL,
+  `prospect_Localisation` varchar(100) NULL,
+  `prospect_Registred` int(11) DEFAULT '0',
+  `prospect_Level` tinyint(4) DEFAULT '2',
+  `prospect_CreationDate` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
--- Index pour la table `iso_clients`
+-- Index pour la table `iso_prospects`
 --
-ALTER TABLE `iso_clients`
-  ADD PRIMARY KEY (`client_Id`),
-  ADD KEY(`client_Pseudo`);
+ALTER TABLE `iso_prospects`
+  ADD PRIMARY KEY (`prospect_Id`),
+  ADD KEY(`prospect_Pseudo`);
 --
--- AUTO_INCREMENT pour la table `iso_clientss`
+-- AUTO_INCREMENT pour la table `iso_prospects`
 --
-ALTER TABLE `iso_clients`
-  MODIFY `client_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+ALTER TABLE `iso_prospects`
+  MODIFY `prospect_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 --
--- Chargement des donnees de la table `iso_clients`
+-- Chargement des donnees de la table `iso_prospects`
 --
-INSERT INTO `iso_clients` (`client_Id`, `client_Pseudo`, `client_LastName`, `client_FirstName`, `client_Pwd`, `client_Email`, `client_Msn`, `client_Url`, `client_Localisation`, `client_Registred`, `client_Level`, `client_CreationDate`) VALUES
+INSERT INTO `iso_prospects` (`prospect_Id`, `prospect_Pseudo`, `prospect_LastName`, `prospect_FirstName`, `prospect_Pwd`, `prospect_Email`, `prospect_Msn`, `prospect_Url`, `prospect_Localisation`, `prospect_Registred`, `prospect_Level`, `prospect_CreationDate`) VALUES
 (1, 'revoke', 'REVOKE', 'Cpte', '6a899d79ada8beff57053f23813006b701a52428b1ded94f39a500c2ee6534ae5bbfd3fee31758f31ae7df1e4627fef1f8b4fe7fd6b3387441b703e09d54ad6d', 'revoke@agekhanonix.fr', '', '', '', 1, 2, '2018-09-25 18:53:24'),
 (2, 'guest', 'GUEST', 'Cpte', 'dea2478a47f4836dd4dfbfab75352dbdb138aa9b20e7a590215e2d0bea7ec01ed0ba47b180ba9d836d38f31d967f1e115c224703e397640ae18e2a9c708cade9', 'guest@agekhanonix.fr', '', '', '', 0, 2, '2018-09-25 18:52:44'),
 (3, 'admin', 'ADMIN', 'Cpte', 'c8adf9b094b98ae51db8d7d585a530887bd16eb7eff3a6fc1e9a5975ddace3a6e1beb8617f3f19ca244112ed5b40149d1b8c7c20066f9b1e20c66c26c565e65a', 'admin@agekhanonix.fr', '', '', '', 0, 4, '2018-09-25 18:51:58');
@@ -353,7 +353,7 @@ INSERT INTO `iso_clients` (`client_Id`, `client_Pseudo`, `client_LastName`, `cli
 DROP TABLE IF EXISTS `iso_visits`;
 CREATE TABLE `iso_visits` (
   `visit_Id` int(11) NOT NULL,
-  `client_Id` int(11) NOT NULL,
+  `prospect_Id` int(11) NOT NULL,
   `remote_Addr` varchar(15) NOT NULL,
   `visit_Date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

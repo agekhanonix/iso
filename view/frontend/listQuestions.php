@@ -72,7 +72,7 @@
     </section> 
 </div>
 <script src="public/js/gestShowChapters.js"></script>
-<script src="public/js/showNotesGraphe.js"></script>
-<script type="text/javascript">window.onload = showNotesGraphe('49aec5f6dc', 2);</script>
+<script src="public/js/showNotes4Graphe.js"></script>
+<script type="text/javascript">window.onload = showNotes4Graphe('49aec5f6dc', 2);</script>
 <?php $content = ob_get_clean(); ?>
 <?php require('template/template.php'); ?>

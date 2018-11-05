@@ -61,5 +61,23 @@
                             </li>
                         </ul>
                     </li>
+                </ul><!-- END (ul class="nav navbar-nav) -->
+<?php if(!isset($_SESSION['Id'])) { ?>
+                <form class="navbar-form navbar-right inline-form" action="index.php?action=connexion" method="post" id="form-blog">
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-sm" placeholder="Pseudo" name='pseudo' id="pseudo">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control form-control-sm" placeholder="Mot de passe" name="pwd" id="pwd">
+                    </div>
+                    <button type="submit" class="btn btn-default">
+                            <span class="glyphicon glyphicon-ok btn-icon" aria-hidden="true"></span>Se connecter
+                    </button>
+                </form>
+<?php } else { ?>
+    <p class="navbar-text navbar-right">Bienvenue <?= $_SESSION['FirstName'] ?> <?= $_SESSION['LastName'] ?> 
+        <a href="index.php?action=deconnexion" class="navbar-link"><span class="glyphicon glyphicon-scissors glyph red" aria-hidden="true"></span></a>
+    </p>
+<?php } ?>
             </div><!-- END .nav-collapse -->
         </nav>

@@ -1,6 +1,7 @@
 <?php
     error_reporting(E_ALL); 
     ini_set("display_errors", 1);
+    session_start();
     require('config/config.php');
     require('controller/frontend.php');
     require('libs/functions/library.php'); 
@@ -24,9 +25,25 @@
             **                    VARIOUS                   **
             ** === ------------------------------------ === */
             } elseif($_GET['action'] == 'updAudit') {
-                updAudit($_POST['auditId'], $_POST['clientId'], $_POST['auditDate'], $_POST['questionId'], $_POST['questionValue']);
-            } elseif($_GET['action'] == 'getNotes') {
-                getNotes($_GET['auditId'], $_GET['clientId']);
+                updAudit($_POST['auditId'], $_POST['prospectId'], $_POST['auditDate'], $_POST['questionId'], $_POST['questionValue']);
+            } elseif($_GET['action'] == 'getNotes4Graphe') {
+                getNotes4Graphe($_GET['auditId'], $_GET['prospectId']);
+            /* === ------------------------------------ === **
+            **                 LOGIN: ACTION                **
+            ** === ------------------------------------ === */
+            } elseif($_GET['action'] == 'connexion') {
+                if(!empty($_POST['pseudo']) && !empty($_POST['pwd'])) {
+                    getCompte($_POST['pseudo'], $_POST['pwd']);
+                } else {
+                    throw new Exception(json_encode(array('error' => "act001",
+                        'msg' => "Toutes les infos nécéssaires n'ont pas été renseignées",
+                        'type' => "action", 
+                        'name' => "connexion", 
+                        'script' => "index.php", 
+                        'explanation' => "erreur dans le paramétrage du script")));
+                }
+            } elseif($_GET['action'] == 'deconnexion') {
+                deconnexion();
             }
         } else {
             home();

@@ -1,5 +1,5 @@
 <?php
-class Manager extends Instance {
+class Manager extends Connexion {
     private static $instance = null;                    // Hold the class instance
 
     private $dbType = "mysql";                          // SGBD type

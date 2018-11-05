@@ -1,11 +1,10 @@
-function showNotesGraphe(auditId, clientId) {
-    var url = 'index.php?action=getNotes&auditId=' + auditId + '&clientId=' + clientId;
+function showNotes4Graphe(auditId, prospectId) {
+    var url = 'index.php?action=getNotes4Graphe&auditId=' + auditId + '&prospectId=' + prospectId;
     var notes = [0,0,0,0,0,0,0,0,0,0];
     downloadUrl(url, function(data) {
         var jsonObj = JSON.parse(data);
         if(jsonObj.length > 0) {
             for(var i=0; i<jsonObj.length; i++) {
-                /*notes[parseInt(jsonObj[i]['chapter_Id'])] = jsonObj[i]['note'];*/
                 notes[Number.parseInt(jsonObj[i]['chapter_Id'])-1] = Number.parseFloat(jsonObj[i]['note']);
             }
         }
