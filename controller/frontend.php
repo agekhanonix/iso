@@ -52,12 +52,13 @@
         if(count($prospect) >= 0) {
             $_SESSION['Id'] = $prospect[0]->prospect_Id;
             $_SESSION['Pseudo'] = $prospect[0]->prospect_Pseudo;
+            $_SESSION['Society'] = $prospect[0]->prospect_Society;
             $_SESSION['LastName'] = $prospect[0]->prospect_LastName;
             $_SESSION['FirstName'] = $prospect[0]->prospect_FirstName;
             $_SESSION['StreetNum'] = $prospect[0]->prospect_StreetNum;
             $_SESSION['Addr1'] = $prospect[0]->prospect_Addr1;
             $_SESSION['Addr2'] = $prospect[0]->prospect_Addr2;
-            $_SESSION['Addr3'] = $prospect[0]->prospect_Addr3;
+            $_SESSION['City'] = $prospect[0]->prospect_City;
             $_SESSION['PostalCode'] = $prospect[0]->prospect_PostalCode;
             $_SESSION['Phone'] = $prospect[0]->prospect_Phone;
             $_SESSION['Mobile'] = $prospect[0]->prospect_Mobile;

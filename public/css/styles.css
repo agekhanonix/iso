@@ -373,3 +373,38 @@ legend.fieldset-border {
 .blue {
     color: #337ab7;
 }
+.connexion form {
+    margin-top: 10px;
+}
+.connexion form input.form-control,
+.connexion form input[type="submit"],
+.connexion form .btn {
+    transition: all ease-in-out 0.2s;
+}
+.connexion .panel-heading {
+    background-color: #a7d6ab;
+    padding-top:    5px;
+    padding-bottom: 5px;
+}
+.connexion .panel-heading h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    color: #000000;
+    margin-bottom: 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+.connexion .panel-heading h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    color: #4d7074;
+    margin-top: 3px;
+    font-size: 1rem;
+    text-transform: uppercase; 
+}
+.connexion .panel-info {
+    border-color: transparent;
+}
+#myGraph {
+    margin-top: 20px;
+}

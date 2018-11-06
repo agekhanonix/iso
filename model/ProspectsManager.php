@@ -3,8 +3,8 @@
 class ProspectsManager extends Manager {
     public function getCompte($pseudo, $pwd) {
         $db = $this->dbConnect();
-        $q = $db->prepare("SELECT `prospect_Id`, `prospect_Pseudo`, `prospect_LastName`,
-                `prospect_FirstName`,`prospect_StreetNum`,`prospect_Addr1`, `prospect_Addr2`, `prospect_Addr3`,
+        $q = $db->prepare("SELECT `prospect_Id`, `prospect_Pseudo`, `prospect_Society`, `prospect_LastName`,
+                `prospect_FirstName`,`prospect_StreetNum`,`prospect_Addr1`, `prospect_Addr2`, `prospect_City`,
                 `prospect_PostalCode`, `prospect_Phone`, `prospect_Mobile`, `prospect_Pwd`,`prospect_Email`,
                 `prospect_Msn`, `prospect_Url`,`prospect_Localisation`,`prospect_Registred`,`prospect_Level`,
                 `prospect_CreationDate` 
