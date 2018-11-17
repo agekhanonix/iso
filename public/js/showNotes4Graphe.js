@@ -9,6 +9,7 @@ function showNotes4Graphe(auditId, prospectId) {
             }
         }
         var ctx = document.getElementById("myChart").getContext('2d');
+        var canvas = document.getElementById("myChart");
         Chart.defaults.global.defaultFontFamily = "Lato";
         Chart.defaults.global.defaultFontSize = 10;
         var chartDatas = {

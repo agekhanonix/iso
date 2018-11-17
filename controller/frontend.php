@@ -1,6 +1,7 @@
 <?php
     require_once("libs/class/SplModelLoader.php");
     require_once("libs/class/SplClassLoader.php");
+    require_once("libs/class/html2pdf/html2pdf.class.php");
 
     SplModelLoader::register();                     // Loading of the Models Managers
     SplClassLoader::register();                     // Loading of the class
@@ -76,6 +77,31 @@
                 'script' => "controller/frontend.php", 
                 'explanation' => "erreur SQL || inexistance du compte")));
         }
+    }
+    function generateAudit($auditId, $prospectId, $img) {
+        $img = str_replace('data:image/png;base64,', '', $img);
+        $img = str_replace(' ', '+', $img);
+        file_put_contents('public/images/uploads/'.$auditId.'.png', base64_decode($img));
+        $auditManager = new AuditsManager();
+        $chapterManager = new ChaptersManager();
+        $notes = json_decode($auditManager->getNotes4Graphe($auditId, $prospectId, false));
+        $globalNote = json_decode($auditManager->getGlobalNote4Graphe($auditId, $prospectId, false));
+        $chapters = json_decode($chapterManager->listChapters());
+        ob_start();
+        require_once('view/frontend/generateAudit.php');
+        $reporting = ob_get_clean();
+        try{
+            $html2pdf = new HTML2PDF('P', 'A4', 'fr');
+            //$html2pdf->setModeDebug();
+            $html2pdf->setDefaultFont("Arial");
+            $html2pdf->writeHTML($reporting);
+            $html2pdf->Output('view/reportings/'.$auditId.'.pdf', 'F');
+        }catch(HTML2PDF_exception $e) {
+            echo $e;
+            exit;
+        }
+        //$html2pdf->clean(); 
+        header('Location: index.php?action=audit&pdf='.$auditId);
     }
     function deconnexion() {
         session_destroy();

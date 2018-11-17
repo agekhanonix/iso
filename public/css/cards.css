@@ -51,6 +51,24 @@
     opacity: 0;
     border-radius: 50%;
 }
+button .social-icons {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    background: #ffffff;
+    font-size: 13px;
+    color: #333333;
+    font-weight: bold;
+    margin: 0 6px;
+    transition: .4s;
+    transform: translate(10px, 50px);
+    opacity: 0;
+    border-radius: 50%;
+}
+button:hover .social-icons,
 .card:hover .social-icons li a {
     transform: translateY(0px);
     opacity: 1;
@@ -59,11 +77,15 @@
     background: #000000;
     transition: .2s;
 }
+button .social-icons .fab,
+button .social-icons .far,
 .social-icons li a .fab,
 .social-icons li a .far {
     color: #ffffff;
     transition: .8s;
 }
+button .social-icons .fab:hover,
+button .social-icons .far:hover,
 .social-icons li a .fab:hover,
 .social-icons li a .far:hover {
     transform: rotateY(360deg);

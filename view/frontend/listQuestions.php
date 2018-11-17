@@ -1,4 +1,5 @@
 <?php ob_start(); ?>
+    
     <ol class="breadcrumb row" id="sitemap">
         <li><a href="index.php?action=home">Accueil</a></li>
         <li class="active">Audit en ligne</li>
@@ -82,140 +83,22 @@
         </div>
     <section class="graphe col-lg-4 col-md-6 col-sm-12 col-xs-12">
         <canvas id="myChart" width="400" height="400"></canvas>
+        <form method="post" action="index.php?action=generateAudit&auditId=49aec5f6dc&prospectId=2" onsubmit="prepareImg();">
+            <input id="image" name="image" type="hidden" value="">
+            <button class="btn btn-default" type="submit">
+                <span class="far fa-file-pdf btn-icon" aria-hidden="true"></span>Generer le rapport d'audit : 49aec5f6dc
+            </button>&nbsp;
+<?php if(isset($_GET['pdf'])) { ?>
+        <a href="view/reportings/<?= $_GET['pdf'] ?>.pdf"><img src="public/images/pdf.png" alt="download audit"></a>
+<?php } ?>
+        </form>
     </section> 
 </div>
 <script src="public/js/gestShowChapters.js"></script>
 <script src="public/js/showNotes4Graphe.js"></script>
 <script type="text/javascript">window.onload = showNotes4Graphe('49aec5f6dc', 2);</script>
-<?php } else { ?>
-    <div class="panel panel-primary connexion">
-        <div class="panel-heading">
-            <h1 class="text-center">Page de connexion</h1>
-            <h2 class="text-center">Pour faire un audit de sécurité en ligne de sa structure il faut se connecter ou bien créer un compte</h2>
-        </div>
-        <div class="panel-body">
-        <div class="row">
-        <section class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="panel panel-info connexion">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <img src="public/images/reseaux.png" alt="" class="img-thumbnail">
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-                            <form class="form-horizontal" action="index.php?action=registring" method="post" accept-charset="utf-8" name="form-login" role="form">
-                                <div class="form-group">
-                                    <div class="col=lg-8 col-md-8 col-sm-6 col-xs-12">
-                                        <input name="prospect_Pseudo" placeholder="Identifiant" class="form-control" type="text" required/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col=lg-8 col-md-8 col-sm-6 col-xs-12">
-                                        <input name="prospect_FirstName" placeholder="Prénom" class="form-control" type="text" required/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col=lg-8 col-md-8 col-sm-6 col-xs-12">
-                                        <input name="prospect_LastName" placeholder="Nom de famille" class="form-control" type="text" required/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col=lg-8 col-md-8 col-sm-6 col-xs-12">
-                                        <input name="prospect_StreetNum" placeholder="N° de rue" class="form-control" type="text" required/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col=lg-8 col-md-8 col-sm-6 col-xs-12">
-                                        <input name="prospect_Addr1" placeholder="Nom de la rue" class="form-control" type="text" required/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col=lg-8 col-md-8 col-sm-6 col-xs-12">
-                                        <input name="prospect_Addr2" placeholder="Complément d'adresse" class="form-control" type="text" required/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col=lg-8 col-md-8 col-sm-6 col-xs-12">
-                                        <input name="prospect_City" placeholder="Ville" class="form-control" type="text" required/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col=lg-8 col-md-8 col-sm-6 col-xs-12">
-                                        <input name="prospect_PostalCode" placeholder="Code postal" class="form-control" type="text" required/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col=lg-8 col-md-8 col-sm-6 col-xs-12">
-                                        <input name="prospect_Phone" placeholder="Téléphone fixe" class="form-control" type="text"/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col=lg-8 col-md-8 col-sm-6 col-xs-12">
-                                        <input name="prospect_Mobile" placeholder="Mobile" class="form-control" type="text"/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col=lg-8 col-md-8 col-sm-6 col-xs-12">
-                                        <input name="prospect_Email" placeholder="john.doe@ltd.com" class="form-control" type="email" required/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col=lg-8 col-md-8 col-sm-6 col-xs-12">
-                                        <input name="prospect_Pwd" placeholder="Mot de passe" class="form-control" type="password" required/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col=lg-8 col-md-8 col-sm-6 col-xs-12">
-                                        <input name="prospect_Confirm" placeholder="Confirmation" class="form-control" type="password" required/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col=lg-8 col-md-8 col-sm-6 col-xs-12">
-                                        <button class="btn btn-default" type="submit">
-                                            <span class="glyphicon glyphicon-ok btn-icon" aria-hidden="true"></span>S'enregistrer
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="panel panel-info connexion">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-                            <form class="form-horizontal" action="index.php?action=connexion" method="post" accept-charset="utf-8" name="form-login" role="form">
-                                <div class="form-group">
-                                    <div class="col=lg-8 col-md-8 col-sm-6 col-xs-12">
-                                        <input name="pseudo" placeholder="Identifiant" class="form-control" type="text" id="UserUsername"/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col=lg-8 col-md-8 col-sm-6 col-xs-12">
-                                        <input name="pwd" placeholder="Mot de passe" class="form-control" type="password" id="UserPassword"/>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="col=lg-8 col-md-8 col-sm-6 col-xs-12">
-                                        <button class="btn btn-default" type="submit">
-                                            <span class="glyphicon glyphicon-ok btn-icon" aria-hidden="true"></span>Se connecter
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                            <img src="public/images/serveurs.png" alt="" class="img-thumbnail">
-                        </div>
-                        <section class="graphe col-lg-offset-2 col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                            <canvas id="myGraph" width="200" height="200"></canvas>
-                        </section> 
-                    </div>
-                </div>
-            </section>      
-        </div>
-    </div>
-    <script src="public/js/Graphe.js"></script>  
-<?php } ?>
+<?php } else {
+    include_once('connexion.html');  
+} ?>
 <?php $content = ob_get_clean(); ?>
 <?php require('template/template.php'); ?>

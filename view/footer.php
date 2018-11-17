@@ -1,4 +1,4 @@
-
+<?php include_once('include/contact.html') ?>
         <footer class="page-footer">
           <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 card">
@@ -6,7 +6,7 @@
                 <img src="public/images/th-charpentier-150x193.jpg" alt="Portrait" class="img-thumbnail">
               </div>
               <ul class="social-icons">
-                <li><a href=""><i class="far fa-envelope-open"></i></a></li>
+                <li><a href="#" data-toggle="modal" data-target="#contact-mail"><i class="far fa-envelope-open"></i></a></li>
                 <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
                 <li><a href=""><i class="fab fa-twitter"></i></a></li>
                 <li><a href=""><i class="fab fa-instagram"></i></a></li>

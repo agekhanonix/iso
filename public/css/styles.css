@@ -52,7 +52,7 @@ html, body {
     top: 0;
     left: 0;
     height: 100vh;
-    z-index: 100;
+    z-index: 500;
 }
 [data-loading] > * {
     display: block;
@@ -70,20 +70,24 @@ html, body {
     bottom: 0;
     right: 0;
     transform: rotate(180deg);
-    background: #e9103a;
+    background: #90007a;
 }
 [data-loading] > * > * {
     display: block;
     position: absolute;
-    width: 10vh;
-    height: 10vh;
-    top: 45vh;
+    width: 13.1vw;
+    height: 13.1vh;
+    top: 42.90vh;
     right: 0;
-    background: #e9103a;
-    border-top-left-radius: 100%;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 100%;
+    background: #90007a;
+}
+#g, #d {
+    width: 110px;
+    height: 110px;
+    margin: 0 0 0 0;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #1a3546;
+    border-radius: 10px 10px 10px 10px;
 }
 [data-loading] > *:last-child > * {
     background: #3d424d; 
@@ -232,15 +236,12 @@ footer {
     margin-top: 5px;
     margin-left: 30px;
     background: #76c2c4;
-    background: -moz-linear-gradient(top, #bfd255 0%, #8eb92a 64%, #72aa00 80%, #72aa00 80%, #9ecb2d 100%);
-    background: -webkit-linear-gradient(top, #bfd255 0%,#8eb92a 64%,#72aa00 80%,#72aa00 80%,#9ecb2d 100%);
-    background: linear-gradient(to bottom, #bfd255 0%,#8eb92a 64%,#72aa00 80%,#72aa00 80%,#9ecb2d 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bfd255', endColorstr='#9ecb2d',GradientType=0 );
+    background: linear-gradient(to bottom, #acbad9 0%,#7ab499 64%,#3d424d 80%,#3d424d 80%,#474d5a 100%);
     color: #ffffff;
     font-size: 0.7rem;
     text-transform: uppercase;
 }
-.btn-icon { color: #44ff44; margin-right: 5px; margin-left: 5px;}
+.btn-icon { color: #90007a; margin-right: 5px; margin-left: 5px;}
 .btn-pink {
     background-color: #ed184f!important;
     background-image: linear-gradient(90deg, #fd5581, #fd8b55);
@@ -251,20 +252,8 @@ footer {
     border:         1px solid #C1C1C1;
     background:     #ffffff;
     /* CSS3 effects */
-    background:     -webkit-linear-gradient(#ffffff, #ffffff 20%, #d8d8d8 80%, #C1C1C1);
-    background:     -moz-linear-gradient(#ffffff, #ffffff 20%, #d8d8d8 80%, #C1C1C1);
-    background:     -ms-linear-gradient(#ffffff, #ffffff 20%, #d8d8d8 80%, #C1C1C1);
-    background:     -o-linear-gradient(#ffffff, #ffffff 20%, #d8d8d8 80%, #C1C1C1);
     background:     linear-gradient(#ffffff, #ffffff 20%, #d8d8d8 80%, #C1C1C1);
-    -webkit-border-radius:  2px 2px 2px 2px;
-    -moz-border-radius:  2px 2px 2px 2px;
-    -ms-border-radius:  2px 2px 2px 2px;
-    -o-border-radius:  2px 2px 2px 2px;
     border-radius:  2px 2px 2px 2px;
-    -webkit-box-shadow:     0 0 3px rgba(0,0,0, 0.2);
-    -moz-box-shadow:     0 0 3px rgba(0,0,0, 0.2);
-    -ms-box-shadow:     0 0 3px rgba(0,0,0, 0.2);
-    -o-box-shadow:     0 0 3px rgba(0,0,0, 0.2);
     box-shadow:     0 0 3px rgba(0,0,0, 0.2);
 }
 .pager li a {
@@ -314,19 +303,6 @@ legend.fieldset-border {
     margin-bottom: 5px;
     font-size: 0.8em;
     color: #90007a;
-}
-.btn-quest {
-    margin-top: 2px;
-    margin-left: 10px;
-    background: #76c2c4;
-    background: -moz-linear-gradient(top, #76c2c4 0%, #7db6ce 64%, #7894b7 80%, #7d8bce 80%, #7d76c4 100%);
-    background: -webkit-linear-gradient(top, #76c2c4 0%,#7db6ce 64%,#7894b7 80%,#7d8bce 80%,#7d76c4 100%);
-    background: linear-gradient(to bottom, #76c2c4 0%,#7db6ce 64%,#7894b7 80%,#7d8bce 80%,#7d76c4 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#76c2c4', endColorstr='#7d76c4',GradientType=0 );
-    color: #ffffff;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    color: #ffffff;
 }
 .glyph-quest { color: #44ff44; margin-right: 5px; background-color: #ffffff; border: 1px solid #ffffff; border-radius: 50%;}
 .chapter-title,
@@ -407,4 +383,65 @@ legend.fieldset-border {
 }
 #myGraph {
     margin-top: 20px;
+}
+/* ---                                             --- **
+**                     CONTACT FORM                    **
+** ---                                             --- */
+.form {
+    background-color: #bdcde6;
+    padding: 5px;
+    margin-bottom:2px;
+}
+h3.form {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 2px 0 rgba(0,0,0,0.4),
+        -1px -2px 0 rgba(255,255,255,1);  
+    padding: 5px;
+    color: #90007a;
+    font-size: 0.9em;
+    border-left: 1px dotted #90007a;
+    border-bottom: 1px solid #90007a;
+    border-right: 2px solid #90007a;
+}  
+h4.form,
+span.form {
+    font-size: 0.6rem;
+}
+h4.form {
+    text-transform: uppercase;  
+}
+li.form {
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 20px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    font-size: 0.75rem;
+}
+span.form {
+    font-size: 0.75rem;
+}
+.form .form-horizontal .radio {
+    padding-top: 3px;
+}
+h5 .modal-title {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 50%;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 2px 0 rgba(0,0,0,0.4),
+        -1px -2px 0 rgba(255,255,255,1);  
+    padding: 5px;
+    color: #90007a;
+    font-size: 0.9em;
+    border-left: 1px dotted #90007a;
+    border-bottom: 1px solid #90007a;
+    border-right: 2px solid #90007a;
 }

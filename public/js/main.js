@@ -6,9 +6,8 @@
 *  Version   : V1R0                                             *
 * ============================================================ */
 window.addEventListener("load", function(){
-    var elLoading = document.querySelector("[data-loading]");
     var elExpands = document.querySelectorAll('[data-expand]');
-    
+    var elLoading = document.querySelector("[data-loading]");
     elLoading.setAttribute("data-loading","complete");
     for(var i=0; i<elExpands.length; i++) {
         elExpands[i].addEventListener("click", function(){
@@ -33,4 +32,8 @@ function updAudit(auditId, prospectId, auditDate, questionId) {
             showNotes4Graphe(auditId, prospectId);
         })
         .fail(function() { alert( "La réponse à la question Q"+questionId+" n'a pas été enregistrée !");});
+}
+function prepareImg() {
+    var canvas = document.getElementById('myChart');
+    document.getElementById('image').value = canvas.toDataURL();
 }
