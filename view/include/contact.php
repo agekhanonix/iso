@@ -14,27 +14,27 @@
                       <ul class="list-group">
                           <li class="list-group-item form">
                               <label for="friend" class="radio">
-                                  <input type="radio" name="origin" value="1" id="friend"><span class="form">Par un ami</span>
+                                  <input type="radio" name="origin" value="par un ami" id="friend"><span class="form">par un ami.</span>
                               </label>
                           </li>
                           <li class="list-group-item form">
                               <label for="radio" class="radio">
-                                  <input type="radio" name="origin" value="2" id="radio"><span class="form">A la radio.</span>
+                                  <input type="radio" name="origin" value="à la radio." id="radio"><span class="form">à la radio.</span>
                               </label>
                           </li>
                           <li class="list-group-item form">
                               <label for="television" class="radio">
-                                  <input type="radio" name="origin" value="3" id="television"><span class="form">A la télévision.</span>
+                                  <input type="radio" name="origin" value="à la télévision." id="television"><span class="form">à la télévision.</span>
                               </label>
                           </li>
                           <li class="list-group-item form">
                               <label for="web" class="radio">
-                                  <input type="radio" name="origin" value="4" id="web"><span class="form">Sur le web.</span>
+                                  <input type="radio" name="origin" value="sur le web." id="web"><span class="form">sur le web.</span>
                               </label>
                           </li>
                           <li class="list-group-item form">
                               <label for="other" class="radio">
-                                  <input type="radio" name="origin" value="5" id="other"><span class="form">Autre ...</span>
+                                  <input type="radio" name="origin" value="par un autre moyen." id="other"><span class="form">par un autre moyen.</span>
                               </label>
                           </li>
                       </ul>
@@ -42,7 +42,12 @@
                           <div class="form-group has-error has-feedback col-lg-12 col-md-12 col-sm-12 col-xs-12">
                               <label for="name" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">Nom</label>
                               <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                  <input type="text" class="form-control" id="name" name="name" placeholder="Thierry CHARPENTIER" 
+                                  <input type="text" class="form-control" id="name" name="name" placeholder="Thierry CHARPENTIER"
+<?php if(isset($_SESSION['Id'])) { ?>
+    value="<?= $_SESSION['FirstName'] ?> <?= $_SESSION['LastName'] ?>"
+<?php } else { ?>
+    value=""
+<?php } ?>>                                 
                                   <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
                               </div>
                           </div>
@@ -52,6 +57,11 @@
                               <label for="email" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">Courriel</label>
                               <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
                                   <input type="text" class="form-control has-error has-feedback" id="email" name="email" placeholder="jean.dupont@ltd.com" 
+<?php if(isset($_SESSION['Id'])) { ?>
+    value="<?= $_SESSION['Email'] ?>"
+<?php } else { ?>
+    value=""
+<?php } ?>>
                                   <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
                               </div>
                           </div>
@@ -60,8 +70,12 @@
                           <div class="form-group has-error has-feedback col-lg-12 col-md-12 col-sm-12 col-xs-12">
                               <label for="subject" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">Objet</label>
                               <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                  <input type="text" class="form-control has-error has-feedback" id="subject" name="sujet">
-                                  <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+                                <select class="form-control has-error has-feedback" id="subject" name="subject">
+                                    <option>Souhaite être rappelé</option>
+                                    <option>Souhaite recevoir le catalogue des services</option>
+                                    <option>Pour toute autre raison</option>
+                                </select>
+                                <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
                               </div>
                           </div>
                       </div>

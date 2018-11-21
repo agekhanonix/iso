@@ -53,6 +53,37 @@
                         'script' => "index.php", 
                         'explanation' => "erreur dans le paramétrage du script")));
                 }
+            } elseif($_GET['action'] == 'mailContact') {
+                if(!empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['subject']) && !empty($_POST['message'])) {
+                    mailContact($_POST['name'], $_POST['email'], $_POST['subject'], $_POST['message'], $_POST['origin']);
+                } else {
+                    throw new Exception(json_encode(array('error' => "act003",
+                        'msg' => "Toutes les infos nécéssaires n'ont pas été renseignées",
+                        'type' => "action", 
+                        'name' => "mailContact", 
+                        'script' => "index.php", 
+                        'explanation' => "erreur dans le paramétrage du script")));
+                }
+            } elseif($_GET['action'] == 'mailBooklet') {
+                if(!empty($_GET['id'])) {
+                    if(!empty($_POST['name'.$_GET['id']]) && !empty($_POST['email'.$_GET['id']]) && !empty($_POST['booklet'.$_GET['id']])) {
+                        mailBooklet($_POST['name'.$_GET['id']], $_POST['email'.$_GET['id']], $_POST['booklet'.$_GET['id']]);
+                    } else {
+                        throw new Exception(json_encode(array('error' => "act005",
+                        'msg' => "Toutes les infos nécéssaires n'ont pas été renseignées",
+                        'type' => "action", 
+                        'name' => "mailBooklet", 
+                        'script' => "index.php", 
+                        'explanation' => "erreur dans le paramétrage du script"))); 
+                    }
+                } else {
+                    throw new Exception(json_encode(array('error' => "act004",
+                        'msg' => "Toutes les infos nécéssaires n'ont pas été renseignées",
+                        'type' => "action", 
+                        'name' => "mailBooklet", 
+                        'script' => "index.php", 
+                        'explanation' => "aucune brochure n'a été selectionnée")));
+                }
             } elseif($_GET['action'] == 'deconnexion') {
                 deconnexion();
             }

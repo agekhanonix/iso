@@ -1,4 +1,4 @@
-<?php include_once('include/contact.html') ?>
+<?php include_once('include/contact.php') ?>
         <footer class="page-footer">
           <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 card">

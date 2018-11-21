@@ -103,6 +103,76 @@
         //$html2pdf->clean(); 
         header('Location: index.php?action=audit&pdf='.$auditId);
     }
+    function mailContact($name, $email, $subject, $message, $origin) {
+        $cc = $email;
+        $to = 'thierry.charpentier.ct@gmail.com';
+        $boundary =  md5(uniqid(microtime(), true));//A single bundary is created
+        // Setting headers
+        $headers = 'Content-Type: text/html; charset="UTF-8"'."\r\n";
+        $headers .= 'From: Contact<contact@thcharpentier.fr>' ."\r\n";
+        $headers .= 'Cc: '. $cc . "\r\n";
+        // Setting body
+        $bName = (isset($_SESSION['Id'])) ? $_SESSION['FirstName'] . ' ' . $_SESSION['LastName'] : $name;
+        $bSociety = (isset($_SESSION['Id'])) ? $_SESSION['Society'] : '';
+        $bStreetNum = (isset($_SESSION['Id'])) ? $_SESSION['StreetNum'] : '';
+        $bAddr1 = (isset($_SESSION['Id'])) ? $_SESSION['Addr1'] : '';
+        $bAddr2 = (isset($_SESSION['Id'])) ? $_SESSION['Addr2'] : '';
+        $bCp = (isset($_SESSION['Id'])) ? $_SESSION['PostalCode'] : '';
+        $bCity = (isset($_SESSION['Id'])) ? $_SESSION['City'] : '';
+        $bTelephone = (isset($_SESSION['Id'])) ? $_SESSION['Phone'] : '';
+        $bMobile = (isset($_SESSION['Id'])) ? $_SESSION['Mobile'] : '';
+        $bEmail = (isset($_SESSION['Id'])) ? $_SESSION['Email'] : $email;
+        $body = str_replace(array('{SUBJECT}','{MESSAGE}','{DATE}','{ORIGIN}', '{NAME}', '{SOCIETY}', '{STREETNUM}', '{ADDR1}', '{ADDR2}', '{CP}', '{CITY}', '{TELEPHONE}', '{MOBILE}', '{EMAIL}'),
+            array($subject, $message, date("d/m/Y à H:i:s"), $origin, $bName, $bSociety, $bStreetNum, $bAddr1, $bAddr2, $bCp, $bCity, $bTelephone, $bMobile, $bEmail), 
+            file_get_contents("view/include/mail-contact.php"));
+        $ok = mail($to, $subject, $body, $headers);
+        if($ok) {
+            header('Location: index.php?action=home'); 
+        } else {
+            throw new Exception(json_encode(array('error' => "qry003",
+                'msg' => "Le courriel n'a pas été envoyé",
+                'type' => "...", 
+                'name' => "mailContact", 
+                'script' => "controller/frontend.php", 
+                'explanation' => "Erreur inconnue")));
+        }
+    }
+    function mailBooklet($name, $email, $booklet) {
+        $to = $email;
+        $cc = 'thierry.charpentier.ct@gmail.com';
+        $subject = "TH.CHARPENTIER : Envoi de brochure";
+        $boundary =  md5(uniqid(microtime(), true));//A single bundary is created
+        $fichier = "view/include/brochures/".$booklet;
+
+        $headers = 'Content-Type: multipart/mixed;'."\r\n".' boundary="'.$boundary.'"';
+        $headers .= 'From: Contact<contact@thcharpentier.fr>' ."\r\n";
+        $headers .= 'Cc: '. $cc . "\r\n";
+        $body = 'This is a multi-part message in MIME format.'."\r\n";
+        $body .= '--'.$boundary."\r\n";
+        $body .= 'Content-Type: text/html; charset="UTF-8"'."\r\n";// First part
+        $body .= "\r\n";
+        $body .= str_replace(array('{NAME}', '{DATE}'),array($name, date("d/m/Y à H:i:s")), file_get_contents("view/include/mail-booklet.php"));
+        $body .= "\r\n";
+        $body .= '--'.$boundary."\r\n";
+        $body .= 'Content-Type: application/pdf; name="'.basename($fichier).'"'."\r\n";
+        $body .= 'Content-Transfer-Encoding: base64'."\r\n";
+        $body .= 'Content-Disposition: attachment; filename="'.basename($fichier).'"'."\r\n";
+        $body .= "\r\n";
+        $source = chunk_split(file_get_contents(base64_encode($fichier)));
+        $body .= $source;
+        $body .= "\r\n".'--'.$boundary.'--';
+        $ok = mail($to, $subject, $body, $headers);
+        if($ok) {
+            header('Location: index.php?action=home'); 
+        } else {
+            throw new Exception(json_encode(array('error' => "qry004",
+                'msg' => "Le courriel n'a pas été envoyé",
+                'type' => "...", 
+                'name' => "mailBooklet", 
+                'script' => "controller/frontend.php", 
+                'explanation' => "Erreur inconnue")));
+        }
+    }
     function deconnexion() {
         session_destroy();
         header('Location: index.php?action=home');

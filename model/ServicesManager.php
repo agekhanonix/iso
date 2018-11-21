@@ -7,7 +7,8 @@ class ServicesManager extends Manager {
                 service_Img, 
                 service_Title, 
                 service_Description, 
-                service_Publish 
+                service_Publish,
+                service_Booklet 
             FROM iso_services
             WHERE service_Publish = 1 
             ORDER BY service_Id ASC");
