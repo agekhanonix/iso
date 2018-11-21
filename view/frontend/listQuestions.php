@@ -98,7 +98,7 @@
 <script src="public/js/showNotes4Graphe.js"></script>
 <script type="text/javascript">window.onload = showNotes4Graphe('49aec5f6dc', 2);</script>
 <?php } else {
-    include_once('connexion.html');  
+    include_once('connexion.php');  
 } ?>
 <?php $content = ob_get_clean(); ?>
 <?php require('template/template.php'); ?>

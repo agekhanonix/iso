@@ -49,25 +49,25 @@
     }
     function getCompte($pseudo, $pwd) {
         $prospectManager = new ProspectsManager();
-        $prospect = json_decode($prospectManager->getCompte($pseudo, $pwd));
-        if(count($prospect) >= 0) {
-            $_SESSION['Id'] = $prospect[0]->prospect_Id;
-            $_SESSION['Pseudo'] = $prospect[0]->prospect_Pseudo;
-            $_SESSION['Society'] = $prospect[0]->prospect_Society;
-            $_SESSION['LastName'] = $prospect[0]->prospect_LastName;
-            $_SESSION['FirstName'] = $prospect[0]->prospect_FirstName;
-            $_SESSION['StreetNum'] = $prospect[0]->prospect_StreetNum;
-            $_SESSION['Addr1'] = $prospect[0]->prospect_Addr1;
-            $_SESSION['Addr2'] = $prospect[0]->prospect_Addr2;
-            $_SESSION['City'] = $prospect[0]->prospect_City;
-            $_SESSION['PostalCode'] = $prospect[0]->prospect_PostalCode;
-            $_SESSION['Phone'] = $prospect[0]->prospect_Phone;
-            $_SESSION['Mobile'] = $prospect[0]->prospect_Mobile;
-            $_SESSION['Email'] = $prospect[0]->prospect_Email;
-            $_SESSION['Msn'] = $prospect[0]->prospect_Msn;
-            $_SESSION['Url'] = $prospect[0]->prospect_Url;
-            $_SESSION['Localisation'] = $prospect[0]->prospect_Localisation;
-            $_SESSION['level'] = $prospect[0]->prospect_Level;
+        $prospect = $prospectManager->getCompte($pseudo, $pwd);
+        if($prospect !== null) {
+            $_SESSION['Id'] = $prospect['prospect_Id'];
+            $_SESSION['Pseudo'] = $prospect['prospect_Pseudo'];
+            $_SESSION['Society'] = $prospect['prospect_Society'];
+            $_SESSION['LastName'] = $prospect['prospect_LastName'];
+            $_SESSION['FirstName'] = $prospect['prospect_FirstName'];
+            $_SESSION['StreetNum'] = $prospect['prospect_StreetNum'];
+            $_SESSION['Addr1'] = $prospect['prospect_Addr1'];
+            $_SESSION['Addr2'] = $prospect['prospect_Addr2'];
+            $_SESSION['City'] = $prospect['prospect_City'];
+            $_SESSION['PostalCode'] = $prospect['prospect_PostalCode'];
+            $_SESSION['Phone'] = $prospect['prospect_Phone'];
+            $_SESSION['Mobile'] = $prospect['prospect_Mobile'];
+            $_SESSION['Email'] = $prospect['prospect_Email'];
+            $_SESSION['Msn'] = $prospect['prospect_Msn'];
+            $_SESSION['Url'] = $prospect['prospect_Url'];
+            $_SESSION['Localisation'] = $prospect['prospect_Localisation'];
+            $_SESSION['level'] = $prospect['prospect_Level'];
             header('Location: index.php?action=home');
         } else {
             throw new Exception(json_encode(array('error' => "qry002",

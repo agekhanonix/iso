@@ -9,15 +9,21 @@ class ProspectsManager extends Manager {
                 `prospect_Msn`, `prospect_Url`,`prospect_Localisation`,`prospect_Registred`,`prospect_Level`,
                 `prospect_CreationDate` 
             FROM iso_prospects 
-            WHERE prospect_Pseudo = :pseudo AND prospect_Pwd = :pwd");
+            WHERE prospect_Pseudo = :pseudo");
         $q->bindValue(':pseudo', $pseudo);
-        $q->bindValue(':pwd', $this->encrypt($pwd, $pseudo));
         $q->execute();
-        $jsonCode = json_encode($q->fetchAll(PDO::FETCH_ASSOC));
-        return $jsonCode;
+        $data = $q->fetch();
+        if(count($data) == 0 || !$this->decrypt($pwd, $data['prospect_Pwd'])) {
+            return false;
+        } else {
+            return $data;
+        }
     }
-    protected function encrypt($pwd, $pseudo) {
-        $encrypted_string = hash_hmac('sha512', $pseudo . $pwd, '6Tune7+?2fred');
+    protected function encrypt($pwd) {
+        $encrypted_string = password_hash($pwd, PASSWORD_DEFAULT);
         return $encrypted_string;
+    }
+    protected function decrypt($pwd, $hash) {
+        return password_verify($pwd, $hash);
     }
 }

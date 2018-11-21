@@ -79,7 +79,7 @@
             <p class="card-text"><?= $service->service_Description ?></p>
             <a href="#" class="btn btn-default" data-toggle="modal" data-target="#booklet-mail<?= $service->service_Id ?>" ><i class="far fa-envelope-open"></i>Recevoir une brochure</a>
     </article>
-     <div class="modal fade" id="booklet-mail<?= $service->service_Id ?>" tabindex="-1" role="dialog" aria-labelledby="contact-mailTitle" arria-hidden="true">
+     <div class="modal fade" id="booklet-mail<?= $service->service_Id ?>" tabindex="-1" role="dialog" aria-labelledby="contact-mailTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
