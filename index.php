@@ -33,7 +33,7 @@
             ** === ------------------------------------ === */
             } elseif($_GET['action'] == 'connexion') {
                 if(!empty($_POST['pseudo']) && !empty($_POST['pwd'])) {
-                    getCompte($_POST['pseudo'], $_POST['pwd']);
+                    getProspect($_POST['pseudo'], trim($_POST['pwd']));
                 } else {
                     throw new Exception(json_encode(array('error' => "act001",
                         'msg' => "Toutes les infos nécéssaires n'ont pas été renseignées",
@@ -41,6 +41,24 @@
                         'name' => "connexion", 
                         'script' => "index.php", 
                         'explanation' => "erreur dans le paramétrage du script")));
+                }
+            /* === ------------------------------------- === **
+            **              REGISTRING: ACTION               **
+            ** === ------------------------------------- === */
+            } elseif($_GET['action'] == 'registring') {
+                if($_POST['pwd'] == $_POST['confirm']) {
+                    $email = (checkAddress(trim($_POST['email']))) ? trim($_POST['email']) : '';
+                    addProspect(trim($_POST['pseudo']), trim($_POST['society']), trim($_POST['lastName']), 
+                        trim($_POST['firstName']), trim($_POST['streetNum']), trim($_POST['addr1']), trim($_POST['addr2']),
+                        trim($_POST['city']), trim($_POST['postalCode']), trim($_POST['phone']), trim($_POST['mobile']),
+                        $email, trim($_POST['pwd']));
+                } else {
+                    throw new Exception(json_encode(array('error' => "act006",
+                        'msg' => "Le mot de passe et sa confirmation ne sont pas identiques",
+                        'type' => "action", 
+                        'name' => "registring", 
+                        'script' => "index.php", 
+                        'explanation' => "erreur de saisie utilisateur")));
                 }
             } elseif($_GET['action'] == 'generateAudit') {
                 if(isset($_GET['auditId']) && isset($_GET['prospectId'])) {
@@ -84,6 +102,16 @@
                         'script' => "index.php", 
                         'explanation' => "aucune brochure n'a été selectionnée")));
                 }
+            /* === ------------------------------------- === **
+            **              FREQUENTATION: ACTION            **
+            ** === ------------------------------------- === */
+            } elseif($_GET['action'] == 'frequentation') {
+                frequentation();
+            } elseif($_GET['action'] == 'getAllProspects') {
+                getAllProspects();
+            /* === ------------------------------------- === **
+            **              DECONNEXION: ACTION              **
+            ** === ------------------------------------- === */
             } elseif($_GET['action'] == 'deconnexion') {
                 deconnexion();
             }

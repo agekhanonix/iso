@@ -43,3 +43,41 @@ function getIp() {
 		return (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '');
 	}
 }
+/**
+ * Géolocaliser une adresse avec GOOGLE MAPS API
+ */
+function getGeocodeData($address) {
+    $address = urlencode($address);
+    $googleMapUrl = "https://maps.googleapis.com/maps/api/geocode/json?address={$address}&key=AIzaSyCXB6yLq41R_CSfl2saDa1pqqOutPwVNnI";
+    $geocodeResponseData = file_get_contents($googleMapUrl);
+    $responseData = json_decode($geocodeResponseData, true);
+    if($responseData['status']=='OK') {
+        $latitude = isset($responseData['results'][0]['geometry']['location']['lat']) ? $responseData['results'][0]['geometry']['location']['lat'] : "";
+        $longitude = isset($responseData['results'][0]['geometry']['location']['lng']) ? $responseData['results'][0]['geometry']['location']['lng'] : "";
+        $formattedAddress = isset($responseData['results'][0]['formatted_address']) ? $responseData['results'][0]['formatted_address'] : "";
+            if($latitude && $longitude && $formattedAddress) {
+                $geocodeData = array();
+                array_push(
+                    $geocodeData,
+                    $latitude,
+                    $longitude,
+                    $formattedAddress
+                );
+                return $geocodeData;
+            } else {
+                return false;
+            }
+    } else {
+        echo "ERROR: {$responseData['status']}";
+        return false;
+    }
+}
+ /* *** SYNTAX CHECKING FOR AN ADDRESS E-MAIL    *** */
+ function checkAddress($email) {
+	if(!filter_var($email, FILTER_VALIDATE_EMAIL)) return false;
+	if(function_exists('checkdnsrr')) {
+		$host = substr($email, strpos($email, '@') + 1);
+		return checkdnsrr($host, 'MX');
+	}
+	return true;
+}

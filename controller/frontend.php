@@ -47,9 +47,9 @@
         $auditManager = new AuditsManager();
         $affectedLines = $auditManager->getNotes4Graphe($auditId, $prospectId);
     }
-    function getCompte($pseudo, $pwd) {
+    function getProspect($pseudo, $pwd) {
         $prospectManager = new ProspectsManager();
-        $prospect = $prospectManager->getCompte($pseudo, $pwd);
+        $prospect = $prospectManager->getProspect($pseudo, $pwd);
         if($prospect !== null) {
             $_SESSION['Id'] = $prospect['prospect_Id'];
             $_SESSION['Pseudo'] = $prospect['prospect_Pseudo'];
@@ -76,6 +76,24 @@
                 'name' => "getCompte", 
                 'script' => "controller/frontend.php", 
                 'explanation' => "erreur SQL || inexistance du compte")));
+        }
+    }
+    function getAllProspects() {
+        $prospectManager = new ProspectsManager();
+        $affectedLines = $prospectManager->getAllProspects();
+    }
+    function addProspect($pseudo, $society, $lastname, $firstname, $streetnum, $addr1, $addr2, $city, $postalcode, $phone, $mobile, $email, $pwd) {
+        $prospectManager = new ProspectsManager();
+        $affectedLines = $prospectManager->addProspect($pseudo, $society, $lastname, $firstname, $streetnum, $addr1, $addr2, $city, $postalcode, $phone, $mobile, $email, $pwd);
+        if($affectedLines === false) {
+            throw new Exception(json_encode(array('error' => "qry005",
+                'msg' => "Le prospect n'a pas été ajouté",
+                'type' => "request", 
+                'name' => "addProspect", 
+                'script' => "controller/frontend.php", 
+                'explanation' => "erreur SQL")));
+        } else {
+            header('Location: index.php?action=audit');
         }
     }
     function generateAudit($auditId, $prospectId, $img) {
@@ -176,4 +194,7 @@
     function deconnexion() {
         session_destroy();
         header('Location: index.php?action=home');
+    }
+    function frequentation() {
+        require('view/frontend/frequentation.php');
     }

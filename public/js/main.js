@@ -5,6 +5,7 @@
 *  Date      : 25.10.2018                                       *
 *  Version   : V1R0                                             *
 * ============================================================ */
+
 window.addEventListener("load", function(){
     var elExpands = document.querySelectorAll('[data-expand]');
     var elLoading = document.querySelector("[data-loading]");

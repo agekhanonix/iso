@@ -313,18 +313,18 @@ CREATE TABLE `iso_prospects` (
   `prospect_Society` varchar(50) NULL,
   `prospect_LastName` varchar(50) NOT NULL,
   `prospect_FirstName` varchar(50) NOT NULL,
-  `prospect_StreetNum` varchar(5),
-  `prospect_Addr1` varchar(75),
-  `prospect_Addr2` varchar(75),
-  `prospect_City` varchar(75),
-  `prospect_PostalCode` varchar(5),
+  `prospect_StreetNum` varchar(5) NOT NULL,
+  `prospect_Addr1` varchar(75) NOT NULL,
+  `prospect_Addr2` varchar(75) NULL,
+  `prospect_City` varchar(75) NOT NULL,
+  `prospect_PostalCode` varchar(5) NOT NULL,
   `prospect_Phone` varchar(15),
   `prospect_Mobile` varchar(15),
   `prospect_Pwd` varchar(250) NOT NULL,
-  `prospect_Email` varchar(250) NULL,
+  `prospect_Email` varchar(250) NOT NULL,
   `prospect_Msn` varchar(250) NULL,
   `prospect_Url` varchar(100) NULL,
-  `prospect_Localisation` varchar(100) NULL,
+  `prospect_Localisation` varchar(100) NOT NULL,
   `prospect_Registred` int(11) DEFAULT '0',
   `prospect_Level` tinyint(4) DEFAULT '2',
   `prospect_CreationDate` datetime DEFAULT NULL
@@ -339,14 +339,14 @@ ALTER TABLE `iso_prospects`
 -- AUTO_INCREMENT pour la table `iso_prospects`
 --
 ALTER TABLE `iso_prospects`
-  MODIFY `prospect_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY `prospect_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 --
 -- Chargement des donnees de la table `iso_prospects`
 --
 INSERT INTO `iso_prospects` (`prospect_Id`, `prospect_Pseudo`, `prospect_LastName`, `prospect_FirstName`, `prospect_Pwd`, `prospect_Email`, `prospect_Msn`, `prospect_Url`, `prospect_Localisation`, `prospect_Registred`, `prospect_Level`, `prospect_CreationDate`) VALUES
-(1, 'revoke', 'REVOKE', 'Cpte', '6a899d79ada8beff57053f23813006b701a52428b1ded94f39a500c2ee6534ae5bbfd3fee31758f31ae7df1e4627fef1f8b4fe7fd6b3387441b703e09d54ad6d', 'revoke@agekhanonix.fr', '', '', '', 1, 2, '2018-09-25 18:53:24'),
-(2, 'guest', 'GUEST', 'Cpte', 'dea2478a47f4836dd4dfbfab75352dbdb138aa9b20e7a590215e2d0bea7ec01ed0ba47b180ba9d836d38f31d967f1e115c224703e397640ae18e2a9c708cade9', 'guest@agekhanonix.fr', '', '', '', 0, 2, '2018-09-25 18:52:44'),
-(3, 'admin', 'ADMIN', 'Cpte', 'c8adf9b094b98ae51db8d7d585a530887bd16eb7eff3a6fc1e9a5975ddace3a6e1beb8617f3f19ca244112ed5b40149d1b8c7c20066f9b1e20c66c26c565e65a', 'admin@agekhanonix.fr', '', '', '', 0, 4, '2018-09-25 18:51:58');
+(1, 'revoke', 'REVOKE', 'Cpte', '$2y$10$PGH15INfWV5ySHY7uKlvXuvPagOqr0UJy3DJ5Iu6KayKreOhPOE5e', 'revoke@agekhanonix.fr', '', '', '', 1, 2, '2018-09-25 18:53:24'),
+(2, 'guest', 'GUEST', 'Cpte', '$2y$10$GL.u9Uori5O6JTR0QspBDuI3oR5fII.1JGsqN04CWUpBktoVnTOnO', 'guest@agekhanonix.fr', '', '', '', 0, 2, '2018-09-25 18:52:44'),
+(3, 'admin', 'ADMIN', 'Cpte', '$2y$10$qTsXTNno9NVQ/6ZHy46SauzvnjyEf2oURaVolcn3LQjALlT4R1OhG', 'admin@agekhanonix.fr', '', '', '', 0, 4, '2018-09-25 18:51:58');
 
 --
 -- Structure de la table `iso_visits`

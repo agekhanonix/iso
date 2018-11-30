@@ -57,8 +57,7 @@
       <!-- ###        JAVASCRIPT / M.E.O. BOOTSTRAP     ### -->
 
       <script src="public/bootstrap/dist/js/bootstrap.js" type="text/javascript"></script>
-      <!-- ###           JAVASCRIPT / CUSTOM JS         ### -->
-      
+      <!-- ###           JAVASCRIPT / CUSTOM JS         ### --> 
       <script src="public/js/main.js" type="text/javascript"></script>  <!-- Main program -->
     </body>
 </html>

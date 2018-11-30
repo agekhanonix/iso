@@ -54,6 +54,83 @@ function xmlParse(str) {
     }
 }
 /* --- =========================================== --- **
+**     INTERROGATION OF THE OPEN STATIONS DEPENDENT    **
+**     WITH A CONTRACT                                 **
+** --- =========================================== --- */
+function affProspects(filter) {
+    /*var url = 'public/php/getStation.php?contract=' + contrat;*/
+    var filter = parseInt(filter);
+    var url = 'index.php?action=getAllProspects';
+    //fdc = new Gmap(divId, 48.2901696, 4.0410646);
+    downloadUrl(url, function(data){
+        var jsonObject = eval('(' + data + ')');
+        var prospects = jsonObject;
+        var markers = [];
+        fdc = new Gmap(divId, 48.2901696, 4.0410646);
+        idMap = fdc.objectMap;
+        for(var i=0; i<prospects.length; i++) {
+            switch(filter) {
+                case 1:
+                    m = new GMarker(idMap, prospects[i].Society, prospects[i].StreetNum, 
+                        prospects[i].Addr1,prospects[i].Addr2,prospects[i].PostalCode,prospects[i].City, 
+                        parseFloat(prospects[i].Lat),parseFloat(prospects[i].Lng),prospects[i].Quests, 
+                        prospects[i].Phone,prospects[i].Mobile, prospects[i].Email,prospects[i].Type,
+                        prospects[i].FirstName, prospects[i].LastName);
+                    markers.push(m);
+                    break;
+                case 2:
+                    switch(parseInt(prospects[i].Type)) {
+                        case 1:
+                            m = new GMarker(idMap, prospects[i].Society, prospects[i].StreetNum, 
+                                prospects[i].Addr1,prospects[i].Addr2,prospects[i].PostalCode,prospects[i].City, 
+                                parseFloat(prospects[i].Lat),parseFloat(prospects[i].Lng),prospects[i].Quests, 
+                                prospects[i].Phone,prospects[i].Mobile, prospects[i].Email,prospects[i].Type,
+                                prospects[i].FirstName, prospects[i].LastName);
+                            markers.push(m);
+                            break;
+                    }
+                    break;
+                case 3:
+                    switch(parseInt(prospects[i].Type))  {
+                        case 2:
+                        case 3:
+                        case 4:
+                            m = new GMarker(idMap, prospects[i].Society, prospects[i].StreetNum, 
+                                prospects[i].Addr1,prospects[i].Addr2,prospects[i].PostalCode,prospects[i].City, 
+                                parseFloat(prospects[i].Lat),parseFloat(prospects[i].Lng),prospects[i].Quests, 
+                                prospects[i].Phone,prospects[i].Mobile, prospects[i].Email,prospects[i].Type,
+                                prospects[i].FirstName, prospects[i].LastName);
+                            markers.push(m);
+                            break;
+                    }
+                    break;
+                case 4:
+                    switch(parseInt(prospects[i].Type)) {
+                        case 5:
+                            m = new GMarker(idMap, prospects[i].Society, prospects[i].StreetNum, 
+                                prospects[i].Addr1,prospects[i].Addr2,prospects[i].PostalCode,prospects[i].City, 
+                                parseFloat(prospects[i].Lat),parseFloat(prospects[i].Lng),prospects[i].Quests, 
+                                prospects[i].Phone,prospects[i].Mobile, prospects[i].Email,prospects[i].Type,
+                                prospects[i].FirstName, prospects[i].LastName);
+                            markers.push(m);
+                            break;
+                    }
+                    break;
+                case 99:
+                    m= new GMarker(idMap, prospects[i].Society, prospects[i].StreetNum, 
+                        prospects[i].Addr1,prospects[i].Addr2,prospects[i].PostalCode,prospects[i].City, 
+                        parseFloat(prospects[i].Lat),parseFloat(prospects[i].Lng),prospects[i].Quests, 
+                        prospects[i].Phone,prospects[i].Mobile, prospects[i].Email,prospects[i].Type,
+                        prospects[i].FirstName, prospects[i].LastName);
+                    markers.push(m);
+                    break;
+            }
+        }
+        m = new GMarker(idMap, 'TH.CHARPENTIER', '', '', '', '', '', 48.2901696, 4.0410646, '', '', '', '', 99,'','');
+        markers.push(m);
+    });
+}
+/* --- =========================================== --- **
 **    TO OBTAIN THE PUNCTUAL COORDINATES FLIES OVER    **
 **    BY THE CURSOR                                    **
 ** --- =========================================== --- */

@@ -104,7 +104,15 @@
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label for="rPseudo" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">Compte</label>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                    <input name="pseudo" placeholder="Identifiant" class="form-control" type="text" id="rPseudo"/>
+                                    <input name="pseudo" placeholder="Identifiant" class="form-control" type="text" id="rPseudo" required/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <label for="rSociety" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">Société</label>
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                    <input name="society" placeholder="Société" class="form-control" type="text" id="rSociety"/>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +120,7 @@
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label for="rFirst" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">Prénom</label>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                    <input name="firstName" placeholder="Prénom" class="form-control" type="text" id="rFirst"/>
+                                    <input name="firstName" placeholder="Prénom" class="form-control" type="text" id="rFirst" required />
                                 </div>
                             </div>
                         </div>
@@ -120,7 +128,7 @@
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label for="rLast" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">Nom</label>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                    <input name="lastName" placeholder="Nom" class="form-control" type="text" id="rLast"/>
+                                    <input name="lastName" placeholder="Nom" class="form-control" type="text" id="rLast" required />
                                 </div>
                             </div>
                         </div>
@@ -128,7 +136,7 @@
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label for="rNo" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">No</label>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                    <input name="streetNum" placeholder="N° de rue" class="form-control" type="text" id="rNo"/>
+                                    <input name="streetNum" placeholder="N° de rue" class="form-control" type="text" id="rNo" required />
                                 </div>
                             </div>
                         </div>
@@ -136,7 +144,7 @@
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label for="rAddr1" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">Adresse</label>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                    <input name="addr1" placeholder="Nom de la rue" class="form-control" type="text" id="rAddr1"/>
+                                    <input name="addr1" placeholder="Nom de la rue" class="form-control" type="text" id="rAddr1" required />
                                 </div>
                             </div>
                         </div>
@@ -152,7 +160,7 @@
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label for="rCP" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">Code postal</label>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                    <input name="postalCode" placeholder="Code postal" class="form-control" type="text" id="rCP"/>
+                                    <input name="postalCode" placeholder="Code postal" class="form-control" type="text" id="rCP" required />
                                 </div>
                             </div>
                         </div>
@@ -160,7 +168,7 @@
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label for="rCity" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">Ville</label>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                    <input name="city" placeholder="Ville" class="form-control" type="text" id="rCity"/>
+                                    <input name="city" placeholder="Ville" class="form-control" type="text" id="rCity" required />
                                 </div>
                             </div>
                         </div>
@@ -184,7 +192,7 @@
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label for="rEmail" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">Adresse</label>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                    <input name="email" placeholder="john.doe@ltd.com" class="form-control" type="email" id="rEmail"/>
+                                    <input name="email" placeholder="john.doe@ltd.com" class="form-control" type="email" id="rEmail" required />
                                 </div>
                             </div>
                         </div>
@@ -192,7 +200,7 @@
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label for="rPwd1" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">Clé</label>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                    <input name="pwd" class="form-control" type="password" id="rPwd1"/>
+                                    <input name="pwd" class="form-control" type="password" id="rPwd1" required />
                                 </div>
                             </div>
                         </div>
@@ -200,7 +208,7 @@
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <label for="rPwd2" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">Confirmation</label>
                                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                    <input name="confirm" class="form-control" type="password" id="rPwd2"/>
+                                    <input name="confirm" class="form-control" type="password" id="rPwd2" required/>
                                 </div>
                             </div>
                         </div>
