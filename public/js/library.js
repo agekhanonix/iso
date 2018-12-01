@@ -60,7 +60,7 @@ function xmlParse(str) {
 function affProspects(filter) {
     /*var url = 'public/php/getStation.php?contract=' + contrat;*/
     var filter = parseInt(filter);
-    var url = 'index.php?action=getAllProspects';
+    var url = 'admin.php?action=getAllProspects';
     //fdc = new Gmap(divId, 48.2901696, 4.0410646);
     downloadUrl(url, function(data){
         var jsonObject = eval('(' + data + ')');
