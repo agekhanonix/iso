@@ -1,0 +1,63 @@
+<!--
+*/ =================================================== **
+**            NAVIGATION BAR                           **
+** =================================================== */
+/* Author    : Thierry CHARPENTIER                      *
+*  Date      : 16.09.2018                               *
+*  Version   : V2R0                                     *
+* ==================================================== */
+-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <!-- Brand and toogle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">
+                <h1>TH.CHARPENTIER</h1>
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="admin.php?action=home">Accueil <span class="sr-only">(current)</span></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administration <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a href="#">Des prospects</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">R&eacute;vocation</a></li>
+                                    <li><a href="admin.php?action=frequentation">Fr&eacute;quentation</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="#">Des services</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Cr&eacute;ation</a></li>
+                                    <li><a href="#">Modification</a></li>
+                                    <li><a href="#">Publication</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a href="#">Des audits</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">&Eacute;dition des graphes</a></li>
+                                    <li><a href="#">Propositions commerciales</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul><!-- END (ul class="nav navbar-nav) -->
+<?php if(isset($_SESSION['Id'])) { ?>
+    <p class="navbar-text navbar-right">Bienvenue <?= $_SESSION['FirstName'] ?> <?= $_SESSION['LastName'] ?> 
+        <a href="admin.php?action=deconnexion" class="navbar-link"><span class="glyphicon glyphicon-scissors glyph red" aria-hidden="true"></span></a>
+    </p>
+<?php } ?>
+            </div><!-- END .nav-collapse -->
+        </nav>
