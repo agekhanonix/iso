@@ -54,3 +54,37 @@
         $prospectManager = new ProspectsManager();
         $affectedLines = $prospectManager->getAllProspects();
     }
+    function admin() {
+        require('view/backend/admin.php');
+    }
+    function getProspect($pseudo, $pwd) {
+        $prospectManager = new ProspectsManager();
+        $prospect = $prospectManager->getProspect($pseudo, $pwd);
+        if($prospect !== null) {
+            $_SESSION['Id'] = $prospect['prospect_Id'];
+            $_SESSION['Pseudo'] = $prospect['prospect_Pseudo'];
+            $_SESSION['Society'] = $prospect['prospect_Society'];
+            $_SESSION['LastName'] = $prospect['prospect_LastName'];
+            $_SESSION['FirstName'] = $prospect['prospect_FirstName'];
+            $_SESSION['StreetNum'] = $prospect['prospect_StreetNum'];
+            $_SESSION['Addr1'] = $prospect['prospect_Addr1'];
+            $_SESSION['Addr2'] = $prospect['prospect_Addr2'];
+            $_SESSION['City'] = $prospect['prospect_City'];
+            $_SESSION['PostalCode'] = $prospect['prospect_PostalCode'];
+            $_SESSION['Phone'] = $prospect['prospect_Phone'];
+            $_SESSION['Mobile'] = $prospect['prospect_Mobile'];
+            $_SESSION['Email'] = $prospect['prospect_Email'];
+            $_SESSION['Msn'] = $prospect['prospect_Msn'];
+            $_SESSION['Url'] = $prospect['prospect_Url'];
+            $_SESSION['Localisation'] = $prospect['prospect_Localisation'];
+            $_SESSION['level'] = $prospect['prospect_Level'];
+            header('Location: admin.php?action=admin');
+        } else {
+            throw new Exception(json_encode(array('error' => "qry001",
+                'msg' => "Le compte n'a pas été trouvé",
+                'type' => "request", 
+                'name' => "getProspect", 
+                'script' => "controller/backend.php", 
+                'explanation' => "erreur SQL || inexistance du compte")));
+        }
+    }

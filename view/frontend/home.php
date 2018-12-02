@@ -77,66 +77,8 @@
         <div class="card-body>">
             <h5 class="card-title"><?= $service->service_Title ?></h5>
             <p class="card-text"><?= $service->service_Description ?></p>
-            <a href="#" class="btn btn-default" data-toggle="modal" data-target="#booklet-mail<?= $service->service_Id ?>" ><i class="far fa-envelope-open"></i>Recevoir une brochure</a>
+            <a href="divers/brochures/<?= $service->service_Booklet ?>" class="btn btn-default btn-icon"><i class="fas fa-download"></i> Télécharger une brochure</a>
     </article>
-     <div class="modal fade" id="booklet-mail<?= $service->service_Id ?>" tabindex="-1" role="dialog" aria-labelledby="contact-mailTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true"><i class="glyphicon glyphicon-remove-circle"></i></span> 
-                    </button>
-                </div>
-                <div class="modal-body">
-                <form class="form form-horizontal" action="index.php?action=mailBooklet&id=<?= $service->service_Id ?>" method="post">
-                    <h3 class="form"><?= $service->service_Title ?></h3>
-                    <h4 class="form">Pour recevoir une brochure d'informations</h4>
-                    <fieldset class="form">
-                        <div class="row">
-                            <input type="hidden" name="booklet<?= $service->service_Id ?>" value="<?= $service->service_Booklet ?>">
-                            <div class="form-group has-error has-feedback col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <label for="name<?= $service->service_Id ?>" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">Nom</label>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                    <input type="text" class="form-control" id="name<?= $service->service_Id ?>" name="name<?= $service->service_Id ?>" placeholder="Thierry CHARPENTIER"
-<?php if(isset($_SESSION['Id'])) { ?>
-    value="<?= $_SESSION['FirstName'] ?> <?= $_SESSION['LastName'] ?>"
-<?php } else { ?>
-    value=""
-<?php } ?>>                                 
-                                    <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-                                </div>
-                            </div>
-                        </div>
-                      <div class="row">
-                            <div class="form-group has-error has-feedback col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <label for="email<?= $service->service_Id ?>" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label">Courriel</label>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                                    <input type="text" class="form-control has-error has-feedback" id="email<?= $service->service_Id ?>" name="email<?= $service->service_Id ?>" placeholder="jean.dupont@ltd.com" 
-<?php if(isset($_SESSION['Id'])) { ?>
-    value="<?= $_SESSION['Email'] ?>"
-<?php } else { ?>
-    value=""
-<?php } ?>>
-                                    <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </fieldset>
-                    <div class="row">
-                        <div class="form-group">
-                            <button type="submit" id="submit" class="btn btn-sm btn-default">
-                                <span class="glyphicon glyphicon-ok btn-icon" aria-hidden="true"></span>Envoyer
-                            </button>
-                        </div>
-                    </div>
-                </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermeture</button>
-                </div>
-            </div>
-        </div>
-    </div>
 <?php } ?>
                 </div>
             </section>

@@ -155,42 +155,6 @@
                 'explanation' => "Erreur inconnue")));
         }
     }
-    function mailBooklet($name, $email, $booklet) {
-        $to = $email;
-        $cc = 'thierry.charpentier.ct@gmail.com';
-        $subject = "TH.CHARPENTIER : Envoi de brochure";
-        $boundary =  md5(uniqid(microtime(), true));//A single bundary is created
-        $fichier = "view/include/brochures/".$booklet;
-
-        $headers = 'Content-Type: multipart/mixed;'."\r\n".' boundary="'.$boundary.'"';
-        $headers .= 'From: Contact<contact@thcharpentier.fr>' ."\r\n";
-        $headers .= 'Cc: '. $cc . "\r\n";
-        $body = 'This is a multi-part message in MIME format.'."\r\n";
-        $body .= '--'.$boundary."\r\n";
-        $body .= 'Content-Type: text/html; charset="UTF-8"'."\r\n";// First part
-        $body .= "\r\n";
-        $body .= str_replace(array('{NAME}', '{DATE}'),array($name, date("d/m/Y à H:i:s")), file_get_contents("view/include/mail-booklet.php"));
-        $body .= "\r\n";
-        $body .= '--'.$boundary."\r\n";
-        $body .= 'Content-Type: application/pdf; name="'.basename($fichier).'"'."\r\n";
-        $body .= 'Content-Transfer-Encoding: base64'."\r\n";
-        $body .= 'Content-Disposition: attachment; filename="'.basename($fichier).'"'."\r\n";
-        $body .= "\r\n";
-        $source = chunk_split(file_get_contents(base64_encode($fichier)));
-        $body .= $source;
-        $body .= "\r\n".'--'.$boundary.'--';
-        $ok = mail($to, $subject, $body, $headers);
-        if($ok) {
-            header('Location: index.php?action=home'); 
-        } else {
-            throw new Exception(json_encode(array('error' => "qry004",
-                'msg' => "Le courriel n'a pas été envoyé",
-                'type' => "...", 
-                'name' => "mailBooklet", 
-                'script' => "controller/frontend.php", 
-                'explanation' => "Erreur inconnue")));
-        }
-    }
     function deconnexion() {
         session_destroy();
         header('Location: index.php?action=home');
