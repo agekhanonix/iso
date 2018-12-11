@@ -2,7 +2,7 @@
 
 class ProspectsManager extends Manager {
 
-    public function getProspect($pseudo, $pwd) {
+    public function getProspect($pseudo, $pwd, $val=0) {
         $db = $this->dbConnect();
         $q = $db->prepare("SELECT `prospect_Id`, `prospect_Pseudo`, `prospect_Society`, `prospect_LastName`,
                 `prospect_FirstName`,`prospect_StreetNum`,`prospect_Addr1`, `prospect_Addr2`, `prospect_City`,
@@ -10,8 +10,9 @@ class ProspectsManager extends Manager {
                 `prospect_Msn`, `prospect_Url`,`prospect_Localisation`,`prospect_Registred`,`prospect_Level`,
                 `prospect_CreationDate` 
             FROM iso_prospects 
-            WHERE prospect_Pseudo = :pseudo");
+            WHERE prospect_Pseudo = :pseudo AND prospect_Registred = :val");
         $q->bindValue(':pseudo', $pseudo);
+        $q->bindValue(':val', $val);
         $q->execute();
         $data = $q->fetch();
         if(count($data) == 0 || !$this->decrypt($pwd, $data['prospect_Pwd'])) {
@@ -22,24 +23,7 @@ class ProspectsManager extends Manager {
     }
     public function getAllProspects($js=true) {
         $db = $this->dbConnect();
-        $q = $db->prepare("SELECT T1.prospect_Id AS Id, SUM(CASE WHEN T2.audit_Id THEN 1 ELSE 0 END) AS Quests,
-                    T1.prospect_Society AS Society, T1.prospect_LastName AS LastName, T1.prospect_FirstName AS FirstName,
-                    T1.prospect_StreetNum AS StreetNum, T1.prospect_Addr1 AS Addr1, T1.prospect_Addr2 AS Addr2,
-                    T1.prospect_City AS City, T1.prospect_PostalCode AS PostalCode, T1.prospect_Phone AS Phone,
-                    T1.prospect_Mobile AS Mobile, T1.prospect_Email AS Email, 
-                    SUBSTRING_INDEX(T1.prospect_Localisation, ';', 1) AS Lat,
-                    SUBSTRING_INDEX(T1.prospect_Localisation, ';', -1) AS Lng,
-                    (CASE WHEN SUM(CASE WHEN T2.audit_Id THEN 1 ELSE 0 END) = 0 THEN 1
-                        WHEN SUM(CASE WHEN T2.audit_Id THEN 1 ELSE 0 END) > 0 AND SUM(CASE WHEN T2.audit_Id THEN 1 ELSE 0 END) < 50  THEN 2
-                        WHEN SUM(CASE WHEN T2.audit_Id THEN 1 ELSE 0 END) >= 50 AND SUM(CASE WHEN T2.audit_Id THEN 1 ELSE 0 END) < 75  THEN 3
-                        WHEN SUM(CASE WHEN T2.audit_Id THEN 1 ELSE 0 END) >= 75 AND SUM(CASE WHEN T2.audit_Id THEN 1 ELSE 0 END) < 98  THEN 4
-                        WHEN SUM(CASE WHEN T2.audit_Id THEN 1 ELSE 0 END) = 98 THEN 5
-                    END) AS Type,
-                    T2.audit_Id                 
-                FROM iso_prospects AS T1
-                LEFT OUTER JOIN iso_audits AS T2 ON T1.prospect_Id = T2.prospect_Id
-                WHERE T1.prospect_Id > 111
-                GROUP BY T1.prospect_Id");
+        $q = $db->prepare("SELECT T1.* FROM prospects_vw AS T1 INNER JOIN (SELECT Id, MAX(Quests) AS maxQuests FROM prospects_vw GROUP BY Id) AS T2 ON T1.Id = T2.Id AND T1.Quests = T2.maxQuests");
         $q->execute();
         $data = json_encode($q->fetchAll(PDO::FETCH_ASSOC));
         if(count($data) == 0) {
@@ -47,7 +31,15 @@ class ProspectsManager extends Manager {
         } else {
             if($js) { echo $data;} else {return $data;}
         }
-    }    
+    }
+    public function revokeProspect($Id, $val)  {
+        $db = $this->dbConnect();
+        $q = $db->prepare("UPDATE iso_prospects SET prospect_Registred = :val WHERE prospect_Id = :id");
+        $q->bindValue(':id', $Id);
+        $q->bindValue(':val', $val);
+        $affectedLines = $q->execute();
+        return $affectedLines;
+    }  
     public function addProspect($pseudo, $society, $lastname, $firstname, $streetnum, $addr1, $addr2, $city, $postalcode, $phone, $mobile, $email, $pwd) {
         $db = $this->dbConnect();
         $q = $db->prepare("INSERT INTO iso_prospects (`prospect_Pseudo`, `prospect_Society`, `prospect_LastName`,

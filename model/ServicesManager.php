@@ -14,5 +14,18 @@ class ServicesManager extends Manager {
             ORDER BY service_Id ASC");
         $jsonCode = json_encode($q->fetchAll(PDO::FETCH_ASSOC));
         return $jsonCode;
-    }   
+    }
+    public function getAllServices() {
+        $db = $this->dbConnect();
+        $q = $db->query("SELECT service_Id, 
+                service_Img, 
+                service_Title, 
+                service_Description, 
+                service_Publish,
+                service_Booklet 
+            FROM iso_services 
+            ORDER BY service_Id ASC");
+        $jsonCode = json_encode($q->fetchAll(PDO::FETCH_ASSOC));
+        return $jsonCode;
+    }  
 }

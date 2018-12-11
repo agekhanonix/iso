@@ -29,8 +29,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `iso_chapters`;
 CREATE TABLE `iso_chapters` (
   `chapter_Id` int(11) NOT NULL,
-  `chapter_Libelle` varchar(75) NOT NULL,
-  `chapter_Value` int(11) NOT NULL
+  `chapter_Libelle` varchar(75) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -41,17 +40,17 @@ ALTER TABLE `iso_chapters`
 --
 -- Chargement de la table
 --
-INSERT INTO `iso_chapters` (`chapter_Id`, `chapter_Libelle`, `chapter_Value`) VALUES
- (1, "politique de sécurité informatique", 36),
- (2, "organisation de la sécurité informatique", 44),
- (3, "classification et contrôle des actifs", 15),
- (4, "sécurité liée au personnel", 42),
- (5, "sécurité physique et sécurité de l'environnement", 52),
- (6, "sécurité de l'exploitation et des réseaux", 112),
- (7, "contrôle d'accès logiques", 86),
- (8, "développement et maintenance de logiciels", 40),
- (9, "continuité d'activité", 20),
- (10, "conformités", 32);
+INSERT INTO `iso_chapters` (`chapter_Id`, `chapter_Libelle`) VALUES
+ (1, "politique de sécurité informatique"),
+ (2, "organisation de la sécurité informatique"),
+ (3, "classification et controle des actifs"),
+ (4, "sécurité liee au personnel"),
+ (5, "sécurité physique et sécurité de l'environnement"),
+ (6, "sécurité de l'exploitation et des reseaux"),
+ (7, "controle d'accès logiques"),
+ (8, "développement et maintenance de logiciels"),
+ (9, "continuité d'activité"),
+ (10, "conformites");
 
 --
 -- Structure de la table `iso_subChapters`
@@ -71,35 +70,35 @@ ALTER TABLE `iso_subChapters`
 -- Chargement de la table
 --
 INSERT INTO `iso_subChapters` (`subChapter_Id`, `subChapter_Libelle`) VALUES
- (3, "responsabilité vis à vis des actifs de l'organisme"),
+ (3, "responsabilité vis a vis des actifs de l'organisme"),
  (4, "la surveillance de l'information dans votre organisme comprend"),
- (5, "sécurité lors du recrutement et de la définition des postes"),
+ (5, "sécurité lors du recrutement et de la definition des postes"),
  (6, "formation des utilisateurs"),
- (7, "réaction face aux incidents et aux défauts de fonctionnement de sécurité"),
- (8, "zones sécurisées"),
- (9, "sécurité du matériel informatique"),
- (10, "controles généraux"),
- (11, "procédures et responsabilités opérationnelles"),
+ (7, "reaction face aux incidents et aux defauts de fonctionnement de sécurité"),
+ (8, "zones securisees"),
+ (9, "sécurité du materiel informatique"),
+ (10, "controles generaux"),
+ (11, "procedures et responsabilités operationnelles"),
  (12, "planification et recette des systèmes"),
  (13, "protection contre les logiciels malveillants"),
  (14, "exploitation courante"),
- (15, "administration du réseau"),
+ (15, "administration du reseau"),
  (16, "manipulation des supports informatiques"),
- (17, "échanges d'informations et de logiciels"),
- (18, "exigence économique pour le controle d'accès"),
+ (17, "echanges d'informations et de logiciels"),
+ (18, "exigence economique pour le controle d'accès"),
  (19, "gestion des accès de la part des utilisateurs"),
  (20, "responsabilités des utilisateurs"),
- (21, "contrôle d'accès au réseau"),
- (22, "contrôle d'accès aux systèmes d'exploitation"),
+ (21, "controle d'accès au reseau"),
+ (22, "controle d'accès aux systèmes d'exploitation"),
  (23, "surveillance de l'accès et surveillance de l'utilisation du système"),
- (24, "informatique nomade et télétravail"),
- (25, "exigences de sécurité des systèmes (infrastructures, développement d'applications, de progiciels"),
+ (24, "informatique nomade et teletravail"),
+ (25, "exigences de sécurité des systèmes (infrastructures, developpement d'applications, de progiciels"),
  (26, "controles cryptographiques"),
  (27, "sécurité des dossiers systèmes"),
- (28, "sécurité des procédés de développement et de support"),
- (29, "aspects de la continuité d'activité"),
- (30, "conformité aux exigences légales"),
- (31, "revues de conformité de sécurité et de conformité technique"),
+ (28, "sécurité des procedes de devellopement et de support"),
+ (29, "aspects de la continuitéd'activite"),
+ (30, "conformitéaux exigences legales"),
+ (31, "revues de conformitéde sécurité et de conformitétechnique"),
  (32, "audits de sécurité");
 
 --
@@ -120,39 +119,39 @@ ALTER TABLE `iso_preambles`
 -- Chargement de la table
 --
 INSERT INTO `iso_preambles` (`preamble_Id`, `preamble_Libelle`) VALUES 
-(1, "La politique actuelle de sécurité informatique de votre organisme"),
-(2, "Lors de l'analyse, l'évaluation, et le déploiement de la politique de sécurité, votre société"),
-(3, "Les règles de sécurité informatique de votre organisme sont confortées par :"),
-(4, "L'accès par des sous-traitants à votre système informatique est verifié dans votre organisme par :"),
-(5, "Les prestataires d'infogérance sont controllés par :"),
-(6, "Votre organisme prend en charge les principaux actifs de technologie de l'informatique et de la communication"),
-(7, "Votre organisme a défini la politique et les procédures qui précisent"),
+(1, "La politique actuelles de sécurité informatique de votre organisme"),
+(2, "Lors de l'analyse, l'evaluation, et le deploiement de la politique de sécurité, votre société"),
+(3, "Les regles de sécurité informatique de votre organisme sont confortees par :"),
+(4, "L'accès par des sous-traitants a votre système informatique est verifie dans votre organisme par :"),
+(5, "Les prestataires d'infogerance sont controlles par :"),
+(6, "Votre organisme prend en charge les prinvipaux actifs de technologie de l'informatique et de la communication"),
+(7, "Votre organisme a defini la politique et les procedures qui precisent"),
 (8, "Un programme de formation sur la sécurité de l'information est en place dans l'organisme pour :"),
-(9, "En réaction à un incident ou à un défaut de fonctionnement de sécurité, un processus formel existe dans votre organisme qui :"),
-(10, "Les installations et équipements informatiques sont correctement sécurisés par :"),
-(11, "Le matériel informatique est correctement sécurisé par :"),
-(12, "Votre organisme empêche la compromission (violation de la politique de sécurité d'un système pouvant entrainer ou non la révélation, la falsification,la destruction ou la perte d'informations sensibles), ou le vol d'informations ainsi que d'équipement de traitement de l'information en exigeant :"),
-(13, "Votre organisme garanti le fonctionnement correct et sécurisé des technologies de l'information en sécurisant :"),
-(14, "Votre organisme réduit le risque que les performances des systèmes d'informations principaux se degradent en utilisant :"),
-(15, "Votre organisme protège l'intégrité et la sécurité des logiciels et informations critiques par :"),
-(16, "Votre organisme maintient l'intégrité et la disponibilité des services essentiels et de traitement de l'information et de communication par :"),
-(17, "Votre organisme garantit la protection des réseaux de télécommunication et l'infrastructure de support par :"),
-(18, "Pour empêcher les dommages de capitaux et l'interruption d'activité, les médias de votre organisme devraient être vérifié et physiquement protégés par :"),
-(19, "Votre organisme empêche la perte, la modification, ou le mauvais usage des echanges d'informations entre les organismes en utilisant de facon appropriée :"),
+(9, "En reaction a un incident ou a un defaut de fonctionnement de sécurité, un processus formel existe dans votre organisme qui :"),
+(10, "Les installations et equipements informatiques sont correctement securises par :"),
+(11, "Le materiel informatique est correctement securise par :"),
+(12, "Votre organisme empeche la compromission (violation de la politique de sécurité d'un système pouvant entrainer ou non la revelation, la falsification,la destruction ou la perte d'informations sensibles), ou le vol d'informations ainsi que d'equipement de traitement de l'information en exigeant :"),
+(13, "Votre organisme garant le fonctionnement correcte et securise des technologies de l'informations en securisant :"),
+(14, "Votre organisme reduit le risque que les performances des systèmes d'informations pricipaux se degradent en utilisant :"),
+(15, "Votre organisme protege l'integrité et la sécurité des logiciels et informations critiques par :"),
+(16, "Votre organisme maintient l'integrité et la disponibilité des services essentiels et de traitement de l'information et de communication par :"),
+(17, "Votre organisme garantit la protection des reseaux de telecommunication et l'infrastructure de support par :"),
+(18, "Pour empecher les dommages de capitaux et l'interruption d'activite, les medias de votre organisme devraient etre verifie et physiquement proteges par :"),
+(19, "Votre organisme empeche la perte, la modification, ou le mauvais usage des echanges d'information entre les organismes en utilisant de facon appropriee :"),
 (20, "Votre organisme verifie l'accès aux informations sensibles de l'entreprise par :"),
-(21, "Votre organisme empêche l'accès non autorisé aux systèmes informatiques par :"),
-(22, "Pour empêcher l'accès illicite par des utilisateurs non autorisés, votre organisme exige des utilisateurs :"),
-(23, "La protection des services accessibles par le réseau de l'entreprise est renforcée par :"),
-(24, "Tout accès aux ressources informatiques est limitée par des contrôle du système d'exploitation qui vérifie :"),
-(25, "Tous les accès et toutes les utilisations des systèmes informatiques sont surveillés pour détecter des activités illicites par :"),
-(26, "Votre organisme a défini et mis en oeuvre une politique et des procédures documentées de sécurité de l'information pour vérifier :"),
+(21, "Votre organisme empeche l'accès non autorise aux systèmes informatiques par :"),
+(22, "Pour empecher l'accès illicite par des utilisateurs non autorises, votre organisme exige des utilisateurs :"),
+(23, "La protection des services accessibles par le reseau de l'entreprise est renforcee par :"),
+(24, "Tout accès aux ressources informatiques est limitépar des controle du système d'exploitation qui verifie :"),
+(25, "Tous les accès et toutes les utilisations des systèmes informatiques sont surveilles pour détecter des activités illicites par :"),
+(26, "Votre organisme a défini et mis en oeuvre une politique et des procédures documentées de sécurité de l'information pour verifier :"),
 (27, "Votre organisme indique des exigences et des mesures de sécurité qui :"),
-(28, "Votre organisme emploie des systèmes de cryptographie ainsi que des techniques pour proteger la confidentialité, l'authenticité ou l'intégrité de l'information :"),
-(29, "Les fichiers systèmes sont sécurisés pendant les projets informatiques et les activités de support par :"),
-(30, "Afin de réduire au minimum la corruption des systèmes d'informations, votre organisme vérifie la mise en oeuvre des évolutions par :"),
+(28, "Votre organisme emploie des systèmes de cryptographie ainsi que des techniques pour proteger la confidentialité, l'authenticitéou l'integrité de l'onformation :"),
+(29, "Les fichiers systèmes sont securiseacute;s pendant les projets informatiques et les activites de support par :"),
+(30, "Afin de reduire au minimum la corruption des systèmes d'information, votre organisme verifie la mise en oeuvre des eveolution par :"),
 (31, "Votre organisme a mis en oeuvre un preocessus de gestion de la continuitéd'activitéqui :"),
-(32, "Votre organisme a mis en oeuvre des normes et des procédures pour garantir la conformité aux exigences légales qui adressent specifiquement :"),
-(33, "Des procédures de conformité sont en place qui exigent :"),
+(32, "Votre organisme a mis en oeuvre des normes et des procedures pour garantir la conformitéaux exigences legales qui adressent specifiquement :"),
+(33, "Des procédures de conformitésont en place qui exigent :"),
 (34, "Des procédures d'audit sont en place qui exigent :");
 
 --
@@ -177,48 +176,48 @@ ALTER TABLE `iso_questions`
 -- Chargement de la table
 --
 INSERT INTO `iso_questions` (`question_Id`, `question_ChapterId`, `question_predecessorId`, `question_Value`, `question_Libelle`) VALUES
- (1,1,'0.1',    6, "Défini les objectifs de sécurité de l'information et explique son importance pour votre société"),
- (2,1,'0.0',    6, "Est soutenue par la Direction Générale <i><small>(par exemple : une note de service)</small></i>"),
- (3,1,'0.0',    6, "A défini les principales responsabilités du personnel vis à vis de la sécurité"),
- (4,1,'0.0',    6, "Fait la liaison avec d'autres documents traitant de la sécurité tels que la charte d'utilisation des nouvelles technologies de l'information, les procédures de support"),
+ (1,1,'0.1',    6, "Définit les objectifs de sécurité de l'information et explique son importance pour votre société"),
+ (2,1,'0.0',    6, "Est soutenue par la Direction générale<br><i><small>(par exemple : une note de service)</small></i>"),
+ (3,1,'0.0',    6, "A défini les principales responsabilités du personnel vis a vis de la sécurité"),
+ (4,1,'0.0',    6, "Fait la liaison avec d'autres documents traitant de la sécurité tels que la charte d'utilisation des nouvelles technologies de l'information, les procedures de support"),
  (5,1,'0.2',    6, "A défini un propriétaire d'actif pour assurer la sécurité de chaque actif principal"),
  (6,1,'0.0',    6, "A mis en oeuvre une revue de cette politique par les propriétaires d'actifs, des juristes, la DSI, la direction du personnel"),
- (7,2,'0.3',    4, "La mise en oeuvre d'un comité de sécurité informatique qui définit les grandes lignes pour des activités des stratégies de sécurité.<br/>Ce comité inclut typiquement le responsable de la sécurité informatique, la DSI, les répresentants des principales entités, les auditeurs internes, la Direction du personnel."),
- (8,2,'0.0',    4, "La nomination d'un représentant de la sécurité informatique dans chaque entité, filiale ou division"),
- (9,2,'0.0',    4, "Une définition claire des tâches, rôles spécifiques, affectation des responsables de la sécurité informatique"),
- (10,2,'0.0',   4, "Le conseil de la sécurité informatique <i><small>(pour l'avis d'experts)</small></i> ou de coordinateurs <i><small>(pour partager et coordonner la connaissance de la sécurité de l'organisme</small></i>"),
- (11,2,'0.0',   4, "L'identification de points de contact pour obtenir un support en cas d'incident de sécurité ainsi qu'une assistance et un conseil sur les contraintes légales, les normes spécifiques liées au métier"),
- (12,2,'0.0',   4, "Une revue indépendante et pertinente de la mise en oeuvre de la politique de sécurité informatique de l'organisme"),
- (13,2,'0.0',   4, "Une revue des risques et une validation formelle de la part de la direction lors de l'utilisation ou du déploiement de nouvelles technologies informatiques (NTIC)"),
- (14,2,'0.4',   6, "La présentation des règles de sécurité de l'organisme et des obligations des tiers vis à vis de ces règles <i><small>(sous-traitant ou autre)</small></i>"),
- (15,2,'0.0',   2, "La présentation aux sous-traitants de la politique de classification de l'information et les procédures associées aux données sensibles et/ou confidentielles"),
- (16,2,'0.5',   6, "La communication des exigences de sécurité et son suivi pour protèger le patrimoine informationnel de l'entreprise"),
- (17,2,'0.0',   2, "La formation des prestataires de services d'infogérance à leurs responsabilités vis à vis de la sécurité informatique, des technologies utilisées par votre entreprise.<br/>Leurs responsabilités quant à des infractions de sécurité ou pour leur manque de vigilance, le cas échéant, devront être clairement définies."),
- (18,3,'3.6',   3, "La définition d'un propriétaire pour chaque actif principal et la mise en oeuvre d'une traçabilité de cet actif <i><small>(non seulement par un inventaire physique des matériels mais également en identifiant les actifs principaux d'information qui sont détenu par l'organisme et leur valeur pour celui-ci)</small></i>"),
- (19,3,'4.0',   6, "Des procédures simples et efficaces qui indiquent le degré de protection pour chaque type d'actif d'information, <i><small>.ex:(Confidentialité = 1,2,3 ou 4 - Intégrité = 1,2,3 ou 4 - Disponibilité = 1,2,3 ou 4)</small></i>"),
- (20,3,'0.0',   6, "Des procédures d'identification <i><small>(notamment étiquetage)</small></i> et de manipulation des médias physiques <i><small>(notamment en ce qui concerne les moyens de transport utilisés, leur destruction, ...)</small></i>"),
- (21,4,'5.7',   4, "Les rôles et responsabilités vis à vis de la sécurité de l'information dans les descriptions des fonctions de l'organisme <i><small>(avec des exigences specifiques de sécurité pour les personnels de la Direction des Systèmes d'Informations)</small></i>"),
- (22,4,'0.0',   6, "Que les candidatures donnent lieu à verification pour s'assurer que leurs diplômes et les expériences sont réels et exacts"),
- (23,4,'0.0',   6, "Que tous les employés doivent signer un accord de confidentialité vis à vis de l'information <i><small>(ou clause de non divulgation)</small></i> et qu'ils comprennent leurs reponsabilités vis à vis du traitement de l'information."),
- (24,4,'6.8',   6, "Former le personnel aux procédures et à la politique de sécurité de l'information <i><small>(avec une vérification des acquis)</small></i>"),
- (25,4,'0.0',   4, "Informer le personnel sur leurs responsabilité légales vis à vis de la sécurité ainsi que les sanctions encourues en cas de fraude."),
+ (7,2,'0.3',    4, "La mise en oeuvre d'un comité de sécurité informatique qui definit les grandes ligne pour des activites des strategies de sécurité.<br/>Ce comite inclut typiquement le responsable de la sécurité informatique, la DSI, les representants des principales entites, les auditeurs internes, la Direction du personnel."),
+ (8,2,'0.0',    4, "La nomination d'un representant de la sécurité informatique dans chaque entite, filiale ou division"),
+ (9,2,'0.0',    4, "Une definition claire des taches, roles specifiques, affectation des responsables de la sécurité informatique"),
+ (10,2,'0.0',   4, "Le conseil de la sécurité informatique (pour l'avis d'experts) ou de coordinateurs<br/><i><small>(pour partager et coordonner la connaissance de la sécurité de l'organisme</small></i>"),
+ (11,2,'0.0',   4, "L'identification de points de contact pour obtenir un support en cas d'incident de sécurité ainsi qu'une assistance et un conseil sur les contraintes legales, les normes specifiques liees au metier"),
+ (12,2,'0.0',   4, "Une revue independante et pertinente de la mise en oeuvre de la politique de sécurité informatique de l'organisme"),
+ (13,2,'0.0',   4, "Une revue des risques et une validation formelle de la part de la direction lors de l'utilisation ou du deploiement de nouvelles technologies informatiques (NTIC)"),
+ (14,2,'0.4',   6, "La présentation des règles de sécurité de l'organisme et des obligations des tiers vis a vis des ces regles <i><small>(sous-traitant ou autre)</small></i>"),
+ (15,2,'0.0',   2, "La presentation aux sous-traitants de la politique de classification de l'information et les procedures associees aux données sensibles et/ou confidentielles"),
+ (16,2,'0.5',   6, "La communication des exigences de sécurité et son suivi pour proteger le patrimoine informationnel de l'entreprise"),
+ (17,2,'0.0',   2, "La formation des prestataires de services d'infogerance a leurs responsabilités vis a vis de la sécurité informatique, des technologies utilisees par votre entreprise.<br/>Leurs responsabilités quant a des infractions de sécurité ou pour leur manque de vigilance, le cas echeant, devront etre clairement definies."),
+ (18,3,'3.6',   3, "La définition d'un propriétaire pour chaque actif principal et la mise en oeuvre d'un tracabilitéde cet actif<br/><i><small>(non seulement par un inventaire physique des materiels mais egalement en identifiant les actifs principaux d'information qui sont detenu par l'organisme et leur valeur pour celui-ci)</small></i>"),
+ (19,3,'4.0',   6, "Des procédures simples et efficaces qui indiquent le degre de protection pour chaque type d'actif d'information, <i><small>.ex:(Confidentialité = 1,2,3 ou 4 - Integrité = 1,2,3 ou 4 - Disponibilité = 1,2,3 ou 4)</small></i>"),
+ (20,3,'0.0',   6, "Des procedures d'identification <i><small>(notamment etiquetage)</small></i> et de manipulation des medias physiques <i><small>(notamment en ce qui concerne les moyens de transport utilises, leur destruction, ...)</small></i>"),
+ (21,4,'5.7',   4, "Les rôles et responsabilités vis a vis de la sécurité de l'information dans les descrriptions des fonction de l'organisme <i><small>(avec des exigences specifiques de sécurité pour les personnels de la Direction des Systèmes d'Informations)</small></i>"),
+ (22,4,'0.0',   6, "Que les candidatures donnent lieu a verification pour s'assurer que leurs diplomes et les experiences sont reels et exactes"),
+ (23,4,'0.0',   6, "Que tous les employés doivent signer un accord de confidentialité vis a vis de l'information <i><small>(ou clause de non divulgation)</small></i> et qu'ils comprennent leurs reponsabilites vis a vis du traitement de l'information."),
+ (24,4,'6.8',   6, "Former le personnel aux procedures et a la politique de sécurité de l'information <i><small>(avec une verification des acquis)</small></i>"),
+ (25,4,'0.0',   4, "Informer le personnel sur leurs responsabilité légales vis a vis de la sécurité ainsi que les sanctions encourues en cas de fraude."),
  (26,4,'0.0',   4, "Utiliser correctement les technologies de l'information <i><small>(bonnes pratiques sur l'utilisation d'Internet, de l'Intranet, courriels ...etc.)</small></i>"),
- (27,4,'7.9',   4, "Explique au personnel la conduite à tenir en cas d'incident de sécurité <i><small>(qui contacter, quelles informations à transmettre, que faire en cas d'infection virale ...etc.)</small></i>"),
+ (27,4,'7.9',   4, "Explique au personnel la conduite a tenir en cas d'incident de sécurité <i><small>(qui contacter, quelles information a transmettre, que faire en cas d'infection virale ...etc.)</small></i>"),
  (28,4,'0.0',   2, "Explique au personnel la methode appropriee pour conserver les preuves necessaire pour d'eventuelles investigations légales en cas d'attaque externe ou interne."),
- (29,4,'0.0',   6, "Sanctionne les employés qui ont violé les procédures et/ou les politiques de sécurité <i><small>(en liaison avec les sanctions prévues au reglement interieur)</small></i>"),
- (30,5,'8.10',  6, "L'établissement et la surveillance d'un perimêtre physique adéquat <i><small>(définition d'un ou plusieurs périmêtres sensibles pour la sécurité)</small></i>"),
- (31,5,'0.0',   6, "L'enregistrement des visiteurs à l'accueil et la surveillance physique des visiteurs dans les locaux <i><small>(y compris personnel technique, liveur ...)</small></i> particulierement dans les zones sensibles."),
- (32,5,'0.0',   4, "La prise de précautions <i><small>(y compris le choix d'emplacement des locaux)</small></i> pour diminuer les risques liés aux catastrophes naturelles ou à ceux d'origine humaine"),
+ (29,4,'0.0',   6, "Sanctionne les employés qui ont violé les procédures et/ou les politiques de sécurité <i><small>(en liaison avec les sanctions prevues au reglement interieur)</small></i>"),
+ (30,5,'8.10',  6, "L'établissement et la surveillance d'un perimêtre physique adéquat <i><small>(definition d'un ou plusieurs perimetres sensibles pour la sécurité)</small></i>"),
+ (31,5,'0.0',   6, "L'enregistrement des visiteurs a l'accueil et la surveillance physique des visiteurs dans les locaux <i><small>(y compris personnel technique, liveur ...)</small></i> particulierement dans les zones sensibles."),
+ (32,5,'0.0',   4, "La prise de precautions <i><small>(y compris le choix d'emplacement des locaux)</small></i> pour diminuer les risques lies aux catastrophes naturelles ou a ceux d'origine humaine"),
  (33,5,'0.0',   4, "Une surveillance adéquate du personnel ou des tiers travaillant dans les secteurs sensibles"),
- (34,5,'0.0',   4, "La vérification des zones de livraison et de déchargement, si possible en isolant les équipements de traitement de l'information"),
- (35,5,'0.0',   6, "La surveillance des équipements informatiques vis à vis des pannes de courant et autres anomalies électriques <i><small>(baisses de tensions de courte duree, surtensions)</small></i>."),
- (36,5,'9.11',  4, "La mise en oeuvre de protection du câblage réseau et de l'alimentation électrique contre l'interception de données ou les incidents"),
- (37,5,'0.0',   6, "L'entretien correct du matériel informatique pour assurer sa disponibilité et son intégrité, notamment par la surveillance d'indicateurs critiques <i><small>(erreurs d'IO ...etc.)</small></i>"),
- (38,5,'0.0',   6, "La mise en oeuvre de dispositifs de destruction physique des matériels de stockage contenant des données sensibles ou l'écrasement complet des données sensibles lors de la mise au rebut des ces materiels de stockage"),
+ (34,5,'0.0',   4, "La verification des zones de livraison et de déchargement, si possible en isolant les equipemnts de traitement de l'information"),
+ (35,5,'0.0',   6, "La surveillance des equipements informatiques vis a vis des pannes de courant et autres anomalies électriques <i><small>(baisses de tensions de courte duree, surtensions)</small></i>."),
+ (36,5,'9.11',  4, "La mise en oeuvre de protection du cablage réseau et de l'alimentation électrique contre l'interception de données ou les incidents"),
+ (37,5,'0.0',   6, "L'entretien correct du materiel informatique pour assurer sa disponibilité et son integrité, notamment par la surveillance d'indicateurs critiques <i><small>(erreurs d'IO ...etc.)"),
+ (38,5,'0.0',   6, "La mise en oeuvre de dispositifs de destruction physique des matériels de stockage contenant des données sensibles ou l'ecrasement complet des données sensibles lors de la mise au rebut des ces materiels de stockage"),
  (39,5,'10.12', 2, "Une politique de rangement de bureau pour les documents classés et les supports de stockage amovibles, une politique d'utilisation d'ecrans de veille avec mots de passe"),
- (40,5,'0.0',   4, "Une politique de sortie de matériel informatique en dehors des locaux <i><small>(ordinateurs portables, matériels de démonstrations)</small></i> avec autorisation formelles, et un enregistrement des entrees-sortis des materiels"),
- (41,6,'11.13', 6, "Une documentation des procédures d'exploitation comprenant l'execution des traitements informatiques, les sauvegardes, la gestion des anomalies, le support aisi que les procédures de reprise"),
- (42,6,'0.0',   6, "Une procédure de gestion des évolutions des traitements <i><small>(sécurisation notamment des fonctions de livraison et de mise en production)</small></i>"),
+ (40,5,'0.0',   4, "Une politique de sortie de materiel informatique en dehors des locaux <i><small>(ordinateurs portables, materiels de demonstrations)</small></i> avec autorisation formelles, et un enregistrement des entrees-sortis des materiels"),
+ (41,6,'11.13', 6, "Une documentation des procedures d'exploitation comprenant l'execution des traitements informatiques, les sauvegardes, la gestion des anomalies, le support aisi que les procedures de reprise"),
+ (42,6,'0.0',   6, "Une procedure de gestion des évolutions des traitements <i><small>(sécurisation notamment des fonctions de livraison et de mise en production)</small></i>"),
  (43,6,'0.0',   4, "Une procédure de gestion des incidents de sécurité <i><small>(identification, classification, traçabilité)</small></i>"),
  (44,6,'0.0',   6, "Une politique pragmatique de séparation des tâches <i><small>(par exemple: entre le développement et l'exploitation)</small></i>"),
  (45,6,'12.14', 6, "Une planification de la capacité des systèmes à partir de projections d'activité qui couvre le réseau de télécommunication, les espaces de stockage, la puissance des processeurs et autres goulets d'étranglement techniques potentiels"),
@@ -227,7 +226,7 @@ INSERT INTO `iso_questions` (`question_Id`, `question_ChapterId`, `question_pred
  (48,6,'0.0',   6, "L'installation et mise à jour très régulière d'un logiciel antivirus <i><small>(signature et moteur)</small></i> et passage régulier d'un &quot;scan&quot; antivirus sur l'ensemble des fichiers informatiques."),
  (49,6,'0.0',   6, "L'examen antivirus de tous les fichiers, pièces-jointes de courrier électronique ou téléchargement d'origine incertaine avant leur utilisation."),
  (50,6,'14.16', 6, "La mise en oeuvre d'un plan de sauvegarde et de reprise documenté pour l'ensemble des applications"),
- (51,6,'0.0',   6, "L'enregistrement <i><small>(main courante, ...)</small></i> de l'ensemble des travaux des opérateurs"),
+ (51,6,'0.0',   6, "L'enregistrement <i><small>(main courante, ...) de l'ensemble des travaux des opérateurs"),
  (52,6,'0.0',   6, "Un enregistrement systématique des anomalies du réseau et des systèmes"),
  (53,6,'15.17', 6, "La mise en oeuvre de contrôles spécifiques pour sauvegarder la confidentialité et l'intégrité des données sensibles passant par les réseaux publics <i><small>(techniques de scellement ou de cryptage des fichiers)</small></i>"),
  (54,6,'0.0',   4, "La séparation, quand elle est possible, de la responsabilité opérationnelle des réseaux et des activités informatiques"),
@@ -270,10 +269,10 @@ INSERT INTO `iso_questions` (`question_Id`, `question_ChapterId`, `question_pred
  (91,9,'0.0',   6, "Garantit que le plan de continuité d'activité est régulièrement testé en utilisant des techniques efficaces pour s'assurer que le plan est applicable"),
  (92,10,'30.32',6, "La protection et la confidentialité des données personnelles <i><small>(déclaration CNIL pour les traitements, sites WEB, applications décisionnelles)</small></i>"),
  (93,10,'0.0',  4, "La bonne utilisation des technologies de l'information par le personnel <i><small>(ex: la mise en oeuvre d'une charte d'utilisation des technologies de l'information ou d'un intranet)</small></i>"),
- (94,10,'0.0',  4, "La vérification de l'utilisation dans l'entreprise de la cryptographie <i><small>(pour son utilisation, son importation, son exportation)</small></i> vis à vis des textes légaux"),
+ (94,10,'0.0',  4, "La vérification de l'utilisation dans l'entreprise de la cryptographie <i><small>(pour son utilisation, son importation, son exportation)</small></i> vis a vis des textes légaux"),
  (95,10,'31.33',6, "La mise en oeuvre de méthodes d'auto évaluations par le management intermédiaire pour garantir que leur secteurs/domaines d'activité sont conformes à la politique et aux normes de sécurité de la scociété"),
  (96,10,'0.0',  4, "Un audit technique de securité des systèmes informatiques par des experts indépendants pour vérifier leur niveau de conformité, soit avec des standards, soit vis à vis de bonnes pratiques"),
- (97,10,'32.34',4, "Une revue annuelle des systèmes d'informations opérationnels pour réduire le risque d'interruption de l'activité de l'entreprise"),
+ (97,10,'32.34',4, "Une revue annuelle des systemes d'informations opérationnels pour réduire le risque d'interruption de l'activité de l'entreprise"),
  (98,10,'0.0',  4, "Un accès contrôlé et sécurisé aux outils et aux résultats des audits de securité pour en empêcher un usage détourné");
 
 --
@@ -282,71 +281,157 @@ INSERT INTO `iso_questions` (`question_Id`, `question_ChapterId`, `question_pred
 DROP TABLE IF EXISTS `iso_audits`;
 CREATE TABLE `iso_audits` (
     `audit_Id` VARCHAR(10) NOT NULL,
-    `prospect_Id` int(11) NOT NULL,
-    `audit_date` VARCHAR(14) NOT NULL,
-    `question_Id` int(11) NOT NULL,
-    `question_Value` DECIMAL(4,2)
+    `client_Id` int(11) NOT NULL,
+    `audit_date` DATETIME,
+    `Q1.1` DECIMAL(4,2),
+    `Q2.1` DECIMAL(4,2),
+    `Q3.1` DECIMAL(4,2),
+    `Q4.1` DECIMAL(4,2),
+    `Q5.1` DECIMAL(4,2),
+    `Q6.1` DECIMAL(4,2),
+    `Q7.2` DECIMAL(4,2),
+    `Q8.2` DECIMAL(4,2),
+    `Q9.2` DECIMAL(4,2),
+    `Q10.2` DECIMAL(4,2),
+    `Q11.2` DECIMAL(4,2),
+    `Q12.2` DECIMAL(4,2),
+    `Q13.2` DECIMAL(4,2),
+    `Q14.2` DECIMAL(4,2),
+    `Q15.2` DECIMAL(4,2),
+    `Q16.2` DECIMAL(4,2),
+    `Q17.2` DECIMAL(4,2),
+    `Q18.3` DECIMAL(4,2),
+    `Q19.3` DECIMAL(4,2),
+    `Q20.3` DECIMAL(4,2),
+    `Q21.4` DECIMAL(4,2),
+    `Q22.4` DECIMAL(4,2),
+    `Q23.4` DECIMAL(4,2),
+    `Q24.4` DECIMAL(4,2),
+    `Q25.4` DECIMAL(4,2),
+    `Q26.4` DECIMAL(4,2),
+    `Q27.4` DECIMAL(4,2),
+    `Q28.4` DECIMAL(4,2),
+    `Q29.4` DECIMAL(4,2),
+    `Q30.5` DECIMAL(4,2),
+    `Q31.5` DECIMAL(4,2),
+    `Q32.5` DECIMAL(4,2),
+    `Q33.5` DECIMAL(4,2),
+    `Q34.5` DECIMAL(4,2),
+    `Q35.5` DECIMAL(4,2),
+    `Q36.5` DECIMAL(4,2),
+    `Q37.5` DECIMAL(4,2),
+    `Q38.5` DECIMAL(4,2),
+    `Q39.5` DECIMAL(4,2),
+    `Q40.5` DECIMAL(4,2),
+    `Q41.6` DECIMAL(4,2),
+    `Q42.6` DECIMAL(4,2),
+    `Q43.6` DECIMAL(4,2),
+    `Q44.6` DECIMAL(4,2),
+    `Q45.6` DECIMAL(4,2),
+    `Q46.6` DECIMAL(4,2),
+    `Q47.6` DECIMAL(4,2),
+    `Q48.6` DECIMAL(4,2),
+    `Q49.6` DECIMAL(4,2),
+    `Q50.5` DECIMAL(4,2),
+    `Q51.6` DECIMAL(4,2),
+    `Q52.6` DECIMAL(4,2),
+    `Q53.6` DECIMAL(4,2),
+    `Q54.6` DECIMAL(4,2),
+    `Q55.6` DECIMAL(4,2),
+    `Q56.6` DECIMAL(4,2),
+    `Q57.6` DECIMAL(4,2),
+    `Q58.6` DECIMAL(4,2),
+    `Q59.6` DECIMAL(4,2),
+    `Q60.5` DECIMAL(4,2),
+    `Q61.6` DECIMAL(4,2),
+    `Q62.7` DECIMAL(4,2),
+    `Q63.7` DECIMAL(4,2),
+    `Q64.7` DECIMAL(4,2),
+    `Q65.7` DECIMAL(4,2),
+    `Q66.7` DECIMAL(4,2),
+    `Q67.7` DECIMAL(4,2),
+    `Q68.7` DECIMAL(4,2),
+    `Q69.7` DECIMAL(4,2),
+    `Q70.7` DECIMAL(4,2),
+    `Q71.7` DECIMAL(4,2),
+    `Q72.7` DECIMAL(4,2),
+    `Q73.7` DECIMAL(4,2),
+    `Q74.7` DECIMAL(4,2),
+    `Q75.7` DECIMAL(4,2),
+    `Q76.7` DECIMAL(4,2),
+    `Q77.7` DECIMAL(4,2),
+    `Q78.7` DECIMAL(4,2),
+    `Q79.7` DECIMAL(4,2),
+    `Q80.8` DECIMAL(4,2),
+    `Q81.8` DECIMAL(4,2),
+    `Q82.8` DECIMAL(4,2),
+    `Q83.8` DECIMAL(4,2),
+    `Q84.8` DECIMAL(4,2),
+    `Q85.8` DECIMAL(4,2),
+    `Q86.8` DECIMAL(4,2),
+    `Q87.8` DECIMAL(4,2),
+    `Q88.9` DECIMAL(4,2),
+    `Q89.9` DECIMAL(4,2),
+    `Q90.9` DECIMAL(4,2),
+    `Q91.9` DECIMAL(4,2),
+    `Q92.10` DECIMAL(4,2),
+    `Q93.10` DECIMAL(4,2),
+    `Q94.10` DECIMAL(4,2),
+    `Q95.10` DECIMAL(4,2),
+    `Q96.10` DECIMAL(4,2),
+    `Q97.10` DECIMAL(4,2),
+    `Q98.10` DECIMAL(4,2)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
 -- Index pour la table `iso_audits`
 --
 ALTER TABLE `iso_audits`
-  ADD PRIMARY KEY (`audit_Id`, `prospect_Id`, `question_Id`);
---
--- Chargement de la table `iso_audits`
---
-INSERT INTO `iso_audits` (`audit_Id`, `prospect_Id`, `audit_date`, `question_Id`, `question_Value`) VALUES
-('49aec5f6dc', 2, '20181103061500', 1, 6),
-('49aec5f6dc', 2, '20181103061500', 2, 3),
-('49aec5f6dc', 2, '20181103061500', 3, 1.5),
-('49aec5f6dc', 2, '20181103061500', 4, 0.75),
-('49aec5f6dc', 2, '20181103061500', 5, 6),
-('49aec5f6dc', 2, '20181103061500', 6, 0.75);
+  ADD PRIMARY KEY (`audit_Id`),
+  ADD KEY(`client_Id`);
 
 --
--- Structure de la table `iso_prospects`
+-- Structure de la table `iso_clients`
 --
-DROP TABLE IF EXISTS `iso_prospects`;
-CREATE TABLE `iso_prospects` (
-  `prospect_Id` int(11) NOT NULL,
-  `prospect_Pseudo` varchar(30) NOT NULL,
-  `prospect_Society` varchar(50) NULL,
-  `prospect_LastName` varchar(50) NOT NULL,
-  `prospect_FirstName` varchar(50) NOT NULL,
-  `prospect_StreetNum` varchar(5) NOT NULL,
-  `prospect_Addr1` varchar(75) NOT NULL,
-  `prospect_Addr2` varchar(75) NULL,
-  `prospect_City` varchar(75) NOT NULL,
-  `prospect_PostalCode` varchar(5) NOT NULL,
-  `prospect_Phone` varchar(15),
-  `prospect_Mobile` varchar(15),
-  `prospect_Pwd` varchar(250) NOT NULL,
-  `prospect_Email` varchar(250) NOT NULL,
-  `prospect_Msn` varchar(250) NULL,
-  `prospect_Url` varchar(100) NULL,
-  `prospect_Localisation` varchar(100) NOT NULL,
-  `prospect_Registred` int(11) DEFAULT '0',
-  `prospect_Level` tinyint(4) DEFAULT '2',
-  `prospect_CreationDate` datetime DEFAULT NULL
+DROP TABLE IF EXISTS `iso_clients`;
+CREATE TABLE `iso_clients` (
+  `client_Id` int(11) NOT NULL,
+  `client_Pseudo` varchar(30) NOT NULL,
+  `client_LastName` varchar(50) NOT NULL,
+  `client_FirstName` varchar(50) NOT NULL,
+  `client_StreetNum` varchar(5),
+  `client_Addr1` varchar(75),
+  `client_Addr2` varchar(75),
+  `client_Addr3` varchar(75),
+  `client_PostalCode` varchar(5),
+  `client_Phone` varchar(15),
+  `client_Mobile` varchar(15),
+  `client_Pwd` varchar(250) NOT NULL,
+  `client_Email` varchar(250) NULL,
+  `client_Msn` varchar(250) NULL,
+  `client_Url` varchar(100) NULL,
+  `client_Localisation` varchar(100) NULL,
+  `client_Registred` int(11) DEFAULT '0',
+  `client_Level` tinyint(4) DEFAULT '2',
+  `client_CreationDate` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 --
--- Index pour la table `iso_prospects`
+-- Index pour la table `iso_clients`
 --
-ALTER TABLE `iso_prospects`
-  ADD PRIMARY KEY (`prospect_Id`),
-  ADD KEY(`prospect_Pseudo`);
+ALTER TABLE `iso_clients`
+  ADD PRIMARY KEY (`client_Id`),
+  ADD KEY(`client_Pseudo`);
 --
--- AUTO_INCREMENT pour la table `iso_prospects`
+-- AUTO_INCREMENT pour la table `iso_clientss`
 --
-ALTER TABLE `iso_prospects`
-  MODIFY `prospect_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+ALTER TABLE `iso_clients`
+  MODIFY `client_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 --
--- Chargement des donnees de la table `iso_prospects`
+-- Chargement des donnees de la table `iso_clients`
 --
-INSERT INTO `iso_prospects` (`prospect_Id`, `prospect_Pseudo`, `prospect_LastName`, `prospect_FirstName`, `prospect_Pwd`, `prospect_Email`, `prospect_Msn`, `prospect_Url`, `prospect_Localisation`, `prospect_Registred`, `prospect_Level`, `prospect_CreationDate`) VALUES
-(1, 'revoke', 'REVOKE', 'Cpte', '$2y$10$PGH15INfWV5ySHY7uKlvXuvPagOqr0UJy3DJ5Iu6KayKreOhPOE5e', 'revoke@agekhanonix.fr', '', '', '', 1, 2, '2018-09-25 18:53:24'),
-(2, 'guest', 'GUEST', 'Cpte', '$2y$10$GL.u9Uori5O6JTR0QspBDuI3oR5fII.1JGsqN04CWUpBktoVnTOnO', 'guest@agekhanonix.fr', '', '', '', 0, 2, '2018-09-25 18:52:44'),
-(3, 'admin', 'ADMIN', 'Cpte', '$2y$10$qTsXTNno9NVQ/6ZHy46SauzvnjyEf2oURaVolcn3LQjALlT4R1OhG', 'admin@agekhanonix.fr', '', '', '', 0, 4, '2018-09-25 18:51:58');
+INSERT INTO `iso_clients` (`client_Id`, `client_Pseudo`, `client_LastName`, `client_FirstName`, `client_Pwd`, `client_Email`, `client_Msn`, `client_Url`, `client_Localisation`, `client_Registred`, `client_Level`, `client_CreationDate`) VALUES
+(1, 'revoke', 'REVOKE', 'Cpte', '6a899d79ada8beff57053f23813006b701a52428b1ded94f39a500c2ee6534ae5bbfd3fee31758f31ae7df1e4627fef1f8b4fe7fd6b3387441b703e09d54ad6d', 'revoke@agekhanonix.fr', '', '', '', 1, 2, '2018-09-25 18:53:24'),
+(2, 'guest', 'GUEST', 'Cpte', 'dea2478a47f4836dd4dfbfab75352dbdb138aa9b20e7a590215e2d0bea7ec01ed0ba47b180ba9d836d38f31d967f1e115c224703e397640ae18e2a9c708cade9', 'guest@agekhanonix.fr', '', '', '', 0, 2, '2018-09-25 18:52:44'),
+(3, 'admin', 'ADMIN', 'Cpte', 'c8adf9b094b98ae51db8d7d585a530887bd16eb7eff3a6fc1e9a5975ddace3a6e1beb8617f3f19ca244112ed5b40149d1b8c7c20066f9b1e20c66c26c565e65a', 'admin@agekhanonix.fr', '', '', '', 0, 4, '2018-09-25 18:51:58');
 
 --
 -- Structure de la table `iso_visits`
@@ -354,7 +439,7 @@ INSERT INTO `iso_prospects` (`prospect_Id`, `prospect_Pseudo`, `prospect_LastNam
 DROP TABLE IF EXISTS `iso_visits`;
 CREATE TABLE `iso_visits` (
   `visit_Id` int(11) NOT NULL,
-  `prospect_Id` int(11) NOT NULL,
+  `client_Id` int(11) NOT NULL,
   `remote_Addr` varchar(15) NOT NULL,
   `visit_Date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -369,63 +454,3 @@ ALTER TABLE `iso_visits`
 --
 ALTER TABLE `iso_visits`
   MODIFY `visit_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;COMMIT;
-
---
--- Structure de la table `iso_services`
---
-DROP TABLE IF EXISTS `iso_services`;
-CREATE TABLE `iso_services` (
-  `service_Id` int(11) NOT NULL,
-  `service_Img` varchar(25) NULL,
-  `service_Title` varchar(75) NOT NULL,
-  `service_Description` TEXT NOT NULL,
-  `service_Publish` INT(11) default 0,
-  `service_Booklet` varchar(75) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Index pour la table `iso_services`
---
-ALTER TABLE `iso_services`
-  ADD PRIMARY KEY (`service_Id`);
---
--- AUTO_INCREMENT pour la table `iso_services`
---
-ALTER TABLE `iso_services`
-  MODIFY `service_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;COMMIT;
--- 
--- Chargement de la table ìso_services`
---
-INSERT INTO `iso_services` (`service_Id`, `service_Img`, `service_Title`, `service_Description`, `service_Publish`, `service_Booklet`) VALUES
-(1, 'INFOGERANCE.png', "l'offre infogérance", "Nous gérons pour vous l'intégralité de votre parc informatique<br>De la maintenace du matériel jusqu'à l'assistance aux utilisateurs, nous prenons en charge, pour vous, la gestion de votre parc informatique", 1,"offre-infogerance.pdf"),
-(2, 'FORMATION.png', "formation de vos employés", "Nous sensibilisons vos employés à la sécurité informatique via des ateliers réguliers, ainsi que des lettres d'informations sur les bonnes pratiques à observer", 1,"offre-formation.pdf"),
-(3, 'INTRUSION.png', "tests d'intrusions annuels et mensuels", "audit complet de votre réseau. <br>Nous mettons les mesures de sécurité de votre entreprise à l’épreuve afin de mettre ses vulnérabilités en évidence.",1, "offre-testdintrusion.pdf"),
-(4, 'IR.png', "réponse a incident en cas d'attaque informatique", "En dépit de toutes les précautions, il est toujours possible qu’un employé exécute une pièce jointe malveillante sans le savoir et répande ainsi un virus inconnu dans toute votre entreprise.<br>Les premières heures sont vitales afin d’endiguer le problème. Grâce au Plan de Continuité d’Activité que nous aurons établi, la pérennité de votre entreprise n’est pas menacée mais il reste nécessaire d’éradiquer la menace avant de pouvoir restaurer les données touchées par le logiciel malveillant ou le pirate.<br/>Lors d’une intervention suite à incident, nous isolons rapidement les machines touchées avant d’analyser la charge infectieuse afin de déterminer les actions à entreprendre. Ensuite, une fois l’attaque stoppée, nous remettons les machines en service et enfin, nous réfléchissons à un plan d’action afin d’empêcher la réussite d’une attaque similaire à l’avenir.",1, "offre-reponse-a-incident.pdf"),
-(5, 'PCA.png', "mise en place d'un plan de continuité d'activité en cas d'attaque", "Le point primordial concernant la sécurité informatique de votre entreprise est de garantir sa survie en cas de sinistre. La plupart des entreprises ont prévu un plan d’action en cas d’incendie par exemple, mais sont-elles préparées en cas d’attaque informatique ?",1,"offre-pca.pdf"),
-(6, 'VIRUS.png', "PROTECTION CONTRE LES RANSOMWARE, VIRUS ET MALWARE", "La SARL TH.CHARPENTIER, à sélectionné et packagé toute une panoplie de logiciels de défense afin de permettre un déploiement et une configuration homogène sur votre parc informatique.<br>Notre solution, toujours à jour, vous protège donc contre toutes ces menaces.<br>Nous adaptons toutes nos solutions à votre métier et à vos besoins.",1, "offre-protection-contre-les-virus.pdf");
--- 
--- Structure de la table `iso_chapters_questions`
--- 
-DROP TABLE IF EXISTS `iso_chapters_questions`;
-CREATE TABLE `iso_chapters_questions` (
-  `chapter_Id` int(11) NOT NULL,
-  `question_Id` int(11) NOT NULL
-);
---
--- Index(s) pour la table `iso_chapters_questions`
---
-ALTER TABLE `iso_chapters_questions` ADD PRIMARY KEY (`chapter_Id`, `question_Id`);
---
--- Chargement de la table `iso_chapters_questions`
---
-INSERT INTO `iso_chapters_questions` (`chapter_Id`, `question_Id`) VALUES
-(1, 1),(1, 2),(1, 3),(1, 4),(1, 5),(1, 6),
-(2, 7),(2, 8),(2, 9),(2, 10),(2, 11),(2, 12),(2, 13),(2,14),(2, 15),(2,16),(2,17),
-(3, 18),(3, 19),(3, 20),
-(4, 21),(4, 22),(4, 23),(4, 24),(4, 25),(4,26),(4,27),(4, 28),(4, 29),
-(5, 30),(5, 31),(5, 32),(5, 33),(5, 34),(5, 35),(5, 36),(5, 37),(5, 38),(5, 39),(5, 40),
-(6, 41),(6, 42),(6, 43),(6, 44),(6, 45),(6, 46),(6, 47),(6, 48),(6, 49),(6, 50),(6, 51),(6, 52),(6, 53),(6, 54),(6, 55),(6, 56),(6, 57),(6, 58),(6, 59),(6, 60),(6, 61),
-(7, 62),(7, 63),(7, 64),(7, 65),(7, 66),(7, 67),(7, 68),(7, 69),(7, 70),(7, 71),(7, 72),(7, 73),(7, 74),(7, 75),(7, 76),(7, 77),(7, 78),(7, 79),
-(8, 80),(8, 81),(8, 82),(8, 83),(8, 84),(8, 85),(8, 86),(8, 87),(8, 88),
-(9, 89),(9, 90),(9, 91),(9, 92),
-(10, 93),(10, 94),(10, 95),(10, 96),(10, 97),(10, 98);

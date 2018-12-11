@@ -3,27 +3,31 @@
     /*= ----------------------------------------------------------------- ===
     === LOADING OF THE “HEADER”                                           ===
     === ----------------------------------------------------------------- =*/ 
-    include 'view/common/header.html';
+    include 'view/backend/header.html';
     /*= ----------------------------------------------------------------- ===
-    === INITIALIZATION OF VARIOUS VARIABLES                               ===
+    === LOADING SIDEBAR                                                   ===
     === ----------------------------------------------------------------- =*/
-    
+    include 'view/backend/sidebar.html';
+?>
+                    <!-- Your sidebar here -->
+                    </ul>
+                </div>
+            </div>
+            <div class="main-panel">
+<?php
     /*= ----------------------------------------------------------------- ===
     === LOADING OF THE BAR OF NAVIGATION                                  ===
     === ----------------------------------------------------------------- =*/ 
     include 'view/backend/nav.html';
 ?>
-    </header>
-    <div class="row">
-<!-- === ----------------------------------------------------------------- ===
-     === ONE DISPLAY ON ONE COLUMN                                         ===
-     === ----------------------------------------------------------------- === --> 
-        <section class="col-md-12 col-sm-12 col-xs-12">
+    <!-- End navbar-->
+    <div class="content">
+        <div class="container-fluid">
             <?= $content ?>
-        </section>
-    </div><!-- END (row) -->
+        </div>
+    </div>
 <?php
     /*= ----------------------------------------------------------------- ===
     === LOADING OF THE "FOOTER"                                           ===
     === ----------------------------------------------------------------- =*/ 
-    include 'view/common/footer.php';
+    include 'view/backend/footer.php';

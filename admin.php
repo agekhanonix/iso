@@ -19,15 +19,6 @@
             ** === ------------------------------------- === */
             } elseif($_GET['action'] == 'deconnexion') {
                 deconnexion();
-            /* === ------------------------------------- === **
-            **              FREQUENTATION: ACTION            **
-            ** === ------------------------------------- === */
-            } elseif($_GET['action'] == 'frequentation') {
-                if(isset($_SESSION['Id']) && ($_SESSION['level'] > 3)) {
-                    frequentation();
-                } else {
-                    header('Location: index.php?action=home');
-                }
             } elseif($_GET['action'] == 'getAllProspects') {
                 if(isset($_SESSION['Id']) && ($_SESSION['level'] > 3)) {
                     getAllProspects();
@@ -42,12 +33,24 @@
                         'msg' => "Toutes les infos nécéssaires n'ont pas été renseignées",
                         'type' => "action", 
                         'name' => "connexion", 
-                        'script' => "index.php", 
+                        'script' => "admin.php", 
                         'explanation' => "erreur dans le paramétrage du script")));
                 }
             } elseif($_GET['action'] == 'admin') {
                 admin();
+            } elseif($_GET['action'] == 'revoke') {
+                if(isset($_GET['id']) && isset($_GET['val'])) {
+                    revoke($_GET['id'], $_GET['val']);
+                } else {
+                    throw new Exception(json_encode(array('error' => "act002",
+                        'msg' => "Toutes les infos nécéssaires n'ont pas été renseignées",
+                        'type' => "action", 
+                        'name' => "revoke", 
+                        'script' => "admin.php", 
+                        'explanation' => "erreur dans le paramétrage du script")));
+                }
             }
+
         } else {
             admin();
         }

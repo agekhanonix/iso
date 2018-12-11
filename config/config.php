@@ -1,10 +1,10 @@
 <?php
     /* ===              DATABASE ACCESS               === */
-    define('DBHOST', 'xxxxx');
+    define('DBHOST', 'agekhanokcroot.mysql.db');
     define('DBPORT', '3306');
-    define('DBUSER', 'xxxxx');
-    define('DBPASS', 'xxxxx');
-    define('DBNAME', 'xxxxx');
+    define('DBUSER', 'agekhanokcroot');
+    define('DBPASS', 'CZpvNAP3');
+    define('DBNAME', 'agekhanokcroot');
 
     /* ===               MEMBERS ACCESS               === */
     define('GUEST', 1);
