@@ -96,4 +96,12 @@ class ProspectsManager extends Manager {
             return false;
         }
     }
+    function getCreations($js=true) {
+        $db = $this->dbConnect();
+        $q = $db->prepare("SELECT CONCAT(YEAR(prospect_CreationDate),'-',SUBSTRING(CONCAT('00',MONTH(prospect_CreationDate)),-2,2)) AS Mois,COUNT(`prospect_Id`) AS Creations FROM `iso_prospects` WHERE prospect_CreationDate >= NOW() - INTERVAL 12 MONTH GROUP BY Mois ORDER BY Mois ASC");
+        $q->execute();
+        $creations = array();
+        $datas = json_encode($q->fetchAll(PDO::FETCH_ASSOC));
+        if($js) { echo $datas;} else {return $datas;}
+    }
 }

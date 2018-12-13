@@ -29,5 +29,7 @@
         <!-- ###        CONTROL CENTER FOR MATERIAL DB    ### -->
         <script src="public/js/black-dashboard.js?v1=1.0.0" type="text/javascript"></script>
         <script src="public/js/library.js" type="text/javascript"></script>
+        <script src="public/js/tinymce/tinymce.min.js"></script>
+        <script src="public/js/configTinymce.js"></script>
     </body>
 </html>

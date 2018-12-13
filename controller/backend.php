@@ -81,3 +81,41 @@
         }
         require('view/backend/admin.php');
     }
+    function getCreations() {
+        $prospectManager = new ProspectsManager();
+        $affectedLines = $prospectManager->getCreations();
+    }
+    function addService($image, $title, $description, $booklet) {
+        $serviceManager = new ServicesManager();
+        $prospectManager = new ProspectsManager();
+        $auditManager = new AuditsManager();
+        $affectedLines = $serviceManager->addService($image, $title, $description, $booklet);
+        $prospects = json_decode($prospectManager->getAllProspects($js=false));
+        $services = json_decode($serviceManager->getAllServices());
+        $infos = json_decode($auditManager->getAuditInfos($js=false));
+        $array = array();
+        foreach($infos as $info){
+            $array[$info->audit_Id]['Audit_Id'] = $info->audit_Id;
+            $array[$info->audit_Id][$info->chapter_Id]['Score'] = $info->Score;
+            $array[$info->audit_Id][$info->chapter_Id]['Notes'] = $info->Notes;
+            $array[$info->audit_Id][$info->chapter_Id]['Quests'] = $info->Quests;
+        }
+        require('view/backend/admin.php');
+    }
+    function publish($id, $val) {
+        $prospectManager = new ProspectsManager();
+        $auditManager = new AuditsManager();
+        $serviceManager = new ServicesManager();
+        $affectedLines = $serviceManager->publishService($id, $val);
+        $prospects = json_decode($prospectManager->getAllProspects($js=false));
+        $services = json_decode($serviceManager->getAllServices());
+        $infos = json_decode($auditManager->getAuditInfos($js=false));
+        $array = array();
+        foreach($infos as $info){
+            $array[$info->audit_Id]['Audit_Id'] = $info->audit_Id;
+            $array[$info->audit_Id][$info->chapter_Id]['Score'] = $info->Score;
+            $array[$info->audit_Id][$info->chapter_Id]['Notes'] = $info->Notes;
+            $array[$info->audit_Id][$info->chapter_Id]['Quests'] = $info->Quests;
+        }
+        require('view/backend/admin.php');
+    }
