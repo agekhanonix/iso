@@ -20,6 +20,7 @@
     === ----------------------------------------------------------------- =*/ 
     include 'view/backend/nav.html';
 ?>
+    </header>
     <!-- End navbar-->
     <div class="content">
         <div class="container-fluid">

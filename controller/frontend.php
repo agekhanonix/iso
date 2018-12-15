@@ -5,9 +5,10 @@
 
     SplModelLoader::register();                     // Loading of the Models Managers
     SplClassLoader::register();                     // Loading of the class
-    function audit() {
+    function audit($auditId) {
         $chapterManager = new ChaptersManager();
         $questionManager = new QuestionsManager();
+        $auditManager = new AuditsManager();
         $chapters = json_decode($chapterManager->listChapters());
         if($chapters === false) {
             throw new Exception(json_encode(array('error' => "qry001",
@@ -20,8 +21,14 @@
             $questions = json_decode($questionManager->listQuestions());
             $subChapters = json_decode($questionManager->listSubchapters());
             $preambles = json_decode($questionManager->listPreambles());
+            $qValues = $auditManager->getAllNotes41audit($auditId);
             require('view/frontend/listQuestions.php');
         }
+    }
+    function auditOnLine($Id) {
+        $auditManager = new AuditsManager();
+        $audits = json_decode($auditManager->getAudits41Prospect($Id));
+        require('view/frontend/getAudits41Prospect.php');
     }
     function listChapters() {
         $chapterManager = new ChaptersManager();
@@ -161,4 +168,21 @@
     }
     function frequentation() {
         require('view/frontend/frequentation.php');
+    }
+    function auditChoice($choice) {
+        $date = date("Ymdhis");
+        $audit = substr(fCrypt(getIp(),$date),0,10);
+        if($choice == 'new') {
+            $_SESSION['AuditId'] = $audit;
+            $_SESSION['AuditDate'] = $date;
+        } else {
+            $auditManager = new AuditsManager();
+            $dates = json_decode($auditManager->getDate4Audit($choice));
+            $_SESSION['AuditId'] = $choice;
+            $_SESSION['AuditDate'] = $dates[0]->audit_date;
+        }
+        header('Location: index.php?action=audit');
+    }
+    function showConnexion() {
+        require('view/frontend/shConnexion.php');
     }

@@ -20,8 +20,12 @@ window.addEventListener("load", function(){
         });
     }
 });
-function updAudit(auditId, prospectId, auditDate, questionId) {
+function updAudit(questionId) {
     var questionValue = $('input[name=opt'+questionId+']:checked').val();
+    var prospectId = document.getElementById('sessionId').value;
+    var auditDate = document.getElementById('auditDate').value;
+    var auditId = document.getElementById('auditId').value;
+
     $.post("index.php?action=updAudit", {
         auditId: auditId,
         prospectId: prospectId,

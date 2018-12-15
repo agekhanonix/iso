@@ -23,7 +23,7 @@ class ProspectsManager extends Manager {
     }
     public function getAllProspects($js=true) {
         $db = $this->dbConnect();
-        $q = $db->prepare("SELECT T1.* FROM prospects_vw AS T1 INNER JOIN (SELECT Id, MAX(Quests) AS maxQuests FROM prospects_vw GROUP BY Id) AS T2 ON T1.Id = T2.Id AND T1.Quests = T2.maxQuests");
+        $q = $db->prepare("SELECT T1.* FROM iso_prospects_vw AS T1 INNER JOIN (SELECT Id, MAX(Quests) AS maxQuests FROM iso_prospects_vw GROUP BY Id) AS T2 ON T1.Id = T2.Id AND T1.Quests = T2.maxQuests");
         $q->execute();
         $data = json_encode($q->fetchAll(PDO::FETCH_ASSOC));
         if(count($data) == 0) {

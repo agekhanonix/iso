@@ -1,6 +1,5 @@
 <?php ob_start(); ?>
     
-<nav aria-label="breadcrumb" role="navigation">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php?action=home">Accueil</a></li>
         <li class="breadcrumb-item active" aria-current="page"><a href="admin.php?action=admin">Administration des prospects</a></li>
@@ -21,7 +20,7 @@
                                 </thead>
                                 <tbody>
 <?php foreach($prospects as $prospect) { 
-    if($prospect->prospect_Registred == 0) {
+    if($prospect->Registred == 0) {
         $icon ='fa-eye glyph-green';
         $val = 1;
     } else {
@@ -163,46 +162,50 @@
                     <h6 class="text-uppercase text-center thead">création & gestion des services</h6>
                 </div>
                 <article class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="panel-body">
-                        <div class="card">
-                            <div class="card-body">
-                                <form action="admin.php?action=addService" method="post" accept-charset="utf-8" name="form-login" role="form" enctype="multipart/form-data">
-                                    <h4>Saisir les informations demandées</h4>
-                                    <div class="row">
-                                        <div class="col-lg-1 col-md-1 col-sm-2 col-xs-6">
-                                            <label><i class="fas fa-images" title="L'image représentant le service"></i></label>
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <h6 class="text-uppercase text-center thead">création de services</h6>
+                        </div>
+                        <div class="panel-body">
+                            <div class="card">
+                                <div class="card-body">
+                                    <form action="admin.php?action=addService" method="post" accept-charset="utf-8" name="form-login" role="form" enctype="multipart/form-data">
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1 col-sm-2 col-xs-6">
+                                                <label><i class="fas fa-images" title="L'image représentant le service"></i></label>
+                                            </div>
+                                            <div class="col-lg-11 col-md-11 col-sm-10 col-xs-6">
+                                                <input type="file" class="form-control" id="image" name="image" placeholder="Iconographie" accept="image/png, image/jpeg" required>
+                                            </div>
                                         </div>
-                                        <div class="col-lg-11 col-md-11 col-sm-10 col-xs-6">
-                                            <input type="file" class="form-control" id="image" name="image" placeholder="Iconographie" accept="image/png, image/jpeg" required>
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1 col-sm-2 col-xs-6">
+                                                <label><i class="fas fa-leaf" title="Le titre du service"></i></label>
+                                            </div>
+                                            <div class="col-lg-11 col-md-11 col-sm-10 col-xs-6">
+                                                <input type="text" class="form-control" id="title" name="title" placeholder="Le titre du service" required>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-1 col-md-1 col-sm-2 col-xs-6">
-                                            <label><i class="fas fa-leaf" title="Le titre du service"></i></label>
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1 col-sm-2 col-xs-6">
+                                                <label><i class="far fa-edit" title="La description du service"></i></label>
+                                            </div>
+                                            <div class="col-lg-11 col-md-11 col-sm-10 col-xs-6">
+                                                <textarea class="form-control" id="editable" name="description"></textarea>
+                                            </div>
                                         </div>
-                                        <div class="col-lg-11 col-md-11 col-sm-10 col-xs-6">
-                                            <input type="text" class="form-control" id="title" name="title" placeholder="Le titre du service" required>
+                                        <div class="row">
+                                            <div class="col-lg-1 col-md-1 col-sm-2 col-xs-6">
+                                                <label><i class="fas fa-file-pdf" title="La brochure explicative du service"></i></label>
+                                            </div>
+                                            <div class="col-lg-11 col-md-11 col-sm-10 col-xs-6">
+                                                <input type="file" class="form-control" id="booklet" name="booklet" placeholder="La brochure explicative" accept=".pdf" required>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-1 col-md-1 col-sm-2 col-xs-6">
-                                            <label><i class="far fa-edit" title="La description du service"></i></label>
-                                        </div>
-                                        <div class="col-lg-11 col-md-11 col-sm-10 col-xs-6">
-                                            <textarea class="form-control" id="editable" name="description"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-1 col-md-1 col-sm-2 col-xs-6">
-                                            <label><i class="fas fa-file-pdf" title="La brochure explicative du service"></i></label>
-                                        </div>
-                                        <div class="col-lg-11 col-md-11 col-sm-10 col-xs-6">
-                                            <input type="file" class="form-control" id="booklet" name="booklet" placeholder="La brochure explicative" accept=".pdf" required>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-warning"><i class="far fa-share-square"></i> Envoyer</button>
-                                </form>
-                            </div>      
+                                        <button type="submit" class="btn btn-warning"><i class="far fa-share-square"></i> Envoyer</button>
+                                    </form>
+                                </div>      
+                            </div>
                         </div>
                     </div>
                 </article>

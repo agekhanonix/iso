@@ -17,8 +17,20 @@
             /* === ------------------------------------ === **
             **                 NAVIGATION BAR               **
             ** === ------------------------------------ === */
+            } elseif($_GET['action'] == 'auditOnLine') {
+                if(isset($_SESSION['Id'])) {
+                    auditOnLine($_SESSION['Id']);
+                } else {
+                    showConnexion();
+                }
+            } elseif($_GET['action'] == 'auditChoice') {
+                auditChoice($_POST['choice']);
             } elseif($_GET['action'] == 'audit') {
-                audit();
+                if(isset($_SESSION['AuditId'])) {
+                    audit($_SESSION['AuditId']);
+                } else {
+                    showConnexion();
+                }
             } elseif($_GET['action'] == 'listChapters') {
                 listChapters();
             /* === ------------------------------------ === **

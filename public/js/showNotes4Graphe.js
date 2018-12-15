@@ -1,4 +1,6 @@
-function showNotes4Graphe(auditId, prospectId) {
+function showNotes4Graphe() {
+    var auditId = document.getElementById('auditId').value;
+    var prospectId = document.getElementById('sessionId').value;
     var url = 'index.php?action=getNotes4Graphe&auditId=' + auditId + '&prospectId=' + prospectId;
     var notes = [0,0,0,0,0,0,0,0,0,0];
     downloadUrl(url, function(data) {

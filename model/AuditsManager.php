@@ -67,4 +67,28 @@ class AuditsManager extends Manager {
         $jsonCode = json_encode($q->fetchAll(PDO::FETCH_ASSOC));
         if($js==true) {echo $jsonCode;} else { return $jsonCode;}
     }
+    public function getAllNotes41Audit($auditId) {
+        $db = $this->dbConnect();
+        $q = $db->prepare("SELECT question_Id, question_Value FROM iso_audits WHERE audit_Id = :id");
+        $q->bindValue(':id', $auditId);
+        $q->execute();
+        $datas = $q->fetchAll(PDO::FETCH_ASSOC);
+        return $datas;
+    }
+    public function getAudits41Prospect($prospectId) {
+        $db = $this->dbConnect();
+        $q = $db->prepare("SELECT DISTINCT(audit_Id), audit_date FROM iso_audits WHERE prospect_Id = :prospect ORDER BY audit_date DESC");
+        $q->bindValue(':prospect', $prospectId);
+        $q->execute();
+        $jsonCode = json_encode($q->fetchAll(PDO::FETCH_ASSOC));
+        return $jsonCode;
+    }
+    public function getDate4Audit($id) {
+        $db = $this->dbConnect();
+        $q = $db->prepare("SELECT audit_date FROM `iso_audits` WHERE audit_id = :id LIMIT 0,1");
+        $q->bindValue(':id', $id);
+        $q->execute();
+        $jsonCode = json_encode($q->fetchAll(PDO::FETCH_ASSOC));
+        return $jsonCode;
+    }
 }
