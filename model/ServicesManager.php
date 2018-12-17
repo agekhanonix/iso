@@ -1,5 +1,4 @@
 <?php
-
 class ServicesManager extends Manager {
     public function getServices() {
         $db = $this->dbConnect();
@@ -12,7 +11,7 @@ class ServicesManager extends Manager {
             FROM iso_services
             WHERE service_Publish = 1 
             ORDER BY service_Id ASC");
-        $jsonCode = json_encode($q->fetchAll(PDO::FETCH_ASSOC));
+        $jsonCode = json_encode($q->fetchAll(\PDO::FETCH_ASSOC));
         return $jsonCode;
     }
     public function getAllServices() {
@@ -25,7 +24,7 @@ class ServicesManager extends Manager {
                 service_Booklet 
             FROM iso_services 
             ORDER BY service_Id ASC");
-        $jsonCode = json_encode($q->fetchAll(PDO::FETCH_ASSOC));
+        $jsonCode = json_encode($q->fetchAll(\PDO::FETCH_ASSOC));
         return $jsonCode;
     }
     public function addService($img, $title, $content, $booklet) {

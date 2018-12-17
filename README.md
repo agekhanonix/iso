@@ -1,14 +1,14 @@
 # iso
 ## PV : Parcours DEVELOPPEUR WEB JUNIOR (OPENCLASSROOM)
 ### Creer un site web pour une entreprise specialisee dans la securite operationnelle des systemes informatiques
-Author  : :squirrel: Thierry CHARPENTIER  
-Version : V1R0  
-Date    : 21 octobre 2018  
+Author  : Thierry CHARPENTIER  
+Version : V1R2  
+Date    : 21 octobre 2018 / 17 décembre 2018  
 * * *
 A. Cahier des charges 
 * * *
 
-La SARL TH.CHARPENTIER souhaite faire réaliser un site institutionnel afin de renforcer sa présence sur le web.  
+La SARL TH.CHARPENTIER souhaite faire réaliser un site institutionnel afin de renforcer sa présence sur le web. Le but en étant outre de se faire connaitre, de receuillir des noms et adresses de sociétés concernées par ses services, de préparer les visites de ses équipes commerciales. 
 Celui-ci, le site web, sera  constitué de deux composants :  
    a. le FRONTEND  
    - - -
@@ -23,28 +23,10 @@ Celui-ci, le site web, sera  constitué de deux composants :
    b. le BACKEND  
    - - -
    Le BACKEND permettra a la SARL TH.CHARPENTIER d'éditer des états quant à la fréquentation du site.  
-   Plus particulièrement de savoir quels sont les services qui on retenu l'attention des visiteurs, cettte visualisation devra pouvoir se faire de maniere filtrée, sur la temporalit (semaine, mois, trimestre, année), sur la localisation, une carte avec des marqueurs de tailles et de couleurs différentes selon la fréquentaion est souhaitée.  
+   Plus particulièrement de savoir quelle est la localisation des propects ayant effectués un audit en ligne, cettte visualisation devra pouvoir se faire de maniere filtrée, sur la localisation, une carte avec des marqueurs de couleurs différentes selon l'avancement de la réalisation de l'audit est souhaitée.  
    Idem pour ce qui est des audits ON-LINE.  
    c. Contraintes :  
    - le site devra être accessible a tout type de média  
    - une politique de confidentialité devra etre éditée  
-   - tous les états devront être proposés à l'envoi par courriel au format .PDF, les courriels devront respecter la charte graphique de la SARL TH.CHARPENTIER.
-* * *
-B. Structure du site  
-* * *
-
-|>/      
-- |>/config    
-- [x]>/controller      
-- [x]>/divers  
-- [x]>/libs      
-- - [x]>/OCFram       
-- [x]>/model     
-- [x]>/public  
-- - [x]>/bootstrap  
-- - [x]>/css  
-- - [x]>/images  
-- - [x]>/js     
-- - - [x]>/objects
-- [x]>/template  
-- [x]>/view  
+   - tous les états devront être proposés au téléchargement au format .PDF, les courriels devront respecter la charte graphique de la SARL TH.CHARPENTIER.
+ 

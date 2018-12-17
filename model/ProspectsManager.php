@@ -1,5 +1,4 @@
 <?php
-
 class ProspectsManager extends Manager {
 
     public function getProspect($pseudo, $pwd, $val=0) {
@@ -25,7 +24,7 @@ class ProspectsManager extends Manager {
         $db = $this->dbConnect();
         $q = $db->prepare("SELECT T1.* FROM iso_prospects_vw AS T1 INNER JOIN (SELECT Id, MAX(Quests) AS maxQuests FROM iso_prospects_vw GROUP BY Id) AS T2 ON T1.Id = T2.Id AND T1.Quests = T2.maxQuests");
         $q->execute();
-        $data = json_encode($q->fetchAll(PDO::FETCH_ASSOC));
+        $data = json_encode($q->fetchAll(\PDO::FETCH_ASSOC));
         if(count($data) == 0) {
             return false;
         } else {
@@ -78,7 +77,7 @@ class ProspectsManager extends Manager {
     */
     function getGeocodeData($address) {
         $address = urlencode($address);
-        $googleMapUrl = "https://maps.googleapis.com/maps/api/geocode/json?address={$address}&key=AIzaSyCXB6yLq41R_CSfl2saDa1pqqOutPwVNnI";
+        $googleMapUrl = "https://maps.googleapis.com/maps/api/geocode/json?address={$address}&key=AIzaSyCXB6yLq41R_CSfl2saDa1pqqOutnamespace OCFram\Blog\Model;PwVNnI";
         $geocodeResponseData = file_get_contents($googleMapUrl);
         $responseData = json_decode($geocodeResponseData, true);
         if($responseData['status']=='OK') {
@@ -101,7 +100,7 @@ class ProspectsManager extends Manager {
         $q = $db->prepare("SELECT CONCAT(YEAR(prospect_CreationDate),'-',SUBSTRING(CONCAT('00',MONTH(prospect_CreationDate)),-2,2)) AS Mois,COUNT(`prospect_Id`) AS Creations FROM `iso_prospects` WHERE prospect_CreationDate >= NOW() - INTERVAL 12 MONTH GROUP BY Mois ORDER BY Mois ASC");
         $q->execute();
         $creations = array();
-        $datas = json_encode($q->fetchAll(PDO::FETCH_ASSOC));
+        $datas = json_encode($q->fetchAll(\PDO::FETCH_ASSOC));
         if($js) { echo $datas;} else {return $datas;}
     }
 }

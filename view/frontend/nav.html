@@ -30,11 +30,11 @@
 <?php if(isset($_SESSION['Id'])) { ?>
 <?php if($_SESSION['level'] > 3) { ?>
                     <li><a href="admin.php">Administration</a></li>
-<?php } ?>
-                </ul><!-- END (ul class="nav navbar-nav) -->
-    <p class="navbar-text navbar-right">Bienvenue <?= $_SESSION['FirstName'] ?> <?= $_SESSION['LastName'] ?> 
-        <a href="index.php?action=deconnexion" class="navbar-link"><span class="glyphicon glyphicon-scissors glyph red" aria-hidden="true"></span></a>
+<?php } ?>       
+    <p class="navbar-text"> 
+        <a href="index.php?action=deconnexion" class="navbar-link"><span class="glyphicon glyphicon-scissors glyph red" aria-hidden="true"></span></a>Déconnexion <?= $_SESSION['FirstName'] ?> <?= $_SESSION['LastName'] ?>
     </p>
 <?php } ?>
+                </ul><!-- END (ul class="nav navbar-nav) -->
             </div><!-- END .nav-collapse -->
         </nav>

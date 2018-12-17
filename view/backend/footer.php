@@ -18,17 +18,17 @@
         </div>
 
         <!-- ###        JAVASCRIPT                        ### -->
-        <script src="public/js/core/jquery-3.3.1.js" type="text/javascript"></script>
-        <script src="public/js/core/popper.min.js" type="text/javascript"></script>
-        <script src="public/js/core/bootstrap.min.js" type="text/javascript"></script>
-        <script src="public/js/plugins/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+        <script src="public/js/core/jquery-3.3.1.js"></script>
+        <script src="public/js/core/popper.min.js"></script>
+        <script src="public/js/core/bootstrap.min.js"></script>
+        <script src="public/js/plugins/perfect-scrollbar.jquery.min.js"></script>
         <!-- ###        GOOGLE MAPS PLUGIN                ###-->
         <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXB6yLq41R_CSfl2saDa1pqqOutPwVNnI"></script>-->
         <!-- ###        NOTIFICATIONS PLUGIN              ### -->
-        <script src="public/js/plugins/bootstrap-notify.js" type="text/javascript"></script>
+        <script src="public/js/plugins/bootstrap-notify.js"></script>
         <!-- ###        CONTROL CENTER FOR MATERIAL DB    ### -->
-        <script src="public/js/black-dashboard.js?v1=1.0.0" type="text/javascript"></script>
-        <script src="public/js/library.js" type="text/javascript"></script>
+        <script src="public/js/black-dashboard.js?v1=1.0.0"></script>
+        <script src="public/js/library.js"></script>
         <script src="public/js/tinymce/tinymce.min.js"></script>
         <script src="public/js/configTinymce.js"></script>
     </body>

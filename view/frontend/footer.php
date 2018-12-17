@@ -17,11 +17,11 @@
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                   <h5 class="text-uppercase text-center"><strong>Adresse</strong></h5>
                   <address class="text-left">
-                    <h6><strong>SARL TH. CHARPENTIER</strong><br/>
+                    <p><strong>SARL TH. CHARPENTIER</strong><br/>
                     28 Rue plaine des gardes<br/>
                     FR-10300 SAINTE SAVINE<br/>
                     <span class="glyphicon glyphicon-phone"></span>&nbsp; +33.651.143.924<br/>
-                    <span class="glyphicon glyphicon-send"></span>&nbsp;<a href="mailto:thierry.charpentier.ct@gmail.com">thierry.charpentier.ct@gmail.com</a></h6>
+                    <span class="glyphicon glyphicon-send"></span>&nbsp;<a href="mailto:thierry.charpentier.ct@gmail.com">thierry.charpentier.ct@gmail.com</a></p>
                   </address>
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
@@ -37,11 +37,10 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                     <h5 class="text-uppercase text-center"><strong>Politique de confidentialité</strong></h5>
-                    <a href="index.php?action=polities">
-                      <button type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-ok btn-icon" aria-hidden="true"></span>
-                        Voir la politique
-                      </button></a>
+                    <a href="index.php?action=polities" class="btn btn-default">
+                      <span class="glyphicon glyphicon-ok btn-icon" aria-hidden="true"></span>
+                      Voir la politique
+                    </a>
                 </div>
               </div>
               <div class="row">
@@ -56,8 +55,8 @@
       </div><!-- END (container-fluid) -->
       <!-- ###        JAVASCRIPT / M.E.O. BOOTSTRAP     ### -->
 
-      <script src="public/bootstrap/dist/js/bootstrap.js" type="text/javascript"></script>
+      <script src="public/bootstrap/dist/js/bootstrap.js"></script>
       <!-- ###           JAVASCRIPT / CUSTOM JS         ### --> 
-      <script src="public/js/main.js" type="text/javascript"></script>  <!-- Main program -->
+      <script src="public/js/main.js"></script>  <!-- Main program -->
     </body>
 </html>

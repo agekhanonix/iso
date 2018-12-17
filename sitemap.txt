@@ -1,0 +1,48 @@
+# iso
+## PV : Parcours DEVELOPPEUR WEB JUNIOR (OPENCLASSROOM)
+### Creer un site web pour une entreprise specialisee dans la securite operationnelle des systemes informatiques
+Author  : Thierry CHARPENTIER  
+Version : V1R0  
+Date    : 17 décembre 2018
+/
+!->admin.php ................ : le routeur du backend
+!->index.php ................ : le routeur du frontend
+!->config/
+    !->config.php ........... : le fichier de configuration du site
+!->controller/
+    !->backend.php
+    !->frontend.php
+!->divers/
+    !->brochures/ ........... : les brochures en téléchargement
+!->libs/
+    !->class/ ............... : les classes utilisées
+    !->functions/ ........... : les fonctions utilisées
+!->model/
+    !->AuditsManager.php .... : la gestion des accés à la table iso_audits
+    !->ChaptersManagers ..... : la gestion des accès à la table iso_chapters
+    !->Connexion.php ........ : le singleton
+    !->Manager.php .......... : le Manager
+    !->ProspectsManager.php . : la gestion des accès à la table iso_prospects 
+    !->QuestionsManager.php . : la gestion des accès à la table iso_questions
+    !->ServicesManager.php .. : la gestion des accés à la table iso_services
+!->public/
+    !->black-Dashboard/ ..... : Les bibliotheques du template (Bootstrap) du backend
+    !->bootstrap/ ........... : Les bibliotheques de bootstrap
+    !->css/ ................. : Les styles mis en oeuvre sur le site
+    !->images/ .............. : Les bibliothèques d'images
+        !->ico/ ............. : Les icones du <HEAD>
+        !->mail/ ............ : Celles utilisées dans les courriels
+        !->markers/ ......... : Les marqueurs
+        !->services/ ........ : Celles représentants les services
+        !->uploads/ ......... : Les graphes temporaires
+    !->js/ .................. : Les scripts JavaScript
+        !->core/
+        !->objects/
+        !->plugins/
+        !->tinymce/
+!->template/
+    !->templ-adm.php ........ : Le template du backend
+    !->template.php ......... : Le template du frontend
+!->view/
+    !->frontend/ ............ : Les vues du frontend
+    !->backend/ ............. : Les vues du backend

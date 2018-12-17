@@ -180,7 +180,7 @@ hr.star-dark:after {
 [data-expand=""] {
     animation: cl-expand 1s forwards;
 }
-[data-expand=""] > *:not(*:first-child) {
+[data-expand=""] > :not(:first-child) {
     display: none;
 }
 [data-expand="open"] {
@@ -189,7 +189,7 @@ hr.star-dark:after {
 [data-expand="open"] > *:first-child {
     display: none;
 }
-[data-expand="open"] > *:not(*:first-child) {
+[data-expand="open"] > :not(:first-child) {
     display: block;
 }
 @keyframes op-expand {
@@ -325,7 +325,7 @@ footer {
 }
 .question {
     color: #ffffff;
-    border: 1px solid #90007a;
+    border: 1px solid #ffffff;
     background-color: #90007a;
     border-radius: 50%;
     margin-left: 10px;
@@ -337,8 +337,7 @@ fieldset.fieldset-border {
     border: 1px groove #ddd !important;
     padding: 0 1.4em .4em .4em !important;
     margin: 0 0 .5em 0 !important;
-    -webkit-box-shadow:  0px 0px 0px 0px #000;
-            box-shadow:  0px 0px 0px 0px #000;
+    box-shadow:  0px 0px 0px 0px #000;
 }
 
 legend.fieldset-border {
@@ -353,7 +352,7 @@ legend.fieldset-border {
     font-size: 0.8em;
     color: #90007a;
 }
-.glyph-quest { color: #44ff44; margin-right: 5px; background-color: #ffffff; border: 1px solid #ffffff; border-radius: 50%;}
+.glyph-quest { color: #44ff44; margin-right: 5px; background-color: #ffffff; border: 1px solid #90007a; border-radius: 50%;}
 .chapter-title,
 .subchapter {
     margin-top: 10px;

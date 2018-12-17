@@ -1,13 +1,13 @@
 <div class="panel panel-primary connexion text-center">
     <div class="panel-heading">
         <h1 class="text-center">Page de connexion</h1>
-        <img src="public/images/stop-connexion.png" class="img-thumbnail">
+        <img src="public/images/stop-connexion.png" alt="" class="img-thumbnail">
         <h4 class="text-center text-italic">Sauf aux personnes duement autorisées</h4>
     </div>
     <div class="panel-body">
         <div class="card">
             <div class="card-body">
-                <form action="admin.php?action=connexion" method="post" accept-charset="utf-8" name="form-login" role="form">
+                <form action="admin.php?action=connexion" method="post" accept-charset="utf-8" name="form-login">
                     <h4>Saisir ses identifiants</h4>
                     <div class="form-group row">
                         <label for="pseudo" class="col-lg-1 col-md-1 col-sm-3 col-xs-6">Compte</label>
