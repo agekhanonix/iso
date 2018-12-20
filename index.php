@@ -1,10 +1,14 @@
 <?php
     error_reporting(E_ALL); 
     ini_set("display_errors", 1);
+
     session_start();
+    require_once("libs/class/SplClassLoader.php");
+    //require_once("libs/class/SplClassLoader.php"); 
     require('config/config.php');
     require('controller/frontend.php');
-    require('libs/functions/library.php'); 
+    require('libs/functions/library.php');
+    
     try {
         if(isset($_GET['action'])) {
             /* === ------------------------------------ === **

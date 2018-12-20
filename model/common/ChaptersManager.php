@@ -1,4 +1,5 @@
 <?php
+namespace Common;
 class ChaptersManager extends Manager {
     public function listChapters() {
         $db = $this->dbConnect();

@@ -6,6 +6,7 @@
 *  Date      : 29.10.2018                               *
 *  Version   : V1R0                                     *
 * ==================================================== */
+namespace Common;
 class Connexion {
     private static $instance = null;
    /* =============================================== **

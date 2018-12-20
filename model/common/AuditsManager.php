@@ -1,4 +1,5 @@
 <?php
+namespace Common;
 class AuditsManager extends Manager {
     public function updAudit($auditId, $prospectId, $auditDate, $questionId, $questionValue) {
         $db = $this->dbConnect();

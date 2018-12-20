@@ -1,4 +1,5 @@
 <?php
+namespace Common;
 class ProspectsManager extends Manager {
 
     public function getProspect($pseudo, $pwd, $val=0) {

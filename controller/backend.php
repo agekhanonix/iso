@@ -1,10 +1,7 @@
 <?php
-    require_once("libs/class/SplModelLoader.php");
-    require_once("libs/class/SplClassLoader.php");
-    require_once("libs/class/html2pdf/html2pdf.class.php");
-
-    SplModelLoader::register();                     // Loading of the Models Managers
-    SplClassLoader::register();                     // Loading of the class
+    $IsoLoader = new SplClassLoader('Common', 'model');
+    $IsoLoader->register();
+    
     function getError($error) {
         $err = json_decode($error);
         require('view/error.php');
@@ -14,13 +11,13 @@
         header('Location: index.php?action=home');
     }
     function getAllProspects() {
-        $prospectManager = new ProspectsManager();
+        $prospectManager = new Common\ProspectsManager();
         $affectedLines = $prospectManager->getAllProspects();
     }
     function admin() {
-        $prospectManager = new ProspectsManager();
-        $serviceManager = new ServicesManager();
-        $auditManager = new AuditsManager();
+        $prospectManager = new Common\ProspectsManager();
+        $serviceManager = new Common\ServicesManager();
+        $auditManager = new Common\AuditsManager();
         $prospects = json_decode($prospectManager->getAllProspects($js=false));
         $services = json_decode($serviceManager->getAllServices());
         $infos = json_decode($auditManager->getAuditInfos($js=false));
@@ -34,7 +31,7 @@
         require('view/backend/admin.php');
     }
     function getProspect($pseudo, $pwd) {
-        $prospectManager = new ProspectsManager();
+        $prospectManager = new Common\ProspectsManager();
         $prospect = $prospectManager->getProspect($pseudo, $pwd);
         if($prospect !== null) {
             $_SESSION['Id'] = $prospect['prospect_Id'];
@@ -56,7 +53,7 @@
             $_SESSION['level'] = $prospect['prospect_Level'];
             header('Location: admin.php?action=admin');
         } else {
-            throw new Exception(json_encode(array('error' => "qry001",
+            throw new \Exception(json_encode(array('error' => "qry001",
                 'msg' => "Le compte n'a pas été trouvé",
                 'type' => "request", 
                 'name' => "getProspect", 
@@ -65,9 +62,9 @@
         }
     }
     function revoke($id, $val) {
-        $prospectManager = new ProspectsManager();
-        $auditManager = new AuditsManager();
-        $serviceManager = new ServicesManager();
+        $prospectManager = new Common\ProspectsManager();
+        $auditManager = new Common\AuditsManager();
+        $serviceManager = new Common\ServicesManager();
         $affectedLines = $prospectManager->revokeProspect($id, $val);
         $prospects = json_decode($prospectManager->getAllProspects($js=false));
         $services = json_decode($serviceManager->getAllServices());
@@ -82,13 +79,13 @@
         require('view/backend/admin.php');
     }
     function getCreations() {
-        $prospectManager = new ProspectsManager();
+        $prospectManager = new Common\ProspectsManager();
         $affectedLines = $prospectManager->getCreations();
     }
     function addService($image, $title, $description, $booklet) {
-        $serviceManager = new ServicesManager();
-        $prospectManager = new ProspectsManager();
-        $auditManager = new AuditsManager();
+        $serviceManager = new Common\ServicesManager();
+        $prospectManager = new Common\ProspectsManager();
+        $auditManager = new Common\AuditsManager();
         $affectedLines = $serviceManager->addService($image, $title, $description, $booklet);
         $prospects = json_decode($prospectManager->getAllProspects($js=false));
         $services = json_decode($serviceManager->getAllServices());
@@ -103,9 +100,9 @@
         require('view/backend/admin.php');
     }
     function publish($id, $val) {
-        $prospectManager = new ProspectsManager();
-        $auditManager = new AuditsManager();
-        $serviceManager = new ServicesManager();
+        $prospectManager = new Common\ProspectsManager();
+        $auditManager = new Common\AuditsManager();
+        $serviceManager = new Common\ServicesManager();
         $affectedLines = $serviceManager->publishService($id, $val);
         $prospects = json_decode($prospectManager->getAllProspects($js=false));
         $services = json_decode($serviceManager->getAllServices());

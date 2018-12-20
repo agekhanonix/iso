@@ -18,13 +18,14 @@ Date    : 17 décembre 2018
     !->class/ ............... : les classes utilisées
     !->functions/ ........... : les fonctions utilisées
 !->model/
-    !->AuditsManager.php .... : la gestion des accés à la table iso_audits
-    !->ChaptersManagers ..... : la gestion des accès à la table iso_chapters
-    !->Connexion.php ........ : le singleton
-    !->Manager.php .......... : le Manager
-    !->ProspectsManager.php . : la gestion des accès à la table iso_prospects 
-    !->QuestionsManager.php . : la gestion des accès à la table iso_questions
-    !->ServicesManager.php .. : la gestion des accés à la table iso_services
+    !->common/ .............. : les managers communs à l'ensemble du site
+        !->AuditsManager.php  : la gestion des accés à la table iso_audits
+        !->ChaptersManagers . : la gestion des accès à la table iso_chapters
+        !->Connexion.php .... : le singleton
+        !->Manager.php ...... : le Manager
+        !->ProspectsManager.php . : la gestion des accès à la table iso_prospects 
+        !->QuestionsManager.php . : la gestion des accès à la table iso_questions
+        !->ServicesManager.php .. : la gestion des accés à la table iso_services
 !->public/
     !->black-Dashboard/ ..... : Les bibliotheques du template (Bootstrap) du backend
     !->bootstrap/ ........... : Les bibliotheques de bootstrap

@@ -1,4 +1,5 @@
 <?php
+namespace Common;
 class Manager extends Connexion {
     private static $instance = null;                    // Hold the class instance
 

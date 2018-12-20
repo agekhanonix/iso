@@ -1,17 +1,16 @@
 <?php
-    require_once("libs/class/SplModelLoader.php");
-    require_once("libs/class/SplClassLoader.php");
     require_once("libs/class/html2pdf/html2pdf.class.php");
+    require_once("libs/class/Cmail.php");
+    $IsoLoader = new SplClassLoader('Common', 'model');
+    $IsoLoader->register();
 
-    SplModelLoader::register();                     // Loading of the Models Managers
-    SplClassLoader::register();                     // Loading of the class
     function audit($auditId) {
-        $chapterManager = new ChaptersManager();
-        $questionManager = new QuestionsManager();
-        $auditManager = new AuditsManager();
+        $chapterManager = new Common\ChaptersManager();
+        $questionManager = new Common\QuestionsManager();
+        $auditManager = new Common\AuditsManager();
         $chapters = json_decode($chapterManager->listChapters());
         if($chapters === false) {
-            throw new Exception(json_encode(array('error' => "qry001",
+            throw new \Exception(json_encode(array('error' => "qry001",
                 'msg' => "La liste des chapitres n'a pas été obtenue ",
                 'type' => "request", 
                 'name' => "listChapters", 
@@ -26,16 +25,16 @@
         }
     }
     function auditOnLine($Id) {
-        $auditManager = new AuditsManager();
+        $auditManager = new Common\AuditsManager();
         $audits = json_decode($auditManager->getAudits41Prospect($Id));
         require('view/frontend/getAudits41Prospect.php');
     }
     function listChapters() {
-        $chapterManager = new ChaptersManager();
+        $chapterManager = new Common\ChaptersManager();
         $chapters = json_decode($chapterManager->listChapters());
     }
     function updAudit($auditId, $prospectId, $auditDate, $questionId, $questionValue) {
-        $auditManager = new AuditsManager();
+        $auditManager = new Common\AuditsManager();
         $affectedLines = $auditManager->updAudit($auditId, $prospectId, $auditDate, $questionId, $questionValue);
     }
     function getError($error) {
@@ -46,16 +45,16 @@
         require('view/frontend/polities.php');
     }
     function home() {
-        $serviceManager = new ServicesManager();
+        $serviceManager = new Common\ServicesManager();
         $services = json_decode($serviceManager->getServices());
         require('view/frontend/home.php');
     }
     function getNotes4Graphe($auditId, $prospectId) {
-        $auditManager = new AuditsManager();
+        $auditManager = new Common\AuditsManager();
         $affectedLines = $auditManager->getNotes4Graphe($auditId, $prospectId);
     }
     function getProspect($pseudo, $pwd) {
-        $prospectManager = new ProspectsManager();
+        $prospectManager = new Common\ProspectsManager();
         $prospect = $prospectManager->getProspect($pseudo, $pwd);
         if($prospect !== null) {
             $_SESSION['Id'] = $prospect['prospect_Id'];
@@ -77,7 +76,7 @@
             $_SESSION['level'] = $prospect['prospect_Level'];
             header('Location: index.php?action=home');
         } else {
-            throw new Exception(json_encode(array('error' => "qry002",
+            throw new \Exception(json_encode(array('error' => "qry002",
                 'msg' => "Le compte n'a pas été trouvé",
                 'type' => "request", 
                 'name' => "getCompte", 
@@ -86,14 +85,14 @@
         }
     }
     function getAllProspects() {
-        $prospectManager = new ProspectsManager();
+        $prospectManager = new Common\ProspectsManager();
         $affectedLines = $prospectManager->getAllProspects();
     }
     function addProspect($pseudo, $society, $lastname, $firstname, $streetnum, $addr1, $addr2, $city, $postalcode, $phone, $mobile, $email, $pwd) {
-        $prospectManager = new ProspectsManager();
+        $prospectManager = new Common\ProspectsManager();
         $affectedLines = $prospectManager->addProspect($pseudo, $society, $lastname, $firstname, $streetnum, $addr1, $addr2, $city, $postalcode, $phone, $mobile, $email, $pwd);
         if($affectedLines === false) {
-            throw new Exception(json_encode(array('error' => "qry005",
+            throw new \Exception(json_encode(array('error' => "qry005",
                 'msg' => "Le prospect n'a pas été ajouté",
                 'type' => "request", 
                 'name' => "addProspect", 
@@ -107,8 +106,8 @@
         $img = str_replace('data:image/png;base64,', '', $img);
         $img = str_replace(' ', '+', $img);
         file_put_contents('public/images/uploads/'.$auditId.'.png', base64_decode($img));
-        $auditManager = new AuditsManager();
-        $chapterManager = new ChaptersManager();
+        $auditManager = new Common\AuditsManager();
+        $chapterManager = new Common\ChaptersManager();
         $notes = json_decode($auditManager->getNotes4Graphe($auditId, $prospectId, false));
         $globalNote = json_decode($auditManager->getGlobalNote4Graphe($auditId, $prospectId, false));
         $chapters = json_decode($chapterManager->listChapters());
@@ -116,7 +115,7 @@
         require_once('view/frontend/generateAudit.php');
         $reporting = ob_get_clean();
         try{
-            $html2pdf = new HTML2PDF('P', 'A4', 'fr');
+            $html2pdf = new \HTML2PDF('P', 'A4', 'fr');
             //$html2pdf->setModeDebug();
             $html2pdf->setDefaultFont("Arial");
             $html2pdf->writeHTML($reporting);
@@ -154,7 +153,7 @@
         if($ok) {
             header('Location: index.php?action=home'); 
         } else {
-            throw new Exception(json_encode(array('error' => "qry003",
+            throw new \Exception(json_encode(array('error' => "qry003",
                 'msg' => "Le courriel n'a pas été envoyé",
                 'type' => "...", 
                 'name' => "mailContact", 
@@ -176,7 +175,7 @@
             $_SESSION['AuditId'] = $audit;
             $_SESSION['AuditDate'] = $date;
         } else {
-            $auditManager = new AuditsManager();
+            $auditManager = new Common\AuditsManager();
             $dates = json_decode($auditManager->getDate4Audit($choice));
             $_SESSION['AuditId'] = $choice;
             $_SESSION['AuditDate'] = $dates[0]->audit_date;

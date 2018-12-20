@@ -1,4 +1,5 @@
 <?php
+namespace Common;
 class ServicesManager extends Manager {
     public function getServices() {
         $db = $this->dbConnect();

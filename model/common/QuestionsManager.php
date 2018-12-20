@@ -1,4 +1,5 @@
 <?php
+namespace Common;
 class QuestionsManager extends Manager {
     public function listQuestions() {
         $db = $this->dbConnect();
